@@ -87,24 +87,17 @@
 			this.labelMagnitudeUnit = new System.Windows.Forms.Label();
 			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
 			this.toolStripButtonSetting = new System.Windows.Forms.ToolStripDropDownButton();
-			this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
 			this.toolStripButtonSingle = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButtonRun = new System.Windows.Forms.ToolStripButton();
-			this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
 			this.tabPageMeter = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
 			this.formsPlotMeter = new ScottPlot.FormsPlot();
 			this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-			this.panel1 = new System.Windows.Forms.Panel();
 			this.tabPageWavegen = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
 			this.formsPlotWaveGen = new ScottPlot.FormsPlot();
@@ -193,6 +186,23 @@
 			this.textBoxReceived = new System.Windows.Forms.TextBox();
 			this.buttonSend = new System.Windows.Forms.Button();
 			this.tabControlMain = new System.Windows.Forms.TabControl();
+			this.toolStripMenuItemStart = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemStop = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemBINS = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemScale = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemAlgorithm = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxStart = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripComboBoxStop = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripComboBox3 = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripComboBoxScale = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripComboBoxAlgorithm = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripLabel1 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripLabel2 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripLabel3 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripLabel4 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
 			this.tabPageText.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -599,14 +609,12 @@
 			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
 			this.tableLayoutPanel7.Controls.Add(this.formsPlotSpectrum, 0, 0);
 			this.tableLayoutPanel7.Controls.Add(this.panelSpectrum, 1, 0);
-			this.tableLayoutPanel7.Controls.Add(this.hScrollBar1, 0, 1);
 			this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
 			this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-			this.tableLayoutPanel7.RowCount = 2;
+			this.tableLayoutPanel7.RowCount = 1;
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.tableLayoutPanel7.Size = new System.Drawing.Size(859, 504);
 			this.tableLayoutPanel7.TabIndex = 0;
 			// 
@@ -616,7 +624,7 @@
 			this.formsPlotSpectrum.Location = new System.Drawing.Point(5, 5);
 			this.formsPlotSpectrum.Margin = new System.Windows.Forms.Padding(5);
 			this.formsPlotSpectrum.Name = "formsPlotSpectrum";
-			this.formsPlotSpectrum.Size = new System.Drawing.Size(634, 484);
+			this.formsPlotSpectrum.Size = new System.Drawing.Size(634, 494);
 			this.formsPlotSpectrum.TabIndex = 0;
 			// 
 			// panelSpectrum
@@ -629,7 +637,7 @@
 			this.panelSpectrum.Location = new System.Drawing.Point(644, 0);
 			this.panelSpectrum.Margin = new System.Windows.Forms.Padding(0);
 			this.panelSpectrum.Name = "panelSpectrum";
-			this.panelSpectrum.Size = new System.Drawing.Size(215, 494);
+			this.panelSpectrum.Size = new System.Drawing.Size(215, 504);
 			this.panelSpectrum.TabIndex = 1;
 			// 
 			// groupBoxChannel
@@ -822,8 +830,11 @@
 			this.toolStrip2.ImageScalingSize = new System.Drawing.Size(32, 32);
 			this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonSetting,
+            this.toolStripSeparator5,
             this.toolStripButtonSingle,
-            this.toolStripButtonRun});
+            this.toolStripSeparator6,
+            this.toolStripButtonRun,
+            this.toolStripSeparator7});
 			this.toolStrip2.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip2.Name = "toolStrip2";
 			this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
@@ -835,17 +846,16 @@
 			// 
 			this.toolStripButtonSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
 			this.toolStripButtonSetting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBox1});
+            this.toolStripMenuItemStart,
+            this.toolStripMenuItemStop,
+            this.toolStripMenuItemBINS,
+            this.toolStripMenuItemScale,
+            this.toolStripMenuItemAlgorithm});
 			this.toolStripButtonSetting.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSetting.Image")));
 			this.toolStripButtonSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButtonSetting.Name = "toolStripButtonSetting";
-			this.toolStripButtonSetting.Size = new System.Drawing.Size(45, 22);
-			this.toolStripButtonSetting.Text = "设置";
-			// 
-			// toolStripComboBox1
-			// 
-			this.toolStripComboBox1.Name = "toolStripComboBox1";
-			this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+			this.toolStripButtonSetting.Size = new System.Drawing.Size(69, 22);
+			this.toolStripButtonSetting.Text = "频谱设置";
 			// 
 			// toolStripButtonSingle
 			// 
@@ -864,13 +874,6 @@
 			this.toolStripButtonRun.Name = "toolStripButtonRun";
 			this.toolStripButtonRun.Size = new System.Drawing.Size(36, 22);
 			this.toolStripButtonRun.Text = "运行";
-			// 
-			// hScrollBar1
-			// 
-			this.hScrollBar1.Location = new System.Drawing.Point(0, 494);
-			this.hScrollBar1.Name = "hScrollBar1";
-			this.hScrollBar1.Size = new System.Drawing.Size(40, 10);
-			this.hScrollBar1.TabIndex = 2;
 			// 
 			// tabPageMeter
 			// 
@@ -913,13 +916,12 @@
 			this.tableLayoutPanel8.ColumnCount = 1;
 			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel8.Controls.Add(this.toolStrip1, 0, 0);
-			this.tableLayoutPanel8.Controls.Add(this.panel1, 0, 1);
 			this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel8.Location = new System.Drawing.Point(607, 2);
 			this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2);
 			this.tableLayoutPanel8.Name = "tableLayoutPanel8";
 			this.tableLayoutPanel8.RowCount = 2;
-			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
 			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel8.Size = new System.Drawing.Size(246, 496);
 			this.tableLayoutPanel8.TabIndex = 1;
@@ -939,62 +941,29 @@
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-			this.toolStrip1.Size = new System.Drawing.Size(246, 20);
+			this.toolStrip1.Size = new System.Drawing.Size(246, 25);
 			this.toolStrip1.TabIndex = 3;
 			this.toolStrip1.Text = "toolStrip1";
-			// 
-			// toolStripLabel1
-			// 
-			this.toolStripLabel1.Name = "toolStripLabel1";
-			this.toolStripLabel1.Size = new System.Drawing.Size(32, 17);
-			this.toolStripLabel1.Text = "添加";
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 20);
 			// 
-			// toolStripLabel2
-			// 
-			this.toolStripLabel2.Name = "toolStripLabel2";
-			this.toolStripLabel2.Size = new System.Drawing.Size(32, 17);
-			this.toolStripLabel2.Text = "移除";
-			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 20);
-			// 
-			// toolStripLabel3
-			// 
-			this.toolStripLabel3.Name = "toolStripLabel3";
-			this.toolStripLabel3.Size = new System.Drawing.Size(32, 17);
-			this.toolStripLabel3.Text = "编辑";
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
 			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 20);
 			// 
-			// toolStripLabel4
-			// 
-			this.toolStripLabel4.Name = "toolStripLabel4";
-			this.toolStripLabel4.Size = new System.Drawing.Size(32, 17);
-			this.toolStripLabel4.Text = "运行";
-			// 
 			// toolStripSeparator4
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
 			this.toolStripSeparator4.Size = new System.Drawing.Size(6, 20);
-			// 
-			// panel1
-			// 
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(2, 22);
-			this.panel1.Margin = new System.Windows.Forms.Padding(2);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(242, 472);
-			this.panel1.TabIndex = 4;
 			// 
 			// tabPageWavegen
 			// 
@@ -2264,6 +2233,184 @@
 			this.tabControlMain.Size = new System.Drawing.Size(867, 530);
 			this.tabControlMain.TabIndex = 0;
 			// 
+			// toolStripMenuItemStart
+			// 
+			this.toolStripMenuItemStart.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxStart});
+			this.toolStripMenuItemStart.Name = "toolStripMenuItemStart";
+			this.toolStripMenuItemStart.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemStart.Text = "最小频率";
+			// 
+			// toolStripMenuItemStop
+			// 
+			this.toolStripMenuItemStop.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxStop});
+			this.toolStripMenuItemStop.Name = "toolStripMenuItemStop";
+			this.toolStripMenuItemStop.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemStop.Text = "最大频率";
+			// 
+			// toolStripMenuItemBINS
+			// 
+			this.toolStripMenuItemBINS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox3});
+			this.toolStripMenuItemBINS.Name = "toolStripMenuItemBINS";
+			this.toolStripMenuItemBINS.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemBINS.Text = "频率箱点数";
+			// 
+			// toolStripMenuItemScale
+			// 
+			this.toolStripMenuItemScale.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxScale});
+			this.toolStripMenuItemScale.Name = "toolStripMenuItemScale";
+			this.toolStripMenuItemScale.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemScale.Text = "坐标轴放缩";
+			// 
+			// toolStripMenuItemAlgorithm
+			// 
+			this.toolStripMenuItemAlgorithm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxAlgorithm});
+			this.toolStripMenuItemAlgorithm.Name = "toolStripMenuItemAlgorithm";
+			this.toolStripMenuItemAlgorithm.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemAlgorithm.Text = "分析算法";
+			// 
+			// toolStripComboBoxStart
+			// 
+			this.toolStripComboBoxStart.Items.AddRange(new object[] {
+            "5MHz",
+            "2MHz",
+            "1MHz",
+            "500kHz",
+            "200kHz",
+            "100kHz",
+            "50kHz",
+            "20kHz",
+            "10kHz",
+            "5kHz",
+            "2kHz",
+            "1kHz",
+            "500Hz",
+            "200Hz",
+            "100Hz",
+            "50Hz",
+            "20Hz",
+            "10Hz",
+            "5Hz",
+            "2Hz",
+            "1Hz",
+            "0Hz"});
+			this.toolStripComboBoxStart.Name = "toolStripComboBoxStart";
+			this.toolStripComboBoxStart.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripComboBoxStop
+			// 
+			this.toolStripComboBoxStop.Items.AddRange(new object[] {
+            "5MHz",
+            "2MHz",
+            "1MHz",
+            "500kHz",
+            "200kHz",
+            "100kHz",
+            "50kHz",
+            "20kHz",
+            "10kHz",
+            "5kHz",
+            "2kHz",
+            "1kHz",
+            "500Hz",
+            "200Hz",
+            "100Hz",
+            "50Hz",
+            "20Hz",
+            "10Hz",
+            "5Hz",
+            "2Hz",
+            "1Hz",
+            "0Hz"});
+			this.toolStripComboBoxStop.Name = "toolStripComboBoxStop";
+			this.toolStripComboBoxStop.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripComboBox3
+			// 
+			this.toolStripComboBox3.Items.AddRange(new object[] {
+            "4097",
+            "2049",
+            "1025",
+            "513",
+            "257",
+            "129",
+            "65",
+            "33",
+            "17"});
+			this.toolStripComboBox3.Name = "toolStripComboBox3";
+			this.toolStripComboBox3.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripComboBoxScale
+			// 
+			this.toolStripComboBoxScale.Items.AddRange(new object[] {
+            "线性",
+            "对数"});
+			this.toolStripComboBoxScale.Name = "toolStripComboBoxScale";
+			this.toolStripComboBoxScale.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripComboBoxAlgorithm
+			// 
+			this.toolStripComboBoxAlgorithm.Items.AddRange(new object[] {
+            "FFT",
+            "CZT"});
+			this.toolStripComboBoxAlgorithm.Name = "toolStripComboBoxAlgorithm";
+			this.toolStripComboBoxAlgorithm.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripLabel1
+			// 
+			this.toolStripLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel1.Image")));
+			this.toolStripLabel1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripLabel1.Name = "toolStripLabel1";
+			this.toolStripLabel1.Size = new System.Drawing.Size(36, 22);
+			this.toolStripLabel1.Text = "添加";
+			// 
+			// toolStripLabel2
+			// 
+			this.toolStripLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripLabel2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel2.Image")));
+			this.toolStripLabel2.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripLabel2.Name = "toolStripLabel2";
+			this.toolStripLabel2.Size = new System.Drawing.Size(36, 22);
+			this.toolStripLabel2.Text = "移除";
+			// 
+			// toolStripLabel3
+			// 
+			this.toolStripLabel3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripLabel3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel3.Image")));
+			this.toolStripLabel3.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripLabel3.Name = "toolStripLabel3";
+			this.toolStripLabel3.Size = new System.Drawing.Size(36, 22);
+			this.toolStripLabel3.Text = "编辑";
+			// 
+			// toolStripLabel4
+			// 
+			this.toolStripLabel4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripLabel4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel4.Image")));
+			this.toolStripLabel4.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripLabel4.Name = "toolStripLabel4";
+			this.toolStripLabel4.Size = new System.Drawing.Size(36, 22);
+			this.toolStripLabel4.Text = "运行";
+			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripSeparator6
+			// 
+			this.toolStripSeparator6.Name = "toolStripSeparator6";
+			this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripSeparator7
+			// 
+			this.toolStripSeparator7.Name = "toolStripSeparator7";
+			this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2386,24 +2533,17 @@
 		private System.Windows.Forms.Label labelMagnitudeUnit;
 		private System.Windows.Forms.ToolStrip toolStrip2;
 		private System.Windows.Forms.ToolStripDropDownButton toolStripButtonSetting;
-		private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
 		private System.Windows.Forms.ToolStripButton toolStripButtonSingle;
 		private System.Windows.Forms.ToolStripButton toolStripButtonRun;
-		private System.Windows.Forms.HScrollBar hScrollBar1;
 		private System.Windows.Forms.TabPage tabPageMeter;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
 		private ScottPlot.FormsPlot formsPlotMeter;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
 		private System.Windows.Forms.ToolStrip toolStrip1;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel1;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel2;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel3;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-		private System.Windows.Forms.ToolStripLabel toolStripLabel4;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.TabPage tabPageWavegen;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
 		private ScottPlot.FormsPlot formsPlotWaveGen;
@@ -2492,6 +2632,23 @@
 		private System.Windows.Forms.Button buttonSend;
 		private System.Windows.Forms.TabControl tabControlMain;
 		private System.Windows.Forms.Button buttonProjectOntoScope;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStart;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxStart;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStop;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxStop;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBINS;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBox3;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemScale;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxScale;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAlgorithm;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxAlgorithm;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+		private System.Windows.Forms.ToolStripButton toolStripLabel1;
+		private System.Windows.Forms.ToolStripButton toolStripLabel2;
+		private System.Windows.Forms.ToolStripButton toolStripLabel3;
+		private System.Windows.Forms.ToolStripButton toolStripLabel4;
 	}
 }
 

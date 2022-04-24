@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace MyWaveForms.Controller
 {
-	internal class ScopeChartTester
+	internal class FormsPlotTester
 	{
 		//计时器默认时间间隔
 		const int DEFAULT_INTERVAL = 50;
@@ -22,7 +22,7 @@ namespace MyWaveForms.Controller
 
 		public int IMaxSize { get => iMaxSize; set => iMaxSize = value; }
 
-		public ScopeChartTester(FormsPlot _formsPlot, int _iMaxSize = 1000)
+		public FormsPlotTester(FormsPlot _formsPlot, int _iMaxSize = 1000)
 		{
 			this.formsPlot = _formsPlot;
 			this.iMaxSize = _iMaxSize;
@@ -30,7 +30,7 @@ namespace MyWaveForms.Controller
 			dYValues = new double[iMaxSize];
 		}
 
-		public ScopeChartTester(FormsPlot _formsPlot, double[] dXValues, double[] dYValues, int _iMaxSize = DEFAULT_SIZE)
+		public FormsPlotTester(FormsPlot _formsPlot, double[] dXValues, double[] dYValues, int _iMaxSize = DEFAULT_SIZE)
 		{
 			this.formsPlot = _formsPlot;
 			this.iMaxSize = _iMaxSize;
@@ -83,13 +83,12 @@ namespace MyWaveForms.Controller
 			//labelDisplayTime.Text = System.DateTime.Now.ToString("T");
 		}
 
-		//定义一个调用这个函数的线程方法
 		public void DoRefresh()
 		{
 			FormsPlotRefresh("yyyy");
 		}
 
-		//声明一个事件委托
+		//声明事件委托
 		public delegate void FormsPlotRefreshEvent(string strMsg);
 		public void FormsPlotRefresh(string strMsg)
 		{
@@ -102,7 +101,6 @@ namespace MyWaveForms.Controller
 				}
 				else
 				{
-					//这边一定要加要处理的控件属性
 					this.formsPlot.Refresh(true, true);
 				}
 			}

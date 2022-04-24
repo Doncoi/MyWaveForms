@@ -212,7 +212,7 @@ namespace MyWaveForms
 		//图表控制器
 		ScopeChartController scopeChartController;
 		//测试控制器
-		ScopeChartTester scopeChartTester; 
+		FormsPlotTester scopeformsPlotTester; 
 		//信号图对象
 		private SignalPlotXY signalPlotXY = null;
 		//鼠标随动十字光标线
@@ -226,8 +226,8 @@ namespace MyWaveForms
 		{
 			if(scopeChartController == null)	//实例化图表控制器
 				scopeChartController = new ScopeChartController();
-			if (scopeChartTester == null)   //实例化测试控制器
-				scopeChartTester = new ScopeChartTester(formsPlotScope);
+			if (scopeformsPlotTester == null)   //实例化测试控制器
+				scopeformsPlotTester = new FormsPlotTester(formsPlotScope);
 
 			isInit = true;      //打开屏蔽标记
 			//显示区控件初始化
@@ -273,10 +273,10 @@ namespace MyWaveForms
 					WaveformInfor waveformInfor = new WaveformInfor(list);
 					//从波形数据生成器获取数据
 					ValueTuple<double[], double[]> dataTuple = wavegenChartController.GetWaveData(waveformInfor);
-					scopeChartTester.InitTestData(dataTuple);
+					scopeformsPlotTester.InitTestData(dataTuple);
 					//加载图表
 					ValueTuple<SignalPlotXY, Crosshair> vt = scopeChartController.InitChart(formsPlotScope,
-						scopeChartTester.GetTestData(),
+						scopeformsPlotTester.GetTestData(),
 						comboBoxColorStyle.SelectedIndex,
 						Double.Parse(comboBoxLineWidth.SelectedItem.ToString()),
 						comboBoxLineStyle.SelectedIndex); 
@@ -285,7 +285,7 @@ namespace MyWaveForms
 					//更新X轴单位标签
 					formsPlotScope.Plot.XLabel(waveformInfor.GetTimeTickLabel());
 					//初始化定时器
-					scopeChartTester.InitTimer();
+					scopeformsPlotTester.InitTimer();
 					//标签转为绿色
 					labelDemo.BackColor = Color.LimeGreen;
 				}
@@ -294,7 +294,7 @@ namespace MyWaveForms
 			{
 				labelDemo.BackColor = Color.Tomato;
 				//关闭定时器
-				scopeChartTester.StopTimer();
+				scopeformsPlotTester.StopTimer();
 			}
 		}
 		#endregion
@@ -461,11 +461,16 @@ namespace MyWaveForms
 
 		#region 信号发生器部分
 		const int PlotSize = 1000;
+		//示波器图表控制器
 		WavegenChartController wavegenChartController = new WavegenChartController();
+		//图表测试器
+		FormsPlotTester wavegenFormsPlotTester;
 
 		//初始化信号发生器页
 		private void tabPageWavegen_Enter(object sender, EventArgs e)
 		{
+			if(wavegenFormsPlotTester == null)
+				wavegenFormsPlotTester = new FormsPlotTester(formsPlotWaveGen);
 			isInit = true;
 			//初始化ComboBox默认项
 			comboBoxFrequency.SelectedIndex = comboBoxFrequency.Items.IndexOf("1kHz");
@@ -518,13 +523,24 @@ namespace MyWaveForms
 		}
 
 		#region 发送波形/停止发送
+
 		//运行/停止按钮
 		private void buttonRunStop_Click(object sender, EventArgs e)
 		{
 			if (checkBoxRunState.Checked == false)      //如果当前没有在运行
 			{
 				//to-do 产生波形
+				//生成波形发生器配置信息
+				WaveformInfor waveformInfor = new WaveformInfor(GetWavegenConfigSelectedList());
+				//从波形数据生成器获取数据
+				ValueTuple<double[], double[]> dataTuple = wavegenChartController.GetWaveData(waveformInfor);
+				//设置初始数据
+				wavegenFormsPlotTester.InitTestData(dataTuple);
+				//初始化定时器
+				wavegenFormsPlotTester.InitTimer();
+				//运行时禁用所有配置选择控件
 				EnableWidget(false, false, false, false, false, false);
+				//更改运行按钮样式
 				buttonRunWavegen.BackColor = Color.Tomato;
 				buttonRunWavegen.Text = "停止";
 				checkBoxRunState.Checked = true;
@@ -532,6 +548,9 @@ namespace MyWaveForms
 			else
 			{
 				//to-do 接受波形
+				//关闭定时器
+				wavegenFormsPlotTester.StopTimer();
+				//重新激活控件
 				if (comboBoxWaveType.SelectedIndex == 0)        //对DC电源
 					EnableWidget(true, true, false, false, false, false);
 				else if (comboBoxWaveType.SelectedIndex == 6)     //对噪声选项
@@ -635,11 +654,5 @@ namespace MyWaveForms
 		}
 
 		#endregion
-
-		public static void RefreshPlot(FormsPlot formsPlot, bool lowQuality = false, bool skipIfCurrentlyRendering = false)
-		{
-			//while (formsPlot.InvokeRequired == true) ;
-			formsPlot.Refresh(lowQuality, skipIfCurrentlyRendering);
-		}
 	}
 }

@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MeterTracerController.cs" />
-    <Compile Include="Controller\ScopeChartTester.cs" />
+    <Compile Include="Controller\FormsPlotTester.cs" />
     <Compile Include="Controller\SerialPortController.cs" />
     <Compile Include="Controller\SpectrumTracerController.cs" />
     <Compile Include="Controller\WavegenChartController.cs" />
