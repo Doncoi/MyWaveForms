@@ -1,4 +1,5 @@
 ﻿using MyWaveForms.Entity;
+using MyWaveForms.Generator;
 using ScottPlot;
 using ScottPlot.Plottable;
 using System;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 namespace MyWaveForms.Controller
 {
 	//显示样式控制器
-	internal class ScopeChartController
+	internal class FormsPlotController
 	{
 		// 色彩代码
 		private System.Drawing.Color colorWhite = System.Drawing.ColorTranslator.FromHtml("#ffffff");
@@ -26,30 +27,11 @@ namespace MyWaveForms.Controller
 		private System.Drawing.Color colorLazuli = System.Drawing.ColorTranslator.FromHtml("#5fabea");
 		private System.Drawing.Color colorRed = System.Drawing.ColorTranslator.FromHtml("#FF0000");
 
-		/*
-		//初始化图表 使用单Y轴数据
-		//返回绘制的信号图对象和十字线对象
-		public ValueTuple<SignalPlot, Crosshair> InitChart(FormsPlot formsPlot, WaveformData waveformData, int iColorStyle, double dLineWidth, int iLineStyle)
+		//初始化目标图表 无数据
+		public ValueTuple<SignalPlotXY, Crosshair> InitChart(FormsPlot formsPlot, int iColorStyle = 0, double dLineWidth = 1, int iLineStyle = 0)
 		{
 			formsPlot.Plot.Clear();     //清空图表
-			SignalPlot signalPlot = formsPlot.Plot.AddSignal(waveformData.DValues);		//添加信号图
-			this.SetPlotColorStyle(formsPlot, signalPlot, iColorStyle);
-			this.SetLineStyle(formsPlot, signalPlot, iLineStyle);
-			this.SetLineWidth(formsPlot, signalPlot, dLineWidth);
-			Crosshair crosshair = this.AddCrossHair(formsPlot);		//添加十字准线
-			formsPlot.Plot.AxisAutoX();     //X坐标轴自适应
-			formsPlot.Plot.AxisAutoY();     //Y坐标轴自适应
-			formsPlot.Render();
-
-			return new ValueTuple<SignalPlot, Crosshair>(signalPlot, crosshair);
-		}
-		*/
-
-		//初始化图表 无数据
-		public ValueTuple<SignalPlotXY, Crosshair> InitChart(FormsPlot formsPlot, int iColorStyle, double dLineWidth, int iLineStyle)
-		{
-			formsPlot.Plot.Clear();     //清空图表
-			SignalPlotXY signalPlotXY = formsPlot.Plot.AddSignalXY(new double[100], new double[100]);     //添加信号图
+			SignalPlotXY signalPlotXY = formsPlot.Plot.AddSignalXY(new double[1], new double[1]);     //添加信号图
 			this.SetPlotColorStyle(formsPlot, signalPlotXY, iColorStyle);     //设置色彩样式
 			this.SetLineStyle(formsPlot, signalPlotXY, iLineStyle);     //设置线条样式
 			this.SetLineWidth(formsPlot, signalPlotXY, dLineWidth);     //设置线条宽度
@@ -63,10 +45,9 @@ namespace MyWaveForms.Controller
 			return new ValueTuple<SignalPlotXY, Crosshair>(signalPlotXY, crosshair);
 		}
 
-
-		//初始化图表 使用X轴及Y轴数据
+		//初始化目标图表 使用X轴及Y轴数据
 		//返回绘制的信号图对象和十字线对象
-		public ValueTuple<SignalPlotXY, Crosshair> InitChart(FormsPlot formsPlot, ValueTuple<double[], double[]> vt, int iColorStyle, double dLineWidth, int iLineStyle)
+		public ValueTuple<SignalPlotXY, Crosshair> InitChart(FormsPlot formsPlot, ValueTuple<double[], double[]> vt, int iColorStyle = 0, double dLineWidth = 1, int iLineStyle = 0)
 		{
 			formsPlot.Plot.Clear();     //清空图表
 			SignalPlotXY signalPlotXY = formsPlot.Plot.AddSignalXY(vt.Item1, vt.Item2);     //添加信号图
@@ -83,8 +64,9 @@ namespace MyWaveForms.Controller
 			return new ValueTuple<SignalPlotXY, Crosshair>(signalPlotXY, crosshair);
 		}
 
+		#region 样式控制
 		// 变更图标色彩模式
-		public Boolean SetPlotColorStyle(FormsPlot formsPlot, SignalPlotXY signalPlot, int iColorStyle)
+		public Boolean SetPlotColorStyle(FormsPlot formsPlot, SignalPlotXY signalPlot, int iColorStyle = 0)
 		{
 			if (formsPlot == null || signalPlot == null) return false;
 			try
@@ -120,7 +102,7 @@ namespace MyWaveForms.Controller
 		}
 
 		//变更连线宽度
-		public Boolean SetLineWidth(FormsPlot formsPlot, SignalPlotXY signalPlot, double dLineWidth)
+		public Boolean SetLineWidth(FormsPlot formsPlot, SignalPlotXY signalPlot, double dLineWidth = 1)
 		{
 			if (formsPlot == null || signalPlot == null) return false;
 			try
@@ -136,7 +118,7 @@ namespace MyWaveForms.Controller
 		}
 
 		//变更连线样式
-		public Boolean SetLineStyle(FormsPlot formsPlot, SignalPlotXY signalPlot, int iLineStyle)
+		public Boolean SetLineStyle(FormsPlot formsPlot, SignalPlotXY signalPlot, int iLineStyle = 0)
 		{
 			if (formsPlot == null || signalPlot == null) return false;
 			try
@@ -181,5 +163,6 @@ namespace MyWaveForms.Controller
 				throw (ex);
 			}
 		}
+		#endregion
 	}
 }

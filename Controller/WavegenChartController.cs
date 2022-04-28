@@ -24,6 +24,22 @@ namespace MyWaveForms.Controller
 			this.waveDataGenerator = new WaveformDataGenerator();
 		}
 
+		//使用外部数据加载图表
+		public SignalPlotXY AddWaveforms(FormsPlot formsPlot, ValueTuple<double[], double[]>  vt, WaveformInfor node)
+		{
+			//清空绘图区
+			formsPlot.Plot.Clear();
+			//绘制图像
+			SignalPlotXY sp = formsPlot.Plot.AddSignalXY(vt.Item1, vt.Item2);
+			//更新X轴单位标签
+			formsPlot.Plot.XLabel(node.GetTimeTickLabel());
+			//刷新绘图区
+			formsPlot.Render();
+
+			return sp;
+		}
+
+		//使用来自WaveformDataGenerator的数据加载图表
 		public SignalPlotXY AddWaveforms(FormsPlot formsPlot, WaveformInfor node)
 		{
 			//清空绘图区

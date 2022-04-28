@@ -63,17 +63,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\MeterTracerController.cs" />
-    <Compile Include="Controller\FormsPlotTester.cs" />
+    <Compile Include="Controller\TracerController.cs" />
+    <Compile Include="Entity\TracerInfor.cs" />
+    <Compile Include="Generator\WidgetGenerator.cs" />
+    <Compile Include="Test\ChartTester.cs" />
     <Compile Include="Controller\SerialPortController.cs" />
-    <Compile Include="Controller\SpectrumTracerController.cs" />
     <Compile Include="Controller\WavegenChartController.cs" />
     <Compile Include="Entity\DeviceInfor.cs" />
     <Compile Include="Entity\MeterInfor.cs" />
-    <Compile Include="Entity\TracerInfor.cs" />
     <Compile Include="Entity\WaveformData.cs" />
     <Compile Include="Entity\WaveformInfor.cs" />
-    <Compile Include="Controller\ScopeChartController.cs" />
+    <Compile Include="Controller\FormsPlotController.cs" />
     <Compile Include="MyException\WaveformInforException.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

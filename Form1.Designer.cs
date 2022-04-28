@@ -34,38 +34,52 @@
 			this.timerDisplayTime = new System.Windows.Forms.Timer(this.components);
 			this.colorDialog1 = new System.Windows.Forms.ColorDialog();
 			this.tabPageText = new System.Windows.Forms.TabPage();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.button4 = new System.Windows.Forms.Button();
-			this.checkBox3 = new System.Windows.Forms.CheckBox();
-			this.button5 = new System.Windows.Forms.Button();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label13 = new System.Windows.Forms.Label();
-			this.label14 = new System.Windows.Forms.Label();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.button3 = new System.Windows.Forms.Button();
-			this.checkBox2 = new System.Windows.Forms.CheckBox();
-			this.button2 = new System.Windows.Forms.Button();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
+			this.groupBoxInteraction = new System.Windows.Forms.GroupBox();
+			this.checkBoxCrosshair = new System.Windows.Forms.CheckBox();
+			this.checkBoxVerticalZoom = new System.Windows.Forms.CheckBox();
+			this.checkBoxHorizontalZoom = new System.Windows.Forms.CheckBox();
+			this.checkBoxScrollWheelZoom = new System.Windows.Forms.CheckBox();
+			this.checkBoxRightClickDragZoom = new System.Windows.Forms.CheckBox();
+			this.groupBoxDisplay = new System.Windows.Forms.GroupBox();
+			this.comboBoxLineWidth = new System.Windows.Forms.ComboBox();
+			this.comboBoxLineStyle = new System.Windows.Forms.ComboBox();
+			this.labelLineStyle = new System.Windows.Forms.Label();
+			this.labelLineWidth = new System.Windows.Forms.Label();
+			this.comboBoxColorStyle = new System.Windows.Forms.ComboBox();
+			this.labelColorStyle = new System.Windows.Forms.Label();
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.button1 = new System.Windows.Forms.Button();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.comboBox2 = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.tabPageSpectrum = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+			this.toolStripSpectrum = new System.Windows.Forms.ToolStrip();
+			this.toolStripButtonSetting = new System.Windows.Forms.ToolStripDropDownButton();
+			this.toolStripMenuItemStart = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxStart = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItemStop = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxStop = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItemBINS = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxBoxCount = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItemScale = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxScale = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItemAlgorithm = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxAlgorithm = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripButtonSingle = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripButtonRun = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripDropDownButton5 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.toolStripMenuItemRightClickDragZoom4 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemScrollWheelZoom4 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemHorizontalZoom4 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemVerticalZoom4 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxColorStyle4 = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxLineStyle4 = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxLineWidth4 = new System.Windows.Forms.ToolStripComboBox();
 			this.formsPlotSpectrum = new ScottPlot.FormsPlot();
 			this.panelSpectrum = new System.Windows.Forms.Panel();
 			this.groupBoxChannel = new System.Windows.Forms.GroupBox();
@@ -85,24 +99,43 @@
 			this.comboBoxTop = new System.Windows.Forms.ComboBox();
 			this.comboBoxMagnitudeUnit = new System.Windows.Forms.ComboBox();
 			this.labelMagnitudeUnit = new System.Windows.Forms.Label();
-			this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-			this.toolStripButtonSetting = new System.Windows.Forms.ToolStripDropDownButton();
-			this.toolStripButtonSingle = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButtonRun = new System.Windows.Forms.ToolStripButton();
 			this.tabPageMeter = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
 			this.formsPlotMeter = new ScottPlot.FormsPlot();
 			this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.panelMeter = new System.Windows.Forms.Panel();
+			this.toolStripMeter = new System.Windows.Forms.ToolStrip();
+			this.toolStripDropDownButtonDisplay3 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxColorStyle3 = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxLineStyle3 = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxLineWidth3 = new System.Windows.Forms.ToolStripComboBox();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripLabelAddTracer = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripLabel2 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.tabPageWavegen = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-			this.formsPlotWaveGen = new ScottPlot.FormsPlot();
+			this.toolStripWaveGen = new System.Windows.Forms.ToolStrip();
+			this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.toolStripMenuItemColorStyle2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxColorStyle2 = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItemLineStyle2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxLineStyle2 = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItemLineWidth2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxLineWidth2 = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripDropDownButtonInteraction2 = new System.Windows.Forms.ToolStripDropDownButton();
+			this.toolStripMenuItemRightClickDragZoom2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemScrollWheelZoom2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemHorizontalZoom2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemVerticalZoom2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
 			this.groupBoxWavegen = new System.Windows.Forms.GroupBox();
-			this.buttonProjectOntoScope = new System.Windows.Forms.Button();
 			this.checkBoxRunState = new System.Windows.Forms.CheckBox();
 			this.buttonRunWavegen = new System.Windows.Forms.Button();
 			this.comboBoxPhase = new System.Windows.Forms.ComboBox();
@@ -117,15 +150,10 @@
 			this.labelAmplitde = new System.Windows.Forms.Label();
 			this.labelFrequency_2 = new System.Windows.Forms.Label();
 			this.labelType = new System.Windows.Forms.Label();
+			this.formsPlotWaveGen = new ScottPlot.FormsPlot();
 			this.tabPageScope = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-			this.groupBoxInteraction = new System.Windows.Forms.GroupBox();
-			this.checkBoxCrosshair = new System.Windows.Forms.CheckBox();
-			this.checkBoxVerticalZoom = new System.Windows.Forms.CheckBox();
-			this.checkBoxHorizontalZoom = new System.Windows.Forms.CheckBox();
-			this.checkBoxScrollWheelZoom = new System.Windows.Forms.CheckBox();
-			this.checkBoxRightClickDragZoom = new System.Windows.Forms.CheckBox();
 			this.groupBoxControl = new System.Windows.Forms.GroupBox();
 			this.labelTriggerType = new System.Windows.Forms.Label();
 			this.comboBoxTriggerType = new System.Windows.Forms.ComboBox();
@@ -140,20 +168,29 @@
 			this.labelDisplayPlotCount = new System.Windows.Forms.Label();
 			this.labelDisplayMaximum = new System.Windows.Forms.Label();
 			this.labelDisplayMinimum = new System.Windows.Forms.Label();
-			this.labelDisplayTime = new System.Windows.Forms.Label();
+			this.labelRunTime = new System.Windows.Forms.Label();
 			this.labelDemo = new System.Windows.Forms.Label();
 			this.labelFrequency = new System.Windows.Forms.Label();
 			this.labelPlotCount = new System.Windows.Forms.Label();
 			this.labelMinimum = new System.Windows.Forms.Label();
 			this.labelMaximum = new System.Windows.Forms.Label();
-			this.labelTime = new System.Windows.Forms.Label();
-			this.groupBoxDisplay = new System.Windows.Forms.GroupBox();
-			this.comboBoxLineWidth = new System.Windows.Forms.ComboBox();
-			this.comboBoxLineStyle = new System.Windows.Forms.ComboBox();
-			this.labelLineStyle = new System.Windows.Forms.Label();
-			this.labelLineWidth = new System.Windows.Forms.Label();
-			this.comboBoxColorStyle = new System.Windows.Forms.ComboBox();
-			this.labelColorStyle = new System.Windows.Forms.Label();
+			this.labelRunTimeText = new System.Windows.Forms.Label();
+			this.toolStripScope = new System.Windows.Forms.ToolStrip();
+			this.toolStripDropDownButtonDisplay = new System.Windows.Forms.ToolStripDropDownButton();
+			this.toolStripMenuItemColorStyle = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxColorStyle = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItemLineStyle = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxLineStyle = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripMenuItemLineWidth = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBoxLineWidth = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripDropDownButtonInteraction = new System.Windows.Forms.ToolStripDropDownButton();
+			this.toolStripMenuItemRightClickDragZoom = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemScrollWheelZoom = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemHorizontalZoom = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemVerticalZoom = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemCrosshair = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
 			this.formsPlotScope = new ScottPlot.FormsPlot();
 			this.tabPageDeviceManage = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -186,47 +223,34 @@
 			this.textBoxReceived = new System.Windows.Forms.TextBox();
 			this.buttonSend = new System.Windows.Forms.Button();
 			this.tabControlMain = new System.Windows.Forms.TabControl();
-			this.toolStripMenuItemStart = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItemStop = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItemBINS = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItemScale = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItemAlgorithm = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripComboBoxStart = new System.Windows.Forms.ToolStripComboBox();
-			this.toolStripComboBoxStop = new System.Windows.Forms.ToolStripComboBox();
-			this.toolStripComboBox3 = new System.Windows.Forms.ToolStripComboBox();
-			this.toolStripComboBoxScale = new System.Windows.Forms.ToolStripComboBox();
-			this.toolStripComboBoxAlgorithm = new System.Windows.Forms.ToolStripComboBox();
-			this.toolStripLabel1 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripLabel2 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripLabel3 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripLabel4 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripMenuItemRightClickDragZoom3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemScrollWheelZoom3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemHorizontalZoom3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemVerticalZoom3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripDropDownButtonInteraction3 = new System.Windows.Forms.ToolStripDropDownButton();
 			this.tabPageText.SuspendLayout();
-			this.groupBox2.SuspendLayout();
-			this.groupBox1.SuspendLayout();
-			this.panel2.SuspendLayout();
+			this.groupBoxInteraction.SuspendLayout();
+			this.groupBoxDisplay.SuspendLayout();
 			this.tabPageSpectrum.SuspendLayout();
 			this.tableLayoutPanel7.SuspendLayout();
+			this.toolStripSpectrum.SuspendLayout();
 			this.panelSpectrum.SuspendLayout();
 			this.groupBoxChannel.SuspendLayout();
 			this.groupBoxMagnitude.SuspendLayout();
-			this.toolStrip2.SuspendLayout();
 			this.tabPageMeter.SuspendLayout();
 			this.tableLayoutPanel9.SuspendLayout();
 			this.tableLayoutPanel8.SuspendLayout();
-			this.toolStrip1.SuspendLayout();
+			this.toolStripMeter.SuspendLayout();
 			this.tabPageWavegen.SuspendLayout();
 			this.tableLayoutPanel6.SuspendLayout();
+			this.toolStripWaveGen.SuspendLayout();
 			this.groupBoxWavegen.SuspendLayout();
 			this.tabPageScope.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
-			this.groupBoxInteraction.SuspendLayout();
 			this.groupBoxControl.SuspendLayout();
 			this.groupBoxInfor.SuspendLayout();
-			this.groupBoxDisplay.SuspendLayout();
+			this.toolStripScope.SuspendLayout();
 			this.tabPageDeviceManage.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -243,11 +267,10 @@
 			// 
 			// tabPageText
 			// 
-			this.tabPageText.Controls.Add(this.groupBox2);
-			this.tabPageText.Controls.Add(this.groupBox1);
+			this.tabPageText.Controls.Add(this.groupBoxInteraction);
+			this.tabPageText.Controls.Add(this.groupBoxDisplay);
 			this.tabPageText.Controls.Add(this.button6);
 			this.tabPageText.Controls.Add(this.textBox3);
-			this.tabPageText.Controls.Add(this.panel2);
 			this.tabPageText.Location = new System.Drawing.Point(4, 22);
 			this.tabPageText.Margin = new System.Windows.Forms.Padding(2);
 			this.tabPageText.Name = "tabPageText";
@@ -257,233 +280,175 @@
 			this.tabPageText.Text = "测试页";
 			this.tabPageText.UseVisualStyleBackColor = true;
 			// 
-			// groupBox2
+			// groupBoxInteraction
 			// 
-			this.groupBox2.Controls.Add(this.button4);
-			this.groupBox2.Controls.Add(this.checkBox3);
-			this.groupBox2.Controls.Add(this.button5);
-			this.groupBox2.Controls.Add(this.label9);
-			this.groupBox2.Controls.Add(this.label10);
-			this.groupBox2.Controls.Add(this.label11);
-			this.groupBox2.Controls.Add(this.label12);
-			this.groupBox2.Controls.Add(this.label13);
-			this.groupBox2.Controls.Add(this.label14);
-			this.groupBox2.Location = new System.Drawing.Point(3, 104);
-			this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-			this.groupBox2.Size = new System.Drawing.Size(294, 94);
-			this.groupBox2.TabIndex = 13;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "C1 AC RMS";
-			this.groupBox2.Visible = false;
+			this.groupBoxInteraction.Controls.Add(this.checkBoxCrosshair);
+			this.groupBoxInteraction.Controls.Add(this.checkBoxVerticalZoom);
+			this.groupBoxInteraction.Controls.Add(this.checkBoxHorizontalZoom);
+			this.groupBoxInteraction.Controls.Add(this.checkBoxScrollWheelZoom);
+			this.groupBoxInteraction.Controls.Add(this.checkBoxRightClickDragZoom);
+			this.groupBoxInteraction.Location = new System.Drawing.Point(339, 111);
+			this.groupBoxInteraction.Margin = new System.Windows.Forms.Padding(2);
+			this.groupBoxInteraction.Name = "groupBoxInteraction";
+			this.groupBoxInteraction.Padding = new System.Windows.Forms.Padding(2);
+			this.groupBoxInteraction.Size = new System.Drawing.Size(192, 98);
+			this.groupBoxInteraction.TabIndex = 15;
+			this.groupBoxInteraction.TabStop = false;
+			this.groupBoxInteraction.Text = "交互";
 			// 
-			// button4
+			// checkBoxCrosshair
 			// 
-			this.button4.Location = new System.Drawing.Point(158, 61);
-			this.button4.Margin = new System.Windows.Forms.Padding(2);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(50, 22);
-			this.button4.TabIndex = 8;
-			this.button4.Text = "选色";
-			this.button4.UseVisualStyleBackColor = true;
+			this.checkBoxCrosshair.AutoSize = true;
+			this.checkBoxCrosshair.Checked = true;
+			this.checkBoxCrosshair.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBoxCrosshair.Location = new System.Drawing.Point(11, 74);
+			this.checkBoxCrosshair.Margin = new System.Windows.Forms.Padding(2);
+			this.checkBoxCrosshair.Name = "checkBoxCrosshair";
+			this.checkBoxCrosshair.Size = new System.Drawing.Size(72, 16);
+			this.checkBoxCrosshair.TabIndex = 4;
+			this.checkBoxCrosshair.Text = "十字准线";
+			this.checkBoxCrosshair.UseVisualStyleBackColor = true;
 			// 
-			// checkBox3
+			// checkBoxVerticalZoom
 			// 
-			this.checkBox3.AutoSize = true;
-			this.checkBox3.Checked = true;
-			this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox3.Location = new System.Drawing.Point(140, 17);
-			this.checkBox3.Margin = new System.Windows.Forms.Padding(2);
-			this.checkBox3.Name = "checkBox3";
-			this.checkBox3.Size = new System.Drawing.Size(96, 16);
-			this.checkBox3.TabIndex = 7;
-			this.checkBox3.Text = "显示在绘图区";
-			this.checkBox3.UseVisualStyleBackColor = true;
+			this.checkBoxVerticalZoom.AutoSize = true;
+			this.checkBoxVerticalZoom.Checked = true;
+			this.checkBoxVerticalZoom.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBoxVerticalZoom.Location = new System.Drawing.Point(114, 46);
+			this.checkBoxVerticalZoom.Margin = new System.Windows.Forms.Padding(2);
+			this.checkBoxVerticalZoom.Name = "checkBoxVerticalZoom";
+			this.checkBoxVerticalZoom.Size = new System.Drawing.Size(72, 16);
+			this.checkBoxVerticalZoom.TabIndex = 3;
+			this.checkBoxVerticalZoom.Text = "垂直缩放";
+			this.checkBoxVerticalZoom.UseVisualStyleBackColor = true;
 			// 
-			// button5
+			// checkBoxHorizontalZoom
 			// 
-			this.button5.Location = new System.Drawing.Point(158, 34);
-			this.button5.Margin = new System.Windows.Forms.Padding(2);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(50, 24);
-			this.button5.TabIndex = 6;
-			this.button5.Text = "设置";
-			this.button5.UseVisualStyleBackColor = true;
+			this.checkBoxHorizontalZoom.AutoSize = true;
+			this.checkBoxHorizontalZoom.Checked = true;
+			this.checkBoxHorizontalZoom.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBoxHorizontalZoom.Location = new System.Drawing.Point(12, 46);
+			this.checkBoxHorizontalZoom.Margin = new System.Windows.Forms.Padding(2);
+			this.checkBoxHorizontalZoom.Name = "checkBoxHorizontalZoom";
+			this.checkBoxHorizontalZoom.Size = new System.Drawing.Size(72, 16);
+			this.checkBoxHorizontalZoom.TabIndex = 2;
+			this.checkBoxHorizontalZoom.Text = "水平缩放";
+			this.checkBoxHorizontalZoom.UseVisualStyleBackColor = true;
 			// 
-			// label9
+			// checkBoxScrollWheelZoom
 			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(56, 71);
-			this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(23, 12);
-			this.label9.TabIndex = 5;
-			this.label9.Text = "N/A";
+			this.checkBoxScrollWheelZoom.AutoSize = true;
+			this.checkBoxScrollWheelZoom.Checked = true;
+			this.checkBoxScrollWheelZoom.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBoxScrollWheelZoom.Location = new System.Drawing.Point(114, 20);
+			this.checkBoxScrollWheelZoom.Margin = new System.Windows.Forms.Padding(2);
+			this.checkBoxScrollWheelZoom.Name = "checkBoxScrollWheelZoom";
+			this.checkBoxScrollWheelZoom.Size = new System.Drawing.Size(72, 16);
+			this.checkBoxScrollWheelZoom.TabIndex = 1;
+			this.checkBoxScrollWheelZoom.Text = "滚轮缩放";
+			this.checkBoxScrollWheelZoom.UseVisualStyleBackColor = true;
 			// 
-			// label10
+			// checkBoxRightClickDragZoom
 			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(56, 46);
-			this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(23, 12);
-			this.label10.TabIndex = 4;
-			this.label10.Text = "N/A";
+			this.checkBoxRightClickDragZoom.AutoSize = true;
+			this.checkBoxRightClickDragZoom.Checked = true;
+			this.checkBoxRightClickDragZoom.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBoxRightClickDragZoom.Location = new System.Drawing.Point(12, 20);
+			this.checkBoxRightClickDragZoom.Margin = new System.Windows.Forms.Padding(2);
+			this.checkBoxRightClickDragZoom.Name = "checkBoxRightClickDragZoom";
+			this.checkBoxRightClickDragZoom.Size = new System.Drawing.Size(102, 16);
+			this.checkBoxRightClickDragZoom.TabIndex = 0;
+			this.checkBoxRightClickDragZoom.Text = "右键拖动/缩放";
+			this.checkBoxRightClickDragZoom.UseVisualStyleBackColor = true;
 			// 
-			// label11
+			// groupBoxDisplay
 			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(56, 22);
-			this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(23, 12);
-			this.label11.TabIndex = 3;
-			this.label11.Text = "N/A";
+			this.groupBoxDisplay.Controls.Add(this.comboBoxLineWidth);
+			this.groupBoxDisplay.Controls.Add(this.comboBoxLineStyle);
+			this.groupBoxDisplay.Controls.Add(this.labelLineStyle);
+			this.groupBoxDisplay.Controls.Add(this.labelLineWidth);
+			this.groupBoxDisplay.Controls.Add(this.comboBoxColorStyle);
+			this.groupBoxDisplay.Controls.Add(this.labelColorStyle);
+			this.groupBoxDisplay.Location = new System.Drawing.Point(339, 13);
+			this.groupBoxDisplay.Margin = new System.Windows.Forms.Padding(2);
+			this.groupBoxDisplay.Name = "groupBoxDisplay";
+			this.groupBoxDisplay.Padding = new System.Windows.Forms.Padding(2);
+			this.groupBoxDisplay.Size = new System.Drawing.Size(192, 94);
+			this.groupBoxDisplay.TabIndex = 14;
+			this.groupBoxDisplay.TabStop = false;
+			this.groupBoxDisplay.Text = "显示";
 			// 
-			// label12
+			// comboBoxLineWidth
 			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(3, 71);
-			this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(41, 12);
-			this.label12.TabIndex = 2;
-			this.label12.Text = "最大值";
+			this.comboBoxLineWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxLineWidth.FormattingEnabled = true;
+			this.comboBoxLineWidth.Items.AddRange(new object[] {
+            "1",
+            "1.5",
+            "2",
+            "2.5",
+            "3"});
+			this.comboBoxLineWidth.Location = new System.Drawing.Point(79, 68);
+			this.comboBoxLineWidth.Margin = new System.Windows.Forms.Padding(2);
+			this.comboBoxLineWidth.Name = "comboBoxLineWidth";
+			this.comboBoxLineWidth.Size = new System.Drawing.Size(92, 20);
+			this.comboBoxLineWidth.TabIndex = 33;
 			// 
-			// label13
+			// comboBoxLineStyle
 			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(3, 46);
-			this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(41, 12);
-			this.label13.TabIndex = 1;
-			this.label13.Text = "最小值";
+			this.comboBoxLineStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxLineStyle.FormattingEnabled = true;
+			this.comboBoxLineStyle.Items.AddRange(new object[] {
+            "折线",
+            "阶梯显示"});
+			this.comboBoxLineStyle.Location = new System.Drawing.Point(79, 43);
+			this.comboBoxLineStyle.Margin = new System.Windows.Forms.Padding(2);
+			this.comboBoxLineStyle.Name = "comboBoxLineStyle";
+			this.comboBoxLineStyle.Size = new System.Drawing.Size(92, 20);
+			this.comboBoxLineStyle.TabIndex = 32;
 			// 
-			// label14
+			// labelLineStyle
 			// 
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(3, 22);
-			this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(41, 12);
-			this.label14.TabIndex = 0;
-			this.label14.Text = "当前值";
+			this.labelLineStyle.AutoSize = true;
+			this.labelLineStyle.Location = new System.Drawing.Point(9, 44);
+			this.labelLineStyle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.labelLineStyle.Name = "labelLineStyle";
+			this.labelLineStyle.Size = new System.Drawing.Size(29, 12);
+			this.labelLineStyle.TabIndex = 31;
+			this.labelLineStyle.Text = "线型";
 			// 
-			// groupBox1
+			// labelLineWidth
 			// 
-			this.groupBox1.Controls.Add(this.button3);
-			this.groupBox1.Controls.Add(this.checkBox2);
-			this.groupBox1.Controls.Add(this.button2);
-			this.groupBox1.Controls.Add(this.label8);
-			this.groupBox1.Controls.Add(this.label7);
-			this.groupBox1.Controls.Add(this.label6);
-			this.groupBox1.Controls.Add(this.label5);
-			this.groupBox1.Controls.Add(this.label4);
-			this.groupBox1.Controls.Add(this.label3);
-			this.groupBox1.Location = new System.Drawing.Point(3, 8);
-			this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-			this.groupBox1.Size = new System.Drawing.Size(294, 94);
-			this.groupBox1.TabIndex = 12;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "C1 True RMS";
-			this.groupBox1.Visible = false;
+			this.labelLineWidth.AutoSize = true;
+			this.labelLineWidth.Location = new System.Drawing.Point(9, 69);
+			this.labelLineWidth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.labelLineWidth.Name = "labelLineWidth";
+			this.labelLineWidth.Size = new System.Drawing.Size(53, 12);
+			this.labelLineWidth.TabIndex = 28;
+			this.labelLineWidth.Text = "线条粗细";
 			// 
-			// button3
+			// comboBoxColorStyle
 			// 
-			this.button3.Location = new System.Drawing.Point(158, 58);
-			this.button3.Margin = new System.Windows.Forms.Padding(2);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(50, 20);
-			this.button3.TabIndex = 8;
-			this.button3.Text = "选色";
-			this.button3.UseVisualStyleBackColor = true;
+			this.comboBoxColorStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxColorStyle.FormattingEnabled = true;
+			this.comboBoxColorStyle.Items.AddRange(new object[] {
+            "浅色",
+            "深色"});
+			this.comboBoxColorStyle.Location = new System.Drawing.Point(79, 18);
+			this.comboBoxColorStyle.Margin = new System.Windows.Forms.Padding(2);
+			this.comboBoxColorStyle.Name = "comboBoxColorStyle";
+			this.comboBoxColorStyle.Size = new System.Drawing.Size(92, 20);
+			this.comboBoxColorStyle.TabIndex = 27;
 			// 
-			// checkBox2
+			// labelColorStyle
 			// 
-			this.checkBox2.AutoSize = true;
-			this.checkBox2.Checked = true;
-			this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox2.Location = new System.Drawing.Point(140, 17);
-			this.checkBox2.Margin = new System.Windows.Forms.Padding(2);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(96, 16);
-			this.checkBox2.TabIndex = 7;
-			this.checkBox2.Text = "显示在绘图区";
-			this.checkBox2.UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this.button2.Location = new System.Drawing.Point(158, 34);
-			this.button2.Margin = new System.Windows.Forms.Padding(2);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(50, 20);
-			this.button2.TabIndex = 6;
-			this.button2.Text = "设置";
-			this.button2.UseVisualStyleBackColor = true;
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(56, 71);
-			this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(23, 12);
-			this.label8.TabIndex = 5;
-			this.label8.Text = "N/A";
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(56, 46);
-			this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(23, 12);
-			this.label7.TabIndex = 4;
-			this.label7.Text = "N/A";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(56, 22);
-			this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(23, 12);
-			this.label6.TabIndex = 3;
-			this.label6.Text = "N/A";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(3, 71);
-			this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(41, 12);
-			this.label5.TabIndex = 2;
-			this.label5.Text = "最大值";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(3, 46);
-			this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(41, 12);
-			this.label4.TabIndex = 1;
-			this.label4.Text = "最小值";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(3, 22);
-			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(41, 12);
-			this.label3.TabIndex = 0;
-			this.label3.Text = "当前值";
+			this.labelColorStyle.AutoSize = true;
+			this.labelColorStyle.Location = new System.Drawing.Point(9, 20);
+			this.labelColorStyle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.labelColorStyle.Name = "labelColorStyle";
+			this.labelColorStyle.Size = new System.Drawing.Size(53, 12);
+			this.labelColorStyle.TabIndex = 26;
+			this.labelColorStyle.Text = "色彩模式";
 			// 
 			// button6
 			// 
@@ -506,91 +471,6 @@
 			this.textBox3.Size = new System.Drawing.Size(238, 428);
 			this.textBox3.TabIndex = 10;
 			// 
-			// panel2
-			// 
-			this.panel2.Controls.Add(this.button1);
-			this.panel2.Controls.Add(this.comboBox1);
-			this.panel2.Controls.Add(this.label1);
-			this.panel2.Controls.Add(this.comboBox2);
-			this.panel2.Controls.Add(this.label2);
-			this.panel2.Controls.Add(this.textBox2);
-			this.panel2.Controls.Add(this.checkBox1);
-			this.panel2.Location = new System.Drawing.Point(0, 200);
-			this.panel2.Margin = new System.Windows.Forms.Padding(0);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(198, 130);
-			this.panel2.TabIndex = 9;
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(62, 99);
-			this.button1.Margin = new System.Windows.Forms.Padding(2);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(85, 22);
-			this.button1.TabIndex = 20;
-			this.button1.Text = "删除";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// comboBox1
-			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(62, 68);
-			this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(120, 20);
-			this.comboBox1.TabIndex = 19;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(8, 69);
-			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(41, 12);
-			this.label1.TabIndex = 18;
-			this.label1.Text = "计数点";
-			// 
-			// comboBox2
-			// 
-			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(62, 42);
-			this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(120, 20);
-			this.comboBox2.TabIndex = 17;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(8, 43);
-			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(29, 12);
-			this.label2.TabIndex = 16;
-			this.label2.Text = "类型";
-			// 
-			// textBox2
-			// 
-			this.textBox2.Location = new System.Drawing.Point(8, 10);
-			this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(130, 21);
-			this.textBox2.TabIndex = 15;
-			this.textBox2.Text = "Trace1";
-			// 
-			// checkBox1
-			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Checked = true;
-			this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox1.Location = new System.Drawing.Point(146, 11);
-			this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(48, 16);
-			this.checkBox1.TabIndex = 14;
-			this.checkBox1.Text = "显示";
-			this.checkBox1.UseVisualStyleBackColor = true;
-			// 
 			// tabPageSpectrum
 			// 
 			this.tabPageSpectrum.Controls.Add(this.tableLayoutPanel7);
@@ -601,22 +481,338 @@
 			this.tabPageSpectrum.TabIndex = 3;
 			this.tabPageSpectrum.Text = "频谱分析仪";
 			this.tabPageSpectrum.UseVisualStyleBackColor = true;
+			this.tabPageSpectrum.Enter += new System.EventHandler(this.tabPageSpectrum_Enter);
 			// 
 			// tableLayoutPanel7
 			// 
 			this.tableLayoutPanel7.ColumnCount = 2;
 			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
+			this.tableLayoutPanel7.Controls.Add(this.toolStripSpectrum, 1, 0);
 			this.tableLayoutPanel7.Controls.Add(this.formsPlotSpectrum, 0, 0);
-			this.tableLayoutPanel7.Controls.Add(this.panelSpectrum, 1, 0);
+			this.tableLayoutPanel7.Controls.Add(this.panelSpectrum, 1, 1);
 			this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
 			this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-			this.tableLayoutPanel7.RowCount = 1;
+			this.tableLayoutPanel7.RowCount = 2;
+			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel7.Size = new System.Drawing.Size(859, 504);
 			this.tableLayoutPanel7.TabIndex = 0;
+			// 
+			// toolStripSpectrum
+			// 
+			this.toolStripSpectrum.ImageScalingSize = new System.Drawing.Size(32, 32);
+			this.toolStripSpectrum.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonSetting,
+            this.toolStripSeparator5,
+            this.toolStripButtonSingle,
+            this.toolStripSeparator6,
+            this.toolStripButtonRun,
+            this.toolStripSeparator7,
+            this.toolStripDropDownButton5,
+            this.toolStripDropDownButton2});
+			this.toolStripSpectrum.Location = new System.Drawing.Point(644, 0);
+			this.toolStripSpectrum.Name = "toolStripSpectrum";
+			this.toolStripSpectrum.Padding = new System.Windows.Forms.Padding(0);
+			this.toolStripSpectrum.Size = new System.Drawing.Size(215, 25);
+			this.toolStripSpectrum.TabIndex = 2;
+			this.toolStripSpectrum.Text = "toolStrip2";
+			// 
+			// toolStripButtonSetting
+			// 
+			this.toolStripButtonSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripButtonSetting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemStart,
+            this.toolStripMenuItemStop,
+            this.toolStripMenuItemBINS,
+            this.toolStripMenuItemScale,
+            this.toolStripMenuItemAlgorithm});
+			this.toolStripButtonSetting.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSetting.Image")));
+			this.toolStripButtonSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonSetting.Name = "toolStripButtonSetting";
+			this.toolStripButtonSetting.Size = new System.Drawing.Size(69, 22);
+			this.toolStripButtonSetting.Text = "频谱设置";
+			// 
+			// toolStripMenuItemStart
+			// 
+			this.toolStripMenuItemStart.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxStart});
+			this.toolStripMenuItemStart.Name = "toolStripMenuItemStart";
+			this.toolStripMenuItemStart.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemStart.Text = "最小频率";
+			// 
+			// toolStripComboBoxStart
+			// 
+			this.toolStripComboBoxStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxStart.Items.AddRange(new object[] {
+            "5MHz",
+            "2MHz",
+            "1MHz",
+            "500kHz",
+            "200kHz",
+            "100kHz",
+            "50kHz",
+            "20kHz",
+            "10kHz",
+            "5kHz",
+            "2kHz",
+            "1kHz",
+            "500Hz",
+            "200Hz",
+            "100Hz",
+            "50Hz",
+            "20Hz",
+            "10Hz",
+            "5Hz",
+            "2Hz",
+            "1Hz",
+            "0Hz"});
+			this.toolStripComboBoxStart.Name = "toolStripComboBoxStart";
+			this.toolStripComboBoxStart.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripMenuItemStop
+			// 
+			this.toolStripMenuItemStop.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxStop});
+			this.toolStripMenuItemStop.Name = "toolStripMenuItemStop";
+			this.toolStripMenuItemStop.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemStop.Text = "最大频率";
+			// 
+			// toolStripComboBoxStop
+			// 
+			this.toolStripComboBoxStop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxStop.Items.AddRange(new object[] {
+            "5MHz",
+            "2MHz",
+            "1MHz",
+            "500kHz",
+            "200kHz",
+            "100kHz",
+            "50kHz",
+            "20kHz",
+            "10kHz",
+            "5kHz",
+            "2kHz",
+            "1kHz",
+            "500Hz",
+            "200Hz",
+            "100Hz",
+            "50Hz",
+            "20Hz",
+            "10Hz",
+            "5Hz",
+            "2Hz",
+            "1Hz",
+            "0Hz"});
+			this.toolStripComboBoxStop.Name = "toolStripComboBoxStop";
+			this.toolStripComboBoxStop.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripMenuItemBINS
+			// 
+			this.toolStripMenuItemBINS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxBoxCount});
+			this.toolStripMenuItemBINS.Name = "toolStripMenuItemBINS";
+			this.toolStripMenuItemBINS.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemBINS.Text = "频率箱点数";
+			// 
+			// toolStripComboBoxBoxCount
+			// 
+			this.toolStripComboBoxBoxCount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxBoxCount.Items.AddRange(new object[] {
+            "Default",
+            "4097",
+            "2049",
+            "1025",
+            "513",
+            "257",
+            "129",
+            "65",
+            "33",
+            "17"});
+			this.toolStripComboBoxBoxCount.Name = "toolStripComboBoxBoxCount";
+			this.toolStripComboBoxBoxCount.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripMenuItemScale
+			// 
+			this.toolStripMenuItemScale.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxScale});
+			this.toolStripMenuItemScale.Name = "toolStripMenuItemScale";
+			this.toolStripMenuItemScale.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemScale.Text = "坐标轴放缩";
+			// 
+			// toolStripComboBoxScale
+			// 
+			this.toolStripComboBoxScale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxScale.Items.AddRange(new object[] {
+            "线性",
+            "对数"});
+			this.toolStripComboBoxScale.Name = "toolStripComboBoxScale";
+			this.toolStripComboBoxScale.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripMenuItemAlgorithm
+			// 
+			this.toolStripMenuItemAlgorithm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxAlgorithm});
+			this.toolStripMenuItemAlgorithm.Name = "toolStripMenuItemAlgorithm";
+			this.toolStripMenuItemAlgorithm.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemAlgorithm.Text = "分析算法";
+			// 
+			// toolStripComboBoxAlgorithm
+			// 
+			this.toolStripComboBoxAlgorithm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxAlgorithm.Items.AddRange(new object[] {
+            "FFT",
+            "CZT"});
+			this.toolStripComboBoxAlgorithm.Name = "toolStripComboBoxAlgorithm";
+			this.toolStripComboBoxAlgorithm.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripButtonSingle
+			// 
+			this.toolStripButtonSingle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripButtonSingle.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSingle.Image")));
+			this.toolStripButtonSingle.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonSingle.Name = "toolStripButtonSingle";
+			this.toolStripButtonSingle.Size = new System.Drawing.Size(60, 22);
+			this.toolStripButtonSingle.Text = "单次采集";
+			// 
+			// toolStripSeparator6
+			// 
+			this.toolStripSeparator6.Name = "toolStripSeparator6";
+			this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripButtonRun
+			// 
+			this.toolStripButtonRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripButtonRun.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRun.Image")));
+			this.toolStripButtonRun.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonRun.Name = "toolStripButtonRun";
+			this.toolStripButtonRun.Size = new System.Drawing.Size(36, 22);
+			this.toolStripButtonRun.Text = "运行";
+			// 
+			// toolStripSeparator7
+			// 
+			this.toolStripSeparator7.Name = "toolStripSeparator7";
+			this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripDropDownButton5
+			// 
+			this.toolStripDropDownButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripDropDownButton5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemRightClickDragZoom4,
+            this.toolStripMenuItemScrollWheelZoom4,
+            this.toolStripMenuItemHorizontalZoom4,
+            this.toolStripMenuItemVerticalZoom4});
+			this.toolStripDropDownButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton5.Image")));
+			this.toolStripDropDownButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButton5.Name = "toolStripDropDownButton5";
+			this.toolStripDropDownButton5.Size = new System.Drawing.Size(45, 21);
+			this.toolStripDropDownButton5.Text = "交互";
+			// 
+			// toolStripMenuItemRightClickDragZoom4
+			// 
+			this.toolStripMenuItemRightClickDragZoom4.Checked = true;
+			this.toolStripMenuItemRightClickDragZoom4.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemRightClickDragZoom4.Name = "toolStripMenuItemRightClickDragZoom4";
+			this.toolStripMenuItemRightClickDragZoom4.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemRightClickDragZoom4.Text = "右键缩放";
+			// 
+			// toolStripMenuItemScrollWheelZoom4
+			// 
+			this.toolStripMenuItemScrollWheelZoom4.Checked = true;
+			this.toolStripMenuItemScrollWheelZoom4.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemScrollWheelZoom4.Name = "toolStripMenuItemScrollWheelZoom4";
+			this.toolStripMenuItemScrollWheelZoom4.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemScrollWheelZoom4.Text = "滚轮缩放";
+			// 
+			// toolStripMenuItemHorizontalZoom4
+			// 
+			this.toolStripMenuItemHorizontalZoom4.Checked = true;
+			this.toolStripMenuItemHorizontalZoom4.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemHorizontalZoom4.Name = "toolStripMenuItemHorizontalZoom4";
+			this.toolStripMenuItemHorizontalZoom4.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemHorizontalZoom4.Text = "水平缩放";
+			// 
+			// toolStripMenuItemVerticalZoom4
+			// 
+			this.toolStripMenuItemVerticalZoom4.Checked = true;
+			this.toolStripMenuItemVerticalZoom4.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemVerticalZoom4.Name = "toolStripMenuItemVerticalZoom4";
+			this.toolStripMenuItemVerticalZoom4.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemVerticalZoom4.Text = "垂直缩放";
+			// 
+			// toolStripDropDownButton2
+			// 
+			this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
+			this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+			this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+			this.toolStripDropDownButton2.Size = new System.Drawing.Size(45, 21);
+			this.toolStripDropDownButton2.Text = "显示";
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxColorStyle4});
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItem1.Text = "色彩模式";
+			// 
+			// toolStripComboBoxColorStyle4
+			// 
+			this.toolStripComboBoxColorStyle4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxColorStyle4.Items.AddRange(new object[] {
+            "浅色模式",
+            "深色模式"});
+			this.toolStripComboBoxColorStyle4.Name = "toolStripComboBoxColorStyle4";
+			this.toolStripComboBoxColorStyle4.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripMenuItem2
+			// 
+			this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxLineStyle4});
+			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItem2.Text = "连线样式";
+			// 
+			// toolStripComboBoxLineStyle4
+			// 
+			this.toolStripComboBoxLineStyle4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxLineStyle4.Items.AddRange(new object[] {
+            "折线",
+            "步进显示"});
+			this.toolStripComboBoxLineStyle4.Name = "toolStripComboBoxLineStyle4";
+			this.toolStripComboBoxLineStyle4.Size = new System.Drawing.Size(121, 25);
+			// 
+			// toolStripMenuItem3
+			// 
+			this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxLineWidth4});
+			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItem3.Text = "连线宽度";
+			// 
+			// toolStripComboBoxLineWidth4
+			// 
+			this.toolStripComboBoxLineWidth4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxLineWidth4.Items.AddRange(new object[] {
+            "1",
+            "1.5",
+            "2",
+            "2.5",
+            "3"});
+			this.toolStripComboBoxLineWidth4.Name = "toolStripComboBoxLineWidth4";
+			this.toolStripComboBoxLineWidth4.Size = new System.Drawing.Size(121, 25);
 			// 
 			// formsPlotSpectrum
 			// 
@@ -624,6 +820,7 @@
 			this.formsPlotSpectrum.Location = new System.Drawing.Point(5, 5);
 			this.formsPlotSpectrum.Margin = new System.Windows.Forms.Padding(5);
 			this.formsPlotSpectrum.Name = "formsPlotSpectrum";
+			this.tableLayoutPanel7.SetRowSpan(this.formsPlotSpectrum, 2);
 			this.formsPlotSpectrum.Size = new System.Drawing.Size(634, 494);
 			this.formsPlotSpectrum.TabIndex = 0;
 			// 
@@ -632,12 +829,11 @@
 			this.panelSpectrum.AutoScroll = true;
 			this.panelSpectrum.Controls.Add(this.groupBoxChannel);
 			this.panelSpectrum.Controls.Add(this.groupBoxMagnitude);
-			this.panelSpectrum.Controls.Add(this.toolStrip2);
 			this.panelSpectrum.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelSpectrum.Location = new System.Drawing.Point(644, 0);
+			this.panelSpectrum.Location = new System.Drawing.Point(644, 25);
 			this.panelSpectrum.Margin = new System.Windows.Forms.Padding(0);
 			this.panelSpectrum.Name = "panelSpectrum";
-			this.panelSpectrum.Size = new System.Drawing.Size(215, 504);
+			this.panelSpectrum.Size = new System.Drawing.Size(215, 479);
 			this.panelSpectrum.TabIndex = 1;
 			// 
 			// groupBoxChannel
@@ -649,7 +845,7 @@
 			this.groupBoxChannel.Controls.Add(this.comboBoxChannelRange);
 			this.groupBoxChannel.Controls.Add(this.comboBoxChannelOffset);
 			this.groupBoxChannel.Controls.Add(this.labelChannelOffset);
-			this.groupBoxChannel.Location = new System.Drawing.Point(0, 166);
+			this.groupBoxChannel.Location = new System.Drawing.Point(0, 130);
 			this.groupBoxChannel.Margin = new System.Windows.Forms.Padding(0);
 			this.groupBoxChannel.MaximumSize = new System.Drawing.Size(198, 130);
 			this.groupBoxChannel.MinimumSize = new System.Drawing.Size(198, 130);
@@ -673,7 +869,13 @@
 			// 
 			// comboBoxChannelAttenuation
 			// 
+			this.comboBoxChannelAttenuation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxChannelAttenuation.FormattingEnabled = true;
+			this.comboBoxChannelAttenuation.Items.AddRange(new object[] {
+            "100X",
+            "10X",
+            "1X",
+            "0.1X"});
 			this.comboBoxChannelAttenuation.Location = new System.Drawing.Point(83, 75);
 			this.comboBoxChannelAttenuation.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxChannelAttenuation.Name = "comboBoxChannelAttenuation";
@@ -698,11 +900,29 @@
 			this.labelChannelRange.Name = "labelChannelRange";
 			this.labelChannelRange.Size = new System.Drawing.Size(29, 12);
 			this.labelChannelRange.TabIndex = 9;
-			this.labelChannelRange.Text = "范围";
+			this.labelChannelRange.Text = "量程";
 			// 
 			// comboBoxChannelRange
 			// 
+			this.comboBoxChannelRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxChannelRange.FormattingEnabled = true;
+			this.comboBoxChannelRange.Items.AddRange(new object[] {
+            "Auto",
+            "50V",
+            "20V",
+            "10V",
+            "5V",
+            "2V",
+            "1V",
+            "0.5V",
+            "0.2V",
+            "0.1V",
+            "0.05V",
+            "0.02V",
+            "0.01V",
+            "5mV",
+            "2mV",
+            "1mV"});
 			this.comboBoxChannelRange.Location = new System.Drawing.Point(83, 49);
 			this.comboBoxChannelRange.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxChannelRange.Name = "comboBoxChannelRange";
@@ -711,7 +931,38 @@
 			// 
 			// comboBoxChannelOffset
 			// 
+			this.comboBoxChannelOffset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxChannelOffset.FormattingEnabled = true;
+			this.comboBoxChannelOffset.Items.AddRange(new object[] {
+            "25V",
+            "10V",
+            "5V",
+            "2V",
+            "1V",
+            "0.5V",
+            "0.2V",
+            "0.1V",
+            "0.05V",
+            "0.02V",
+            "0.01V",
+            "5mV",
+            "2mV",
+            "1mV",
+            "0V",
+            "-1mV",
+            "-2mV",
+            "-5mV",
+            "-0.01V",
+            "-0.02V",
+            "-0.05V",
+            "-0.1V",
+            "-0.2V",
+            "-0.5V",
+            "-1V",
+            "-2V",
+            "-5V",
+            "-10V",
+            "-25V"});
 			this.comboBoxChannelOffset.Location = new System.Drawing.Point(83, 22);
 			this.comboBoxChannelOffset.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxChannelOffset.Name = "comboBoxChannelOffset";
@@ -738,7 +989,7 @@
 			this.groupBoxMagnitude.Controls.Add(this.comboBoxTop);
 			this.groupBoxMagnitude.Controls.Add(this.comboBoxMagnitudeUnit);
 			this.groupBoxMagnitude.Controls.Add(this.labelMagnitudeUnit);
-			this.groupBoxMagnitude.Location = new System.Drawing.Point(0, 28);
+			this.groupBoxMagnitude.Location = new System.Drawing.Point(0, 0);
 			this.groupBoxMagnitude.Margin = new System.Windows.Forms.Padding(0);
 			this.groupBoxMagnitude.MaximumSize = new System.Drawing.Size(198, 130);
 			this.groupBoxMagnitude.MinimumSize = new System.Drawing.Size(198, 130);
@@ -751,7 +1002,37 @@
 			// 
 			// comboBoxReference
 			// 
+			this.comboBoxReference.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxReference.FormattingEnabled = true;
+			this.comboBoxReference.Items.AddRange(new object[] {
+            "1kV",
+            "500V",
+            "200V",
+            "100V",
+            "50V",
+            "20V",
+            "10V",
+            "5V",
+            "2V",
+            "1V",
+            "0.5V",
+            "0.2V",
+            "0.1V",
+            "0.05V",
+            "0.02V",
+            "0.01V",
+            "5mV",
+            "2mV",
+            "1mV",
+            "0.5mV",
+            "0.2mV",
+            "0.1mV",
+            "0.05mV",
+            "0.02mV",
+            "0.01mV",
+            "5uV",
+            "2uV",
+            "1uV"});
 			this.comboBoxReference.Location = new System.Drawing.Point(83, 90);
 			this.comboBoxReference.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxReference.Name = "comboBoxReference";
@@ -770,7 +1051,30 @@
 			// 
 			// comboBoxRange
 			// 
+			this.comboBoxRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxRange.FormattingEnabled = true;
+			this.comboBoxRange.Items.AddRange(new object[] {
+            "200dBV",
+            "190dBV",
+            "180dBV",
+            "170dBV",
+            "160dBV",
+            "150dBV",
+            "140dBV",
+            "130dBV",
+            "120dBV",
+            "110dBV",
+            "100dBV",
+            "90dBV",
+            "80dBV",
+            "70dBV",
+            "60dBV",
+            "50dBV",
+            "40dBV",
+            "30dBV",
+            "20dBV",
+            "10dBV",
+            "1dBV"});
 			this.comboBoxRange.Location = new System.Drawing.Point(83, 66);
 			this.comboBoxRange.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxRange.Name = "comboBoxRange";
@@ -799,7 +1103,30 @@
 			// 
 			// comboBoxTop
 			// 
+			this.comboBoxTop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxTop.FormattingEnabled = true;
+			this.comboBoxTop.Items.AddRange(new object[] {
+            "100dBV",
+            "90dBV",
+            "80dBV",
+            "70dBV",
+            "60dBV",
+            "50dBV",
+            "40dBV",
+            "30dBV",
+            "20dBV",
+            "10dBV",
+            "0dBV",
+            "-10dBV",
+            "-20dBV",
+            "-30dBV",
+            "-40dBV",
+            "-50dBV",
+            "-60dBV",
+            "-70dBV",
+            "-80dBV",
+            "-90dBV",
+            "-100dBV"});
 			this.comboBoxTop.Location = new System.Drawing.Point(83, 42);
 			this.comboBoxTop.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxTop.Name = "comboBoxTop";
@@ -808,7 +1135,14 @@
 			// 
 			// comboBoxMagnitudeUnit
 			// 
+			this.comboBoxMagnitudeUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxMagnitudeUnit.FormattingEnabled = true;
+			this.comboBoxMagnitudeUnit.Items.AddRange(new object[] {
+            "Vpeak(V)",
+            "Vrms",
+            "dBV",
+            "dBu",
+            "dB"});
 			this.comboBoxMagnitudeUnit.Location = new System.Drawing.Point(83, 17);
 			this.comboBoxMagnitudeUnit.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxMagnitudeUnit.Name = "comboBoxMagnitudeUnit";
@@ -825,56 +1159,6 @@
 			this.labelMagnitudeUnit.TabIndex = 0;
 			this.labelMagnitudeUnit.Text = "单位";
 			// 
-			// toolStrip2
-			// 
-			this.toolStrip2.ImageScalingSize = new System.Drawing.Size(32, 32);
-			this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonSetting,
-            this.toolStripSeparator5,
-            this.toolStripButtonSingle,
-            this.toolStripSeparator6,
-            this.toolStripButtonRun,
-            this.toolStripSeparator7});
-			this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-			this.toolStrip2.Name = "toolStrip2";
-			this.toolStrip2.Padding = new System.Windows.Forms.Padding(0);
-			this.toolStrip2.Size = new System.Drawing.Size(215, 25);
-			this.toolStrip2.TabIndex = 0;
-			this.toolStrip2.Text = "toolStrip2";
-			// 
-			// toolStripButtonSetting
-			// 
-			this.toolStripButtonSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripButtonSetting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemStart,
-            this.toolStripMenuItemStop,
-            this.toolStripMenuItemBINS,
-            this.toolStripMenuItemScale,
-            this.toolStripMenuItemAlgorithm});
-			this.toolStripButtonSetting.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSetting.Image")));
-			this.toolStripButtonSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButtonSetting.Name = "toolStripButtonSetting";
-			this.toolStripButtonSetting.Size = new System.Drawing.Size(69, 22);
-			this.toolStripButtonSetting.Text = "频谱设置";
-			// 
-			// toolStripButtonSingle
-			// 
-			this.toolStripButtonSingle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripButtonSingle.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSingle.Image")));
-			this.toolStripButtonSingle.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButtonSingle.Name = "toolStripButtonSingle";
-			this.toolStripButtonSingle.Size = new System.Drawing.Size(60, 22);
-			this.toolStripButtonSingle.Text = "单次采集";
-			// 
-			// toolStripButtonRun
-			// 
-			this.toolStripButtonRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripButtonRun.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRun.Image")));
-			this.toolStripButtonRun.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButtonRun.Name = "toolStripButtonRun";
-			this.toolStripButtonRun.Size = new System.Drawing.Size(36, 22);
-			this.toolStripButtonRun.Text = "运行";
-			// 
 			// tabPageMeter
 			// 
 			this.tabPageMeter.Controls.Add(this.tableLayoutPanel9);
@@ -886,12 +1170,13 @@
 			this.tabPageMeter.TabIndex = 5;
 			this.tabPageMeter.Text = "电压电流计";
 			this.tabPageMeter.UseVisualStyleBackColor = true;
+			this.tabPageMeter.Enter += new System.EventHandler(this.tabPageMeter_Enter);
 			// 
 			// tableLayoutPanel9
 			// 
 			this.tableLayoutPanel9.ColumnCount = 2;
 			this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+			this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
 			this.tableLayoutPanel9.Controls.Add(this.formsPlotMeter, 0, 0);
 			this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel8, 1, 0);
 			this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -908,62 +1193,163 @@
 			this.formsPlotMeter.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.formsPlotMeter.Location = new System.Drawing.Point(3, 3);
 			this.formsPlotMeter.Name = "formsPlotMeter";
-			this.formsPlotMeter.Size = new System.Drawing.Size(599, 494);
+			this.formsPlotMeter.Size = new System.Drawing.Size(634, 494);
 			this.formsPlotMeter.TabIndex = 0;
 			// 
 			// tableLayoutPanel8
 			// 
 			this.tableLayoutPanel8.ColumnCount = 1;
 			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel8.Controls.Add(this.toolStrip1, 0, 0);
+			this.tableLayoutPanel8.Controls.Add(this.panelMeter, 0, 1);
+			this.tableLayoutPanel8.Controls.Add(this.toolStripMeter, 0, 0);
 			this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel8.Location = new System.Drawing.Point(607, 2);
-			this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2);
+			this.tableLayoutPanel8.Location = new System.Drawing.Point(640, 0);
+			this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
 			this.tableLayoutPanel8.Name = "tableLayoutPanel8";
 			this.tableLayoutPanel8.RowCount = 2;
 			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
 			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel8.Size = new System.Drawing.Size(246, 496);
+			this.tableLayoutPanel8.Size = new System.Drawing.Size(215, 500);
 			this.tableLayoutPanel8.TabIndex = 1;
 			// 
-			// toolStrip1
+			// panelMeter
 			// 
-			this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
+			this.panelMeter.AutoScroll = true;
+			this.panelMeter.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelMeter.Location = new System.Drawing.Point(0, 25);
+			this.panelMeter.Margin = new System.Windows.Forms.Padding(0);
+			this.panelMeter.Name = "panelMeter";
+			this.panelMeter.Size = new System.Drawing.Size(215, 475);
+			this.panelMeter.TabIndex = 5;
+			// 
+			// toolStripMeter
+			// 
+			this.toolStripMeter.ImageScalingSize = new System.Drawing.Size(32, 32);
+			this.toolStripMeter.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButtonDisplay3,
+            this.toolStripSeparator4,
+            this.toolStripDropDownButtonInteraction3,
+            this.toolStripSeparator12,
+            this.toolStripLabelAddTracer,
             this.toolStripSeparator1,
             this.toolStripLabel2,
-            this.toolStripSeparator2,
-            this.toolStripLabel3,
-            this.toolStripSeparator3,
-            this.toolStripLabel4,
-            this.toolStripSeparator4});
-			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-			this.toolStrip1.Size = new System.Drawing.Size(246, 25);
-			this.toolStrip1.TabIndex = 3;
-			this.toolStrip1.Text = "toolStrip1";
+            this.toolStripSeparator3});
+			this.toolStripMeter.Location = new System.Drawing.Point(0, 0);
+			this.toolStripMeter.Name = "toolStripMeter";
+			this.toolStripMeter.Padding = new System.Windows.Forms.Padding(0);
+			this.toolStripMeter.Size = new System.Drawing.Size(215, 25);
+			this.toolStripMeter.TabIndex = 3;
+			this.toolStripMeter.Text = "toolStrip1";
 			// 
-			// toolStripSeparator1
+			// toolStripDropDownButtonDisplay3
 			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 20);
+			this.toolStripDropDownButtonDisplay3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripDropDownButtonDisplay3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem11});
+			this.toolStripDropDownButtonDisplay3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonDisplay3.Image")));
+			this.toolStripDropDownButtonDisplay3.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButtonDisplay3.Name = "toolStripDropDownButtonDisplay3";
+			this.toolStripDropDownButtonDisplay3.Size = new System.Drawing.Size(45, 22);
+			this.toolStripDropDownButtonDisplay3.Text = "显示";
 			// 
-			// toolStripSeparator2
+			// toolStripMenuItem9
 			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 20);
+			this.toolStripMenuItem9.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxColorStyle3});
+			this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+			this.toolStripMenuItem9.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItem9.Text = "色彩模式";
 			// 
-			// toolStripSeparator3
+			// toolStripComboBoxColorStyle3
 			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 20);
+			this.toolStripComboBoxColorStyle3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxColorStyle3.Items.AddRange(new object[] {
+            "浅色模式",
+            "深色模式"});
+			this.toolStripComboBoxColorStyle3.Name = "toolStripComboBoxColorStyle3";
+			this.toolStripComboBoxColorStyle3.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxColorStyle3.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxColorStyle3_SelectedIndexChanged);
+			// 
+			// toolStripMenuItem10
+			// 
+			this.toolStripMenuItem10.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxLineStyle3});
+			this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+			this.toolStripMenuItem10.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItem10.Text = "连线样式";
+			// 
+			// toolStripComboBoxLineStyle3
+			// 
+			this.toolStripComboBoxLineStyle3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxLineStyle3.Items.AddRange(new object[] {
+            "折线",
+            "步进显示"});
+			this.toolStripComboBoxLineStyle3.Name = "toolStripComboBoxLineStyle3";
+			this.toolStripComboBoxLineStyle3.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxLineStyle3.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxLineStyle3_SelectedIndexChanged);
+			// 
+			// toolStripMenuItem11
+			// 
+			this.toolStripMenuItem11.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxLineWidth3});
+			this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+			this.toolStripMenuItem11.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItem11.Text = "连线宽度";
+			// 
+			// toolStripComboBoxLineWidth3
+			// 
+			this.toolStripComboBoxLineWidth3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxLineWidth3.Items.AddRange(new object[] {
+            "1",
+            "1.5",
+            "2",
+            "2.5",
+            "3"});
+			this.toolStripComboBoxLineWidth3.Name = "toolStripComboBoxLineWidth3";
+			this.toolStripComboBoxLineWidth3.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxLineWidth3.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxLineWidth3_SelectedIndexChanged);
 			// 
 			// toolStripSeparator4
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(6, 20);
+			this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripSeparator12
+			// 
+			this.toolStripSeparator12.Name = "toolStripSeparator12";
+			this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripLabelAddTracer
+			// 
+			this.toolStripLabelAddTracer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripLabelAddTracer.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabelAddTracer.Image")));
+			this.toolStripLabelAddTracer.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripLabelAddTracer.Name = "toolStripLabelAddTracer";
+			this.toolStripLabelAddTracer.Size = new System.Drawing.Size(36, 22);
+			this.toolStripLabelAddTracer.Text = "添加";
+			this.toolStripLabelAddTracer.Click += new System.EventHandler(this.toolStripLabelAddTracer_Click);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripLabel2
+			// 
+			this.toolStripLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripLabel2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel2.Image")));
+			this.toolStripLabel2.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripLabel2.Name = "toolStripLabel2";
+			this.toolStripLabel2.Size = new System.Drawing.Size(36, 22);
+			this.toolStripLabel2.Text = "清空";
+			this.toolStripLabel2.Click += new System.EventHandler(this.toolStripLabel2_Click);
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
 			// 
 			// tabPageWavegen
 			// 
@@ -982,29 +1368,167 @@
 			// 
 			this.tableLayoutPanel6.ColumnCount = 2;
 			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
+			this.tableLayoutPanel6.Controls.Add(this.toolStripWaveGen, 1, 0);
+			this.tableLayoutPanel6.Controls.Add(this.groupBoxWavegen, 0, 1);
 			this.tableLayoutPanel6.Controls.Add(this.formsPlotWaveGen, 0, 0);
-			this.tableLayoutPanel6.Controls.Add(this.groupBoxWavegen, 1, 0);
 			this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 2);
 			this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2);
 			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-			this.tableLayoutPanel6.RowCount = 1;
+			this.tableLayoutPanel6.RowCount = 2;
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel6.Size = new System.Drawing.Size(855, 500);
 			this.tableLayoutPanel6.TabIndex = 0;
 			// 
-			// formsPlotWaveGen
+			// toolStripWaveGen
 			// 
-			this.formsPlotWaveGen.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.formsPlotWaveGen.Location = new System.Drawing.Point(3, 3);
-			this.formsPlotWaveGen.Name = "formsPlotWaveGen";
-			this.formsPlotWaveGen.Size = new System.Drawing.Size(649, 494);
-			this.formsPlotWaveGen.TabIndex = 0;
+			this.toolStripWaveGen.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.toolStripWaveGen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton1,
+            this.toolStripSeparator11,
+            this.toolStripDropDownButtonInteraction2,
+            this.toolStripSeparator10});
+			this.toolStripWaveGen.Location = new System.Drawing.Point(640, 0);
+			this.toolStripWaveGen.Name = "toolStripWaveGen";
+			this.toolStripWaveGen.Padding = new System.Windows.Forms.Padding(0);
+			this.toolStripWaveGen.Size = new System.Drawing.Size(215, 25);
+			this.toolStripWaveGen.TabIndex = 8;
+			this.toolStripWaveGen.Text = "toolStrip4";
+			// 
+			// toolStripDropDownButton1
+			// 
+			this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemColorStyle2,
+            this.toolStripMenuItemLineStyle2,
+            this.toolStripMenuItemLineWidth2});
+			this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+			this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+			this.toolStripDropDownButton1.Size = new System.Drawing.Size(45, 22);
+			this.toolStripDropDownButton1.Text = "显示";
+			// 
+			// toolStripMenuItemColorStyle2
+			// 
+			this.toolStripMenuItemColorStyle2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxColorStyle2});
+			this.toolStripMenuItemColorStyle2.Name = "toolStripMenuItemColorStyle2";
+			this.toolStripMenuItemColorStyle2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemColorStyle2.Text = "色彩模式";
+			// 
+			// toolStripComboBoxColorStyle2
+			// 
+			this.toolStripComboBoxColorStyle2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxColorStyle2.Items.AddRange(new object[] {
+            "浅色模式",
+            "深色模式"});
+			this.toolStripComboBoxColorStyle2.Name = "toolStripComboBoxColorStyle2";
+			this.toolStripComboBoxColorStyle2.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxColorStyle2.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxColorStyle2_SelectedIndexChanged);
+			// 
+			// toolStripMenuItemLineStyle2
+			// 
+			this.toolStripMenuItemLineStyle2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxLineStyle2});
+			this.toolStripMenuItemLineStyle2.Name = "toolStripMenuItemLineStyle2";
+			this.toolStripMenuItemLineStyle2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemLineStyle2.Text = "连线样式";
+			// 
+			// toolStripComboBoxLineStyle2
+			// 
+			this.toolStripComboBoxLineStyle2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxLineStyle2.Items.AddRange(new object[] {
+            "折线",
+            "步进显示"});
+			this.toolStripComboBoxLineStyle2.Name = "toolStripComboBoxLineStyle2";
+			this.toolStripComboBoxLineStyle2.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxLineStyle2.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxLineStyle2_SelectedIndexChanged);
+			// 
+			// toolStripMenuItemLineWidth2
+			// 
+			this.toolStripMenuItemLineWidth2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxLineWidth2});
+			this.toolStripMenuItemLineWidth2.Name = "toolStripMenuItemLineWidth2";
+			this.toolStripMenuItemLineWidth2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemLineWidth2.Text = "连线宽度";
+			// 
+			// toolStripComboBoxLineWidth2
+			// 
+			this.toolStripComboBoxLineWidth2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxLineWidth2.Items.AddRange(new object[] {
+            "1",
+            "1.5",
+            "2",
+            "2.5",
+            "3"});
+			this.toolStripComboBoxLineWidth2.Name = "toolStripComboBoxLineWidth2";
+			this.toolStripComboBoxLineWidth2.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxLineWidth2.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxLineWidth2_SelectedIndexChanged);
+			// 
+			// toolStripSeparator11
+			// 
+			this.toolStripSeparator11.Name = "toolStripSeparator11";
+			this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripDropDownButtonInteraction2
+			// 
+			this.toolStripDropDownButtonInteraction2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripDropDownButtonInteraction2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemRightClickDragZoom2,
+            this.toolStripMenuItemScrollWheelZoom2,
+            this.toolStripMenuItemHorizontalZoom2,
+            this.toolStripMenuItemVerticalZoom2});
+			this.toolStripDropDownButtonInteraction2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonInteraction2.Image")));
+			this.toolStripDropDownButtonInteraction2.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButtonInteraction2.Name = "toolStripDropDownButtonInteraction2";
+			this.toolStripDropDownButtonInteraction2.Size = new System.Drawing.Size(45, 22);
+			this.toolStripDropDownButtonInteraction2.Text = "交互";
+			// 
+			// toolStripMenuItemRightClickDragZoom2
+			// 
+			this.toolStripMenuItemRightClickDragZoom2.Checked = true;
+			this.toolStripMenuItemRightClickDragZoom2.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemRightClickDragZoom2.Name = "toolStripMenuItemRightClickDragZoom2";
+			this.toolStripMenuItemRightClickDragZoom2.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemRightClickDragZoom2.Text = "右键缩放";
+			this.toolStripMenuItemRightClickDragZoom2.Click += new System.EventHandler(this.toolStripMenuItemRightClickDragZoom2_Click);
+			// 
+			// toolStripMenuItemScrollWheelZoom2
+			// 
+			this.toolStripMenuItemScrollWheelZoom2.Checked = true;
+			this.toolStripMenuItemScrollWheelZoom2.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemScrollWheelZoom2.Name = "toolStripMenuItemScrollWheelZoom2";
+			this.toolStripMenuItemScrollWheelZoom2.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemScrollWheelZoom2.Text = "滚轮缩放";
+			this.toolStripMenuItemScrollWheelZoom2.Click += new System.EventHandler(this.toolStripMenuItemScrollWheelZoom2_Click);
+			// 
+			// toolStripMenuItemHorizontalZoom2
+			// 
+			this.toolStripMenuItemHorizontalZoom2.Checked = true;
+			this.toolStripMenuItemHorizontalZoom2.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemHorizontalZoom2.Name = "toolStripMenuItemHorizontalZoom2";
+			this.toolStripMenuItemHorizontalZoom2.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemHorizontalZoom2.Text = "水平缩放";
+			this.toolStripMenuItemHorizontalZoom2.Click += new System.EventHandler(this.toolStripMenuItemHorizontalZoom2_Click);
+			// 
+			// toolStripMenuItemVerticalZoom2
+			// 
+			this.toolStripMenuItemVerticalZoom2.Checked = true;
+			this.toolStripMenuItemVerticalZoom2.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemVerticalZoom2.Name = "toolStripMenuItemVerticalZoom2";
+			this.toolStripMenuItemVerticalZoom2.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemVerticalZoom2.Text = "垂直缩放";
+			this.toolStripMenuItemVerticalZoom2.Click += new System.EventHandler(this.toolStripMenuItemVerticalZoom2_Click);
+			// 
+			// toolStripSeparator10
+			// 
+			this.toolStripSeparator10.Name = "toolStripSeparator10";
+			this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
 			// 
 			// groupBoxWavegen
 			// 
-			this.groupBoxWavegen.Controls.Add(this.buttonProjectOntoScope);
 			this.groupBoxWavegen.Controls.Add(this.checkBoxRunState);
 			this.groupBoxWavegen.Controls.Add(this.buttonRunWavegen);
 			this.groupBoxWavegen.Controls.Add(this.comboBoxPhase);
@@ -1020,25 +1544,14 @@
 			this.groupBoxWavegen.Controls.Add(this.labelFrequency_2);
 			this.groupBoxWavegen.Controls.Add(this.labelType);
 			this.groupBoxWavegen.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBoxWavegen.Location = new System.Drawing.Point(657, 2);
+			this.groupBoxWavegen.Location = new System.Drawing.Point(642, 27);
 			this.groupBoxWavegen.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBoxWavegen.Name = "groupBoxWavegen";
 			this.groupBoxWavegen.Padding = new System.Windows.Forms.Padding(2);
-			this.groupBoxWavegen.Size = new System.Drawing.Size(196, 496);
-			this.groupBoxWavegen.TabIndex = 1;
+			this.groupBoxWavegen.Size = new System.Drawing.Size(211, 471);
+			this.groupBoxWavegen.TabIndex = 3;
 			this.groupBoxWavegen.TabStop = false;
 			this.groupBoxWavegen.Text = "控制";
-			// 
-			// buttonProjectOntoScope
-			// 
-			this.buttonProjectOntoScope.Enabled = false;
-			this.buttonProjectOntoScope.Location = new System.Drawing.Point(52, 242);
-			this.buttonProjectOntoScope.Name = "buttonProjectOntoScope";
-			this.buttonProjectOntoScope.Size = new System.Drawing.Size(90, 27);
-			this.buttonProjectOntoScope.TabIndex = 14;
-			this.buttonProjectOntoScope.Text = "投射到示波器";
-			this.buttonProjectOntoScope.UseVisualStyleBackColor = true;
-			this.buttonProjectOntoScope.Visible = false;
 			// 
 			// checkBoxRunState
 			// 
@@ -1054,7 +1567,6 @@
 			// 
 			// buttonRunWavegen
 			// 
-			this.buttonRunWavegen.BackColor = System.Drawing.Color.LimeGreen;
 			this.buttonRunWavegen.Location = new System.Drawing.Point(62, 200);
 			this.buttonRunWavegen.Margin = new System.Windows.Forms.Padding(2);
 			this.buttonRunWavegen.Name = "buttonRunWavegen";
@@ -1062,7 +1574,7 @@
 			this.buttonRunWavegen.TabIndex = 12;
 			this.buttonRunWavegen.Text = "运行";
 			this.buttonRunWavegen.UseVisualStyleBackColor = false;
-			this.buttonRunWavegen.Click += new System.EventHandler(this.buttonRunStop_Click);
+			this.buttonRunWavegen.Click += new System.EventHandler(this.buttonRunWaveGen_Click);
 			// 
 			// comboBoxPhase
 			// 
@@ -1316,6 +1828,15 @@
 			this.labelType.TabIndex = 0;
 			this.labelType.Text = "类型";
 			// 
+			// formsPlotWaveGen
+			// 
+			this.formsPlotWaveGen.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.formsPlotWaveGen.Location = new System.Drawing.Point(3, 3);
+			this.formsPlotWaveGen.Name = "formsPlotWaveGen";
+			this.tableLayoutPanel6.SetRowSpan(this.formsPlotWaveGen, 2);
+			this.formsPlotWaveGen.Size = new System.Drawing.Size(634, 494);
+			this.formsPlotWaveGen.TabIndex = 2;
+			// 
 			// tabPageScope
 			// 
 			this.tabPageScope.Controls.Add(this.tableLayoutPanel4);
@@ -1349,108 +1870,20 @@
 			// 
 			this.tableLayoutPanel5.ColumnCount = 1;
 			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel5.Controls.Add(this.groupBoxInteraction, 0, 1);
-			this.tableLayoutPanel5.Controls.Add(this.groupBoxControl, 0, 2);
-			this.tableLayoutPanel5.Controls.Add(this.groupBoxInfor, 0, 3);
-			this.tableLayoutPanel5.Controls.Add(this.groupBoxDisplay, 0, 0);
+			this.tableLayoutPanel5.Controls.Add(this.groupBoxControl, 0, 1);
+			this.tableLayoutPanel5.Controls.Add(this.groupBoxInfor, 0, 2);
+			this.tableLayoutPanel5.Controls.Add(this.toolStripScope, 0, 0);
 			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel5.Location = new System.Drawing.Point(657, 2);
 			this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
 			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-			this.tableLayoutPanel5.RowCount = 4;
-			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.81308F));
-			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.74766F));
-			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.76636F));
-			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.6729F));
+			this.tableLayoutPanel5.RowCount = 3;
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel5.Size = new System.Drawing.Size(196, 496);
 			this.tableLayoutPanel5.TabIndex = 3;
-			// 
-			// groupBoxInteraction
-			// 
-			this.groupBoxInteraction.Controls.Add(this.checkBoxCrosshair);
-			this.groupBoxInteraction.Controls.Add(this.checkBoxVerticalZoom);
-			this.groupBoxInteraction.Controls.Add(this.checkBoxHorizontalZoom);
-			this.groupBoxInteraction.Controls.Add(this.checkBoxScrollWheelZoom);
-			this.groupBoxInteraction.Controls.Add(this.checkBoxRightClickDragZoom);
-			this.groupBoxInteraction.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBoxInteraction.Location = new System.Drawing.Point(2, 100);
-			this.groupBoxInteraction.Margin = new System.Windows.Forms.Padding(2);
-			this.groupBoxInteraction.Name = "groupBoxInteraction";
-			this.groupBoxInteraction.Padding = new System.Windows.Forms.Padding(2);
-			this.groupBoxInteraction.Size = new System.Drawing.Size(192, 98);
-			this.groupBoxInteraction.TabIndex = 7;
-			this.groupBoxInteraction.TabStop = false;
-			this.groupBoxInteraction.Text = "交互";
-			// 
-			// checkBoxCrosshair
-			// 
-			this.checkBoxCrosshair.AutoSize = true;
-			this.checkBoxCrosshair.Checked = true;
-			this.checkBoxCrosshair.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBoxCrosshair.Location = new System.Drawing.Point(11, 74);
-			this.checkBoxCrosshair.Margin = new System.Windows.Forms.Padding(2);
-			this.checkBoxCrosshair.Name = "checkBoxCrosshair";
-			this.checkBoxCrosshair.Size = new System.Drawing.Size(72, 16);
-			this.checkBoxCrosshair.TabIndex = 4;
-			this.checkBoxCrosshair.Text = "十字准线";
-			this.checkBoxCrosshair.UseVisualStyleBackColor = true;
-			this.checkBoxCrosshair.CheckedChanged += new System.EventHandler(this.checkBoxCrosshair_CheckedChanged);
-			// 
-			// checkBoxVerticalZoom
-			// 
-			this.checkBoxVerticalZoom.AutoSize = true;
-			this.checkBoxVerticalZoom.Checked = true;
-			this.checkBoxVerticalZoom.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBoxVerticalZoom.Location = new System.Drawing.Point(114, 46);
-			this.checkBoxVerticalZoom.Margin = new System.Windows.Forms.Padding(2);
-			this.checkBoxVerticalZoom.Name = "checkBoxVerticalZoom";
-			this.checkBoxVerticalZoom.Size = new System.Drawing.Size(72, 16);
-			this.checkBoxVerticalZoom.TabIndex = 3;
-			this.checkBoxVerticalZoom.Text = "垂直缩放";
-			this.checkBoxVerticalZoom.UseVisualStyleBackColor = true;
-			this.checkBoxVerticalZoom.CheckedChanged += new System.EventHandler(this.checkBoxVerticalZoom_CheckedChanged);
-			// 
-			// checkBoxHorizontalZoom
-			// 
-			this.checkBoxHorizontalZoom.AutoSize = true;
-			this.checkBoxHorizontalZoom.Checked = true;
-			this.checkBoxHorizontalZoom.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBoxHorizontalZoom.Location = new System.Drawing.Point(12, 46);
-			this.checkBoxHorizontalZoom.Margin = new System.Windows.Forms.Padding(2);
-			this.checkBoxHorizontalZoom.Name = "checkBoxHorizontalZoom";
-			this.checkBoxHorizontalZoom.Size = new System.Drawing.Size(72, 16);
-			this.checkBoxHorizontalZoom.TabIndex = 2;
-			this.checkBoxHorizontalZoom.Text = "水平缩放";
-			this.checkBoxHorizontalZoom.UseVisualStyleBackColor = true;
-			this.checkBoxHorizontalZoom.CheckedChanged += new System.EventHandler(this.checkBoxHorizontalZoom_CheckedChanged);
-			// 
-			// checkBoxScrollWheelZoom
-			// 
-			this.checkBoxScrollWheelZoom.AutoSize = true;
-			this.checkBoxScrollWheelZoom.Checked = true;
-			this.checkBoxScrollWheelZoom.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBoxScrollWheelZoom.Location = new System.Drawing.Point(114, 20);
-			this.checkBoxScrollWheelZoom.Margin = new System.Windows.Forms.Padding(2);
-			this.checkBoxScrollWheelZoom.Name = "checkBoxScrollWheelZoom";
-			this.checkBoxScrollWheelZoom.Size = new System.Drawing.Size(72, 16);
-			this.checkBoxScrollWheelZoom.TabIndex = 1;
-			this.checkBoxScrollWheelZoom.Text = "滚轮缩放";
-			this.checkBoxScrollWheelZoom.UseVisualStyleBackColor = true;
-			this.checkBoxScrollWheelZoom.CheckedChanged += new System.EventHandler(this.checkBoxScrollWheelZoom_CheckedChanged);
-			// 
-			// checkBoxRightClickDragZoom
-			// 
-			this.checkBoxRightClickDragZoom.AutoSize = true;
-			this.checkBoxRightClickDragZoom.Checked = true;
-			this.checkBoxRightClickDragZoom.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBoxRightClickDragZoom.Location = new System.Drawing.Point(12, 20);
-			this.checkBoxRightClickDragZoom.Margin = new System.Windows.Forms.Padding(2);
-			this.checkBoxRightClickDragZoom.Name = "checkBoxRightClickDragZoom";
-			this.checkBoxRightClickDragZoom.Size = new System.Drawing.Size(102, 16);
-			this.checkBoxRightClickDragZoom.TabIndex = 0;
-			this.checkBoxRightClickDragZoom.Text = "右键拖动/缩放";
-			this.checkBoxRightClickDragZoom.UseVisualStyleBackColor = true;
-			this.checkBoxRightClickDragZoom.CheckedChanged += new System.EventHandler(this.checkBoxRightClickDragZoom_CheckedChanged);
 			// 
 			// groupBoxControl
 			// 
@@ -1463,11 +1896,11 @@
 			this.groupBoxControl.Controls.Add(this.labelCoupledType);
 			this.groupBoxControl.Controls.Add(this.comboBoxCoupledType);
 			this.groupBoxControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBoxControl.Location = new System.Drawing.Point(2, 202);
+			this.groupBoxControl.Location = new System.Drawing.Point(2, 27);
 			this.groupBoxControl.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBoxControl.Name = "groupBoxControl";
 			this.groupBoxControl.Padding = new System.Windows.Forms.Padding(2);
-			this.groupBoxControl.Size = new System.Drawing.Size(192, 118);
+			this.groupBoxControl.Size = new System.Drawing.Size(192, 192);
 			this.groupBoxControl.TabIndex = 6;
 			this.groupBoxControl.TabStop = false;
 			this.groupBoxControl.Text = "控制";
@@ -1475,7 +1908,7 @@
 			// labelTriggerType
 			// 
 			this.labelTriggerType.AutoSize = true;
-			this.labelTriggerType.Location = new System.Drawing.Point(9, 44);
+			this.labelTriggerType.Location = new System.Drawing.Point(9, 47);
 			this.labelTriggerType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.labelTriggerType.Name = "labelTriggerType";
 			this.labelTriggerType.Size = new System.Drawing.Size(53, 12);
@@ -1491,7 +1924,7 @@
             "上升沿",
             "下降沿",
             "同时触发"});
-			this.comboBoxTriggerType.Location = new System.Drawing.Point(79, 43);
+			this.comboBoxTriggerType.Location = new System.Drawing.Point(79, 44);
 			this.comboBoxTriggerType.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxTriggerType.Name = "comboBoxTriggerType";
 			this.comboBoxTriggerType.Size = new System.Drawing.Size(92, 20);
@@ -1517,7 +1950,7 @@
             "10ms",
             "20ms",
             "50ms"});
-			this.comboBoxTimeBase.Location = new System.Drawing.Point(79, 88);
+			this.comboBoxTimeBase.Location = new System.Drawing.Point(79, 92);
 			this.comboBoxTimeBase.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxTimeBase.Name = "comboBoxTimeBase";
 			this.comboBoxTimeBase.Size = new System.Drawing.Size(92, 20);
@@ -1526,12 +1959,12 @@
 			// labelTimeBase
 			// 
 			this.labelTimeBase.AutoSize = true;
-			this.labelTimeBase.Location = new System.Drawing.Point(9, 90);
+			this.labelTimeBase.Location = new System.Drawing.Point(9, 95);
 			this.labelTimeBase.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.labelTimeBase.Name = "labelTimeBase";
-			this.labelTimeBase.Size = new System.Drawing.Size(29, 12);
+			this.labelTimeBase.Size = new System.Drawing.Size(65, 12);
 			this.labelTimeBase.TabIndex = 30;
-			this.labelTimeBase.Text = "时基";
+			this.labelTimeBase.Text = "水平灵敏度";
 			// 
 			// comboBoxVerticalSensitivity
 			// 
@@ -1543,7 +1976,7 @@
             "0.1V",
             "0.05V",
             "0.01V"});
-			this.comboBoxVerticalSensitivity.Location = new System.Drawing.Point(79, 66);
+			this.comboBoxVerticalSensitivity.Location = new System.Drawing.Point(79, 68);
 			this.comboBoxVerticalSensitivity.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxVerticalSensitivity.Name = "comboBoxVerticalSensitivity";
 			this.comboBoxVerticalSensitivity.Size = new System.Drawing.Size(92, 20);
@@ -1552,7 +1985,7 @@
 			// labelVerticalSensitivity
 			// 
 			this.labelVerticalSensitivity.AutoSize = true;
-			this.labelVerticalSensitivity.Location = new System.Drawing.Point(9, 68);
+			this.labelVerticalSensitivity.Location = new System.Drawing.Point(9, 71);
 			this.labelVerticalSensitivity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.labelVerticalSensitivity.Name = "labelVerticalSensitivity";
 			this.labelVerticalSensitivity.Size = new System.Drawing.Size(65, 12);
@@ -1589,19 +2022,19 @@
 			this.groupBoxInfor.Controls.Add(this.labelDisplayPlotCount);
 			this.groupBoxInfor.Controls.Add(this.labelDisplayMaximum);
 			this.groupBoxInfor.Controls.Add(this.labelDisplayMinimum);
-			this.groupBoxInfor.Controls.Add(this.labelDisplayTime);
+			this.groupBoxInfor.Controls.Add(this.labelRunTime);
 			this.groupBoxInfor.Controls.Add(this.labelDemo);
 			this.groupBoxInfor.Controls.Add(this.labelFrequency);
 			this.groupBoxInfor.Controls.Add(this.labelPlotCount);
 			this.groupBoxInfor.Controls.Add(this.labelMinimum);
 			this.groupBoxInfor.Controls.Add(this.labelMaximum);
-			this.groupBoxInfor.Controls.Add(this.labelTime);
+			this.groupBoxInfor.Controls.Add(this.labelRunTimeText);
 			this.groupBoxInfor.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBoxInfor.Location = new System.Drawing.Point(2, 324);
+			this.groupBoxInfor.Location = new System.Drawing.Point(2, 223);
 			this.groupBoxInfor.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBoxInfor.Name = "groupBoxInfor";
 			this.groupBoxInfor.Padding = new System.Windows.Forms.Padding(2);
-			this.groupBoxInfor.Size = new System.Drawing.Size(192, 170);
+			this.groupBoxInfor.Size = new System.Drawing.Size(192, 271);
 			this.groupBoxInfor.TabIndex = 5;
 			this.groupBoxInfor.TabStop = false;
 			this.groupBoxInfor.Text = "信息";
@@ -1646,15 +2079,15 @@
 			this.labelDisplayMinimum.TabIndex = 22;
 			this.labelDisplayMinimum.Text = "N/A";
 			// 
-			// labelDisplayTime
+			// labelRunTime
 			// 
-			this.labelDisplayTime.AutoSize = true;
-			this.labelDisplayTime.Location = new System.Drawing.Point(77, 18);
-			this.labelDisplayTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.labelDisplayTime.Name = "labelDisplayTime";
-			this.labelDisplayTime.Size = new System.Drawing.Size(23, 12);
-			this.labelDisplayTime.TabIndex = 21;
-			this.labelDisplayTime.Text = "N/A";
+			this.labelRunTime.AutoSize = true;
+			this.labelRunTime.Location = new System.Drawing.Point(77, 18);
+			this.labelRunTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.labelRunTime.Name = "labelRunTime";
+			this.labelRunTime.Size = new System.Drawing.Size(23, 12);
+			this.labelRunTime.TabIndex = 21;
+			this.labelRunTime.Text = "N/A";
 			// 
 			// labelDemo
 			// 
@@ -1663,9 +2096,9 @@
 			this.labelDemo.Location = new System.Drawing.Point(10, 137);
 			this.labelDemo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.labelDemo.Name = "labelDemo";
-			this.labelDemo.Size = new System.Drawing.Size(173, 12);
+			this.labelDemo.Size = new System.Drawing.Size(53, 12);
 			this.labelDemo.TabIndex = 20;
-			this.labelDemo.Text = "Demo模式：引入信号发生器波形";
+			this.labelDemo.Text = "Demo模式";
 			this.labelDemo.Click += new System.EventHandler(this.labelDemo_Click);
 			// 
 			// labelFrequency
@@ -1708,108 +2141,168 @@
 			this.labelMaximum.TabIndex = 11;
 			this.labelMaximum.Text = "最大值";
 			// 
-			// labelTime
+			// labelRunTimeText
 			// 
-			this.labelTime.AutoSize = true;
-			this.labelTime.Location = new System.Drawing.Point(9, 18);
-			this.labelTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.labelTime.Name = "labelTime";
-			this.labelTime.Size = new System.Drawing.Size(29, 12);
-			this.labelTime.TabIndex = 10;
-			this.labelTime.Text = "时间";
+			this.labelRunTimeText.AutoSize = true;
+			this.labelRunTimeText.Location = new System.Drawing.Point(9, 18);
+			this.labelRunTimeText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.labelRunTimeText.Name = "labelRunTimeText";
+			this.labelRunTimeText.Size = new System.Drawing.Size(29, 12);
+			this.labelRunTimeText.TabIndex = 10;
+			this.labelRunTimeText.Text = "时间";
 			// 
-			// groupBoxDisplay
+			// toolStripScope
 			// 
-			this.groupBoxDisplay.Controls.Add(this.comboBoxLineWidth);
-			this.groupBoxDisplay.Controls.Add(this.comboBoxLineStyle);
-			this.groupBoxDisplay.Controls.Add(this.labelLineStyle);
-			this.groupBoxDisplay.Controls.Add(this.labelLineWidth);
-			this.groupBoxDisplay.Controls.Add(this.comboBoxColorStyle);
-			this.groupBoxDisplay.Controls.Add(this.labelColorStyle);
-			this.groupBoxDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBoxDisplay.Location = new System.Drawing.Point(2, 2);
-			this.groupBoxDisplay.Margin = new System.Windows.Forms.Padding(2);
-			this.groupBoxDisplay.Name = "groupBoxDisplay";
-			this.groupBoxDisplay.Padding = new System.Windows.Forms.Padding(2);
-			this.groupBoxDisplay.Size = new System.Drawing.Size(192, 94);
-			this.groupBoxDisplay.TabIndex = 3;
-			this.groupBoxDisplay.TabStop = false;
-			this.groupBoxDisplay.Text = "显示";
+			this.toolStripScope.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButtonDisplay,
+            this.toolStripSeparator9,
+            this.toolStripDropDownButtonInteraction,
+            this.toolStripSeparator8});
+			this.toolStripScope.Location = new System.Drawing.Point(0, 0);
+			this.toolStripScope.Name = "toolStripScope";
+			this.toolStripScope.Size = new System.Drawing.Size(196, 25);
+			this.toolStripScope.TabIndex = 7;
+			this.toolStripScope.Text = "toolStrip3";
 			// 
-			// comboBoxLineWidth
+			// toolStripDropDownButtonDisplay
 			// 
-			this.comboBoxLineWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxLineWidth.FormattingEnabled = true;
-			this.comboBoxLineWidth.Items.AddRange(new object[] {
+			this.toolStripDropDownButtonDisplay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripDropDownButtonDisplay.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemColorStyle,
+            this.toolStripMenuItemLineStyle,
+            this.toolStripMenuItemLineWidth});
+			this.toolStripDropDownButtonDisplay.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonDisplay.Image")));
+			this.toolStripDropDownButtonDisplay.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButtonDisplay.Name = "toolStripDropDownButtonDisplay";
+			this.toolStripDropDownButtonDisplay.Size = new System.Drawing.Size(45, 22);
+			this.toolStripDropDownButtonDisplay.Text = "显示";
+			// 
+			// toolStripMenuItemColorStyle
+			// 
+			this.toolStripMenuItemColorStyle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxColorStyle});
+			this.toolStripMenuItemColorStyle.Name = "toolStripMenuItemColorStyle";
+			this.toolStripMenuItemColorStyle.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemColorStyle.Text = "色彩模式";
+			// 
+			// toolStripComboBoxColorStyle
+			// 
+			this.toolStripComboBoxColorStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxColorStyle.Items.AddRange(new object[] {
+            "浅色模式",
+            "深色模式"});
+			this.toolStripComboBoxColorStyle.Name = "toolStripComboBoxColorStyle";
+			this.toolStripComboBoxColorStyle.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxColorStyle.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxColorStyle_SelectedIndexChanged);
+			// 
+			// toolStripMenuItemLineStyle
+			// 
+			this.toolStripMenuItemLineStyle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxLineStyle});
+			this.toolStripMenuItemLineStyle.Name = "toolStripMenuItemLineStyle";
+			this.toolStripMenuItemLineStyle.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemLineStyle.Text = "连线样式";
+			// 
+			// toolStripComboBoxLineStyle
+			// 
+			this.toolStripComboBoxLineStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxLineStyle.Items.AddRange(new object[] {
+            "折线",
+            "步进显示"});
+			this.toolStripComboBoxLineStyle.Name = "toolStripComboBoxLineStyle";
+			this.toolStripComboBoxLineStyle.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxLineStyle.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxLineStyle_SelectedIndexChanged);
+			// 
+			// toolStripMenuItemLineWidth
+			// 
+			this.toolStripMenuItemLineWidth.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxLineWidth});
+			this.toolStripMenuItemLineWidth.Name = "toolStripMenuItemLineWidth";
+			this.toolStripMenuItemLineWidth.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemLineWidth.Text = "连线宽度";
+			// 
+			// toolStripComboBoxLineWidth
+			// 
+			this.toolStripComboBoxLineWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBoxLineWidth.Items.AddRange(new object[] {
             "1",
             "1.5",
             "2",
             "2.5",
             "3"});
-			this.comboBoxLineWidth.Location = new System.Drawing.Point(79, 68);
-			this.comboBoxLineWidth.Margin = new System.Windows.Forms.Padding(2);
-			this.comboBoxLineWidth.Name = "comboBoxLineWidth";
-			this.comboBoxLineWidth.Size = new System.Drawing.Size(92, 20);
-			this.comboBoxLineWidth.TabIndex = 33;
-			this.comboBoxLineWidth.SelectedIndexChanged += new System.EventHandler(this.comboBoxLineWidth_SelectedIndexChanged);
+			this.toolStripComboBoxLineWidth.Name = "toolStripComboBoxLineWidth";
+			this.toolStripComboBoxLineWidth.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxLineWidth.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxLineWidth_SelectedIndexChanged);
 			// 
-			// comboBoxLineStyle
+			// toolStripSeparator9
 			// 
-			this.comboBoxLineStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxLineStyle.FormattingEnabled = true;
-			this.comboBoxLineStyle.Items.AddRange(new object[] {
-            "折线",
-            "阶梯显示"});
-			this.comboBoxLineStyle.Location = new System.Drawing.Point(79, 43);
-			this.comboBoxLineStyle.Margin = new System.Windows.Forms.Padding(2);
-			this.comboBoxLineStyle.Name = "comboBoxLineStyle";
-			this.comboBoxLineStyle.Size = new System.Drawing.Size(92, 20);
-			this.comboBoxLineStyle.TabIndex = 32;
-			this.comboBoxLineStyle.SelectedIndexChanged += new System.EventHandler(this.comboBoxLineStyle_SelectedIndexChanged);
+			this.toolStripSeparator9.Name = "toolStripSeparator9";
+			this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
 			// 
-			// labelLineStyle
+			// toolStripDropDownButtonInteraction
 			// 
-			this.labelLineStyle.AutoSize = true;
-			this.labelLineStyle.Location = new System.Drawing.Point(9, 44);
-			this.labelLineStyle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.labelLineStyle.Name = "labelLineStyle";
-			this.labelLineStyle.Size = new System.Drawing.Size(29, 12);
-			this.labelLineStyle.TabIndex = 31;
-			this.labelLineStyle.Text = "线型";
+			this.toolStripDropDownButtonInteraction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripDropDownButtonInteraction.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemRightClickDragZoom,
+            this.toolStripMenuItemScrollWheelZoom,
+            this.toolStripMenuItemHorizontalZoom,
+            this.toolStripMenuItemVerticalZoom,
+            this.toolStripMenuItemCrosshair});
+			this.toolStripDropDownButtonInteraction.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonInteraction.Image")));
+			this.toolStripDropDownButtonInteraction.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButtonInteraction.Name = "toolStripDropDownButtonInteraction";
+			this.toolStripDropDownButtonInteraction.Size = new System.Drawing.Size(45, 22);
+			this.toolStripDropDownButtonInteraction.Text = "交互";
 			// 
-			// labelLineWidth
+			// toolStripMenuItemRightClickDragZoom
 			// 
-			this.labelLineWidth.AutoSize = true;
-			this.labelLineWidth.Location = new System.Drawing.Point(9, 69);
-			this.labelLineWidth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.labelLineWidth.Name = "labelLineWidth";
-			this.labelLineWidth.Size = new System.Drawing.Size(53, 12);
-			this.labelLineWidth.TabIndex = 28;
-			this.labelLineWidth.Text = "线条粗细";
+			this.toolStripMenuItemRightClickDragZoom.Checked = true;
+			this.toolStripMenuItemRightClickDragZoom.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemRightClickDragZoom.Name = "toolStripMenuItemRightClickDragZoom";
+			this.toolStripMenuItemRightClickDragZoom.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemRightClickDragZoom.Text = "右键缩放";
+			this.toolStripMenuItemRightClickDragZoom.Click += new System.EventHandler(this.toolStripMenuItemRightClickDragZoom_Click);
 			// 
-			// comboBoxColorStyle
+			// toolStripMenuItemScrollWheelZoom
 			// 
-			this.comboBoxColorStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxColorStyle.FormattingEnabled = true;
-			this.comboBoxColorStyle.Items.AddRange(new object[] {
-            "浅色",
-            "深色"});
-			this.comboBoxColorStyle.Location = new System.Drawing.Point(79, 18);
-			this.comboBoxColorStyle.Margin = new System.Windows.Forms.Padding(2);
-			this.comboBoxColorStyle.Name = "comboBoxColorStyle";
-			this.comboBoxColorStyle.Size = new System.Drawing.Size(92, 20);
-			this.comboBoxColorStyle.TabIndex = 27;
-			this.comboBoxColorStyle.SelectedIndexChanged += new System.EventHandler(this.comboBoxColorStyle_SelectedIndexChanged);
+			this.toolStripMenuItemScrollWheelZoom.Checked = true;
+			this.toolStripMenuItemScrollWheelZoom.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemScrollWheelZoom.Name = "toolStripMenuItemScrollWheelZoom";
+			this.toolStripMenuItemScrollWheelZoom.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemScrollWheelZoom.Text = "滚轮缩放";
+			this.toolStripMenuItemScrollWheelZoom.Click += new System.EventHandler(this.toolStripMenuItemScrollWheelZoom_Click);
 			// 
-			// labelColorStyle
+			// toolStripMenuItemHorizontalZoom
 			// 
-			this.labelColorStyle.AutoSize = true;
-			this.labelColorStyle.Location = new System.Drawing.Point(9, 20);
-			this.labelColorStyle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.labelColorStyle.Name = "labelColorStyle";
-			this.labelColorStyle.Size = new System.Drawing.Size(53, 12);
-			this.labelColorStyle.TabIndex = 26;
-			this.labelColorStyle.Text = "色彩模式";
+			this.toolStripMenuItemHorizontalZoom.Checked = true;
+			this.toolStripMenuItemHorizontalZoom.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemHorizontalZoom.Name = "toolStripMenuItemHorizontalZoom";
+			this.toolStripMenuItemHorizontalZoom.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemHorizontalZoom.Text = "水平缩放";
+			this.toolStripMenuItemHorizontalZoom.Click += new System.EventHandler(this.toolStripMenuItemHorizontalZoom_Click);
+			// 
+			// toolStripMenuItemVerticalZoom
+			// 
+			this.toolStripMenuItemVerticalZoom.Checked = true;
+			this.toolStripMenuItemVerticalZoom.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemVerticalZoom.Name = "toolStripMenuItemVerticalZoom";
+			this.toolStripMenuItemVerticalZoom.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemVerticalZoom.Text = "垂直缩放";
+			this.toolStripMenuItemVerticalZoom.Click += new System.EventHandler(this.toolStripMenuItemVerticalZoom_Click);
+			// 
+			// toolStripMenuItemCrosshair
+			// 
+			this.toolStripMenuItemCrosshair.Checked = true;
+			this.toolStripMenuItemCrosshair.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemCrosshair.Name = "toolStripMenuItemCrosshair";
+			this.toolStripMenuItemCrosshair.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemCrosshair.Text = "十字准线";
+			this.toolStripMenuItemCrosshair.Click += new System.EventHandler(this.toolStripMenuItemCrosshair_Click);
+			// 
+			// toolStripSeparator8
+			// 
+			this.toolStripSeparator8.Name = "toolStripSeparator8";
+			this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
 			// 
 			// formsPlotScope
 			// 
@@ -2227,189 +2720,61 @@
 			this.tabControlMain.Controls.Add(this.tabPageText);
 			this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControlMain.Location = new System.Drawing.Point(0, 0);
-			this.tabControlMain.Margin = new System.Windows.Forms.Padding(2);
+			this.tabControlMain.Margin = new System.Windows.Forms.Padding(0);
 			this.tabControlMain.Name = "tabControlMain";
 			this.tabControlMain.SelectedIndex = 0;
 			this.tabControlMain.Size = new System.Drawing.Size(867, 530);
 			this.tabControlMain.TabIndex = 0;
 			// 
-			// toolStripMenuItemStart
+			// toolStripMenuItemRightClickDragZoom3
 			// 
-			this.toolStripMenuItemStart.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBoxStart});
-			this.toolStripMenuItemStart.Name = "toolStripMenuItemStart";
-			this.toolStripMenuItemStart.Size = new System.Drawing.Size(180, 22);
-			this.toolStripMenuItemStart.Text = "最小频率";
+			this.toolStripMenuItemRightClickDragZoom3.Checked = true;
+			this.toolStripMenuItemRightClickDragZoom3.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemRightClickDragZoom3.Name = "toolStripMenuItemRightClickDragZoom3";
+			this.toolStripMenuItemRightClickDragZoom3.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemRightClickDragZoom3.Text = "右键缩放";
+			this.toolStripMenuItemRightClickDragZoom3.Click += new System.EventHandler(this.toolStripMenuItemRightClickDragZoom3_Click);
 			// 
-			// toolStripMenuItemStop
+			// toolStripMenuItemScrollWheelZoom3
 			// 
-			this.toolStripMenuItemStop.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBoxStop});
-			this.toolStripMenuItemStop.Name = "toolStripMenuItemStop";
-			this.toolStripMenuItemStop.Size = new System.Drawing.Size(180, 22);
-			this.toolStripMenuItemStop.Text = "最大频率";
+			this.toolStripMenuItemScrollWheelZoom3.Checked = true;
+			this.toolStripMenuItemScrollWheelZoom3.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemScrollWheelZoom3.Name = "toolStripMenuItemScrollWheelZoom3";
+			this.toolStripMenuItemScrollWheelZoom3.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemScrollWheelZoom3.Text = "滚轮缩放";
+			this.toolStripMenuItemScrollWheelZoom3.Click += new System.EventHandler(this.toolStripMenuItemScrollWheelZoom3_Click);
 			// 
-			// toolStripMenuItemBINS
+			// toolStripMenuItemHorizontalZoom3
 			// 
-			this.toolStripMenuItemBINS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBox3});
-			this.toolStripMenuItemBINS.Name = "toolStripMenuItemBINS";
-			this.toolStripMenuItemBINS.Size = new System.Drawing.Size(180, 22);
-			this.toolStripMenuItemBINS.Text = "频率箱点数";
+			this.toolStripMenuItemHorizontalZoom3.Checked = true;
+			this.toolStripMenuItemHorizontalZoom3.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemHorizontalZoom3.Name = "toolStripMenuItemHorizontalZoom3";
+			this.toolStripMenuItemHorizontalZoom3.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemHorizontalZoom3.Text = "水平缩放";
+			this.toolStripMenuItemHorizontalZoom3.Click += new System.EventHandler(this.toolStripMenuItemHorizontalZoom3_Click);
 			// 
-			// toolStripMenuItemScale
+			// toolStripMenuItemVerticalZoom3
 			// 
-			this.toolStripMenuItemScale.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBoxScale});
-			this.toolStripMenuItemScale.Name = "toolStripMenuItemScale";
-			this.toolStripMenuItemScale.Size = new System.Drawing.Size(180, 22);
-			this.toolStripMenuItemScale.Text = "坐标轴放缩";
+			this.toolStripMenuItemVerticalZoom3.Checked = true;
+			this.toolStripMenuItemVerticalZoom3.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemVerticalZoom3.Name = "toolStripMenuItemVerticalZoom3";
+			this.toolStripMenuItemVerticalZoom3.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemVerticalZoom3.Text = "垂直缩放";
+			this.toolStripMenuItemVerticalZoom3.Click += new System.EventHandler(this.toolStripMenuItemVerticalZoom3_Click);
 			// 
-			// toolStripMenuItemAlgorithm
+			// toolStripDropDownButtonInteraction3
 			// 
-			this.toolStripMenuItemAlgorithm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBoxAlgorithm});
-			this.toolStripMenuItemAlgorithm.Name = "toolStripMenuItemAlgorithm";
-			this.toolStripMenuItemAlgorithm.Size = new System.Drawing.Size(180, 22);
-			this.toolStripMenuItemAlgorithm.Text = "分析算法";
-			// 
-			// toolStripComboBoxStart
-			// 
-			this.toolStripComboBoxStart.Items.AddRange(new object[] {
-            "5MHz",
-            "2MHz",
-            "1MHz",
-            "500kHz",
-            "200kHz",
-            "100kHz",
-            "50kHz",
-            "20kHz",
-            "10kHz",
-            "5kHz",
-            "2kHz",
-            "1kHz",
-            "500Hz",
-            "200Hz",
-            "100Hz",
-            "50Hz",
-            "20Hz",
-            "10Hz",
-            "5Hz",
-            "2Hz",
-            "1Hz",
-            "0Hz"});
-			this.toolStripComboBoxStart.Name = "toolStripComboBoxStart";
-			this.toolStripComboBoxStart.Size = new System.Drawing.Size(121, 25);
-			// 
-			// toolStripComboBoxStop
-			// 
-			this.toolStripComboBoxStop.Items.AddRange(new object[] {
-            "5MHz",
-            "2MHz",
-            "1MHz",
-            "500kHz",
-            "200kHz",
-            "100kHz",
-            "50kHz",
-            "20kHz",
-            "10kHz",
-            "5kHz",
-            "2kHz",
-            "1kHz",
-            "500Hz",
-            "200Hz",
-            "100Hz",
-            "50Hz",
-            "20Hz",
-            "10Hz",
-            "5Hz",
-            "2Hz",
-            "1Hz",
-            "0Hz"});
-			this.toolStripComboBoxStop.Name = "toolStripComboBoxStop";
-			this.toolStripComboBoxStop.Size = new System.Drawing.Size(121, 25);
-			// 
-			// toolStripComboBox3
-			// 
-			this.toolStripComboBox3.Items.AddRange(new object[] {
-            "4097",
-            "2049",
-            "1025",
-            "513",
-            "257",
-            "129",
-            "65",
-            "33",
-            "17"});
-			this.toolStripComboBox3.Name = "toolStripComboBox3";
-			this.toolStripComboBox3.Size = new System.Drawing.Size(121, 25);
-			// 
-			// toolStripComboBoxScale
-			// 
-			this.toolStripComboBoxScale.Items.AddRange(new object[] {
-            "线性",
-            "对数"});
-			this.toolStripComboBoxScale.Name = "toolStripComboBoxScale";
-			this.toolStripComboBoxScale.Size = new System.Drawing.Size(121, 25);
-			// 
-			// toolStripComboBoxAlgorithm
-			// 
-			this.toolStripComboBoxAlgorithm.Items.AddRange(new object[] {
-            "FFT",
-            "CZT"});
-			this.toolStripComboBoxAlgorithm.Name = "toolStripComboBoxAlgorithm";
-			this.toolStripComboBoxAlgorithm.Size = new System.Drawing.Size(121, 25);
-			// 
-			// toolStripLabel1
-			// 
-			this.toolStripLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel1.Image")));
-			this.toolStripLabel1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripLabel1.Name = "toolStripLabel1";
-			this.toolStripLabel1.Size = new System.Drawing.Size(36, 22);
-			this.toolStripLabel1.Text = "添加";
-			// 
-			// toolStripLabel2
-			// 
-			this.toolStripLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripLabel2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel2.Image")));
-			this.toolStripLabel2.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripLabel2.Name = "toolStripLabel2";
-			this.toolStripLabel2.Size = new System.Drawing.Size(36, 22);
-			this.toolStripLabel2.Text = "移除";
-			// 
-			// toolStripLabel3
-			// 
-			this.toolStripLabel3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripLabel3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel3.Image")));
-			this.toolStripLabel3.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripLabel3.Name = "toolStripLabel3";
-			this.toolStripLabel3.Size = new System.Drawing.Size(36, 22);
-			this.toolStripLabel3.Text = "编辑";
-			// 
-			// toolStripLabel4
-			// 
-			this.toolStripLabel4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripLabel4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel4.Image")));
-			this.toolStripLabel4.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripLabel4.Name = "toolStripLabel4";
-			this.toolStripLabel4.Size = new System.Drawing.Size(36, 22);
-			this.toolStripLabel4.Text = "运行";
-			// 
-			// toolStripSeparator5
-			// 
-			this.toolStripSeparator5.Name = "toolStripSeparator5";
-			this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-			// 
-			// toolStripSeparator6
-			// 
-			this.toolStripSeparator6.Name = "toolStripSeparator6";
-			this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-			// 
-			// toolStripSeparator7
-			// 
-			this.toolStripSeparator7.Name = "toolStripSeparator7";
-			this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+			this.toolStripDropDownButtonInteraction3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripDropDownButtonInteraction3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemRightClickDragZoom3,
+            this.toolStripMenuItemScrollWheelZoom3,
+            this.toolStripMenuItemHorizontalZoom3,
+            this.toolStripMenuItemVerticalZoom3});
+			this.toolStripDropDownButtonInteraction3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonInteraction3.Image")));
+			this.toolStripDropDownButtonInteraction3.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripDropDownButtonInteraction3.Name = "toolStripDropDownButtonInteraction3";
+			this.toolStripDropDownButtonInteraction3.Size = new System.Drawing.Size(45, 22);
+			this.toolStripDropDownButtonInteraction3.Text = "交互";
 			// 
 			// Form1
 			// 
@@ -2422,43 +2787,43 @@
 			this.Text = "Form1";
 			this.tabPageText.ResumeLayout(false);
 			this.tabPageText.PerformLayout();
-			this.groupBox2.ResumeLayout(false);
-			this.groupBox2.PerformLayout();
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
-			this.panel2.ResumeLayout(false);
-			this.panel2.PerformLayout();
+			this.groupBoxInteraction.ResumeLayout(false);
+			this.groupBoxInteraction.PerformLayout();
+			this.groupBoxDisplay.ResumeLayout(false);
+			this.groupBoxDisplay.PerformLayout();
 			this.tabPageSpectrum.ResumeLayout(false);
 			this.tableLayoutPanel7.ResumeLayout(false);
+			this.tableLayoutPanel7.PerformLayout();
+			this.toolStripSpectrum.ResumeLayout(false);
+			this.toolStripSpectrum.PerformLayout();
 			this.panelSpectrum.ResumeLayout(false);
-			this.panelSpectrum.PerformLayout();
 			this.groupBoxChannel.ResumeLayout(false);
 			this.groupBoxChannel.PerformLayout();
 			this.groupBoxMagnitude.ResumeLayout(false);
 			this.groupBoxMagnitude.PerformLayout();
-			this.toolStrip2.ResumeLayout(false);
-			this.toolStrip2.PerformLayout();
 			this.tabPageMeter.ResumeLayout(false);
 			this.tableLayoutPanel9.ResumeLayout(false);
 			this.tableLayoutPanel8.ResumeLayout(false);
 			this.tableLayoutPanel8.PerformLayout();
-			this.toolStrip1.ResumeLayout(false);
-			this.toolStrip1.PerformLayout();
+			this.toolStripMeter.ResumeLayout(false);
+			this.toolStripMeter.PerformLayout();
 			this.tabPageWavegen.ResumeLayout(false);
 			this.tableLayoutPanel6.ResumeLayout(false);
+			this.tableLayoutPanel6.PerformLayout();
+			this.toolStripWaveGen.ResumeLayout(false);
+			this.toolStripWaveGen.PerformLayout();
 			this.groupBoxWavegen.ResumeLayout(false);
 			this.groupBoxWavegen.PerformLayout();
 			this.tabPageScope.ResumeLayout(false);
 			this.tableLayoutPanel4.ResumeLayout(false);
 			this.tableLayoutPanel5.ResumeLayout(false);
-			this.groupBoxInteraction.ResumeLayout(false);
-			this.groupBoxInteraction.PerformLayout();
+			this.tableLayoutPanel5.PerformLayout();
 			this.groupBoxControl.ResumeLayout(false);
 			this.groupBoxControl.PerformLayout();
 			this.groupBoxInfor.ResumeLayout(false);
 			this.groupBoxInfor.PerformLayout();
-			this.groupBoxDisplay.ResumeLayout(false);
-			this.groupBoxDisplay.PerformLayout();
+			this.toolStripScope.ResumeLayout(false);
+			this.toolStripScope.PerformLayout();
 			this.tabPageDeviceManage.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel2.ResumeLayout(false);
@@ -2480,97 +2845,24 @@
 		private System.Windows.Forms.Timer timerDisplayTime;
 		private System.Windows.Forms.ColorDialog colorDialog1;
 		private System.Windows.Forms.TabPage tabPageText;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.CheckBox checkBox3;
-		private System.Windows.Forms.Button button5;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.CheckBox checkBox2;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ComboBox comboBox2;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.CheckBox checkBox1;
 		private System.Windows.Forms.TabPage tabPageSpectrum;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
 		private ScottPlot.FormsPlot formsPlotSpectrum;
-		private System.Windows.Forms.Panel panelSpectrum;
-		private System.Windows.Forms.GroupBox groupBoxChannel;
-		private System.Windows.Forms.Button buttonAddTrace;
-		private System.Windows.Forms.ComboBox comboBoxChannelAttenuation;
-		private System.Windows.Forms.Label labelAttenuation;
-		private System.Windows.Forms.Label labelChannelRange;
-		private System.Windows.Forms.ComboBox comboBoxChannelRange;
-		private System.Windows.Forms.ComboBox comboBoxChannelOffset;
-		private System.Windows.Forms.Label labelChannelOffset;
-		private System.Windows.Forms.GroupBox groupBoxMagnitude;
-		private System.Windows.Forms.ComboBox comboBoxReference;
-		private System.Windows.Forms.Label labelReference;
-		private System.Windows.Forms.ComboBox comboBoxRange;
-		private System.Windows.Forms.Label labelRange;
-		private System.Windows.Forms.Label labelTop;
-		private System.Windows.Forms.ComboBox comboBoxTop;
-		private System.Windows.Forms.ComboBox comboBoxMagnitudeUnit;
-		private System.Windows.Forms.Label labelMagnitudeUnit;
-		private System.Windows.Forms.ToolStrip toolStrip2;
-		private System.Windows.Forms.ToolStripDropDownButton toolStripButtonSetting;
-		private System.Windows.Forms.ToolStripButton toolStripButtonSingle;
-		private System.Windows.Forms.ToolStripButton toolStripButtonRun;
 		private System.Windows.Forms.TabPage tabPageMeter;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
 		private ScottPlot.FormsPlot formsPlotMeter;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-		private System.Windows.Forms.ToolStrip toolStrip1;
+		private System.Windows.Forms.ToolStrip toolStripMeter;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 		private System.Windows.Forms.TabPage tabPageWavegen;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-		private ScottPlot.FormsPlot formsPlotWaveGen;
-		private System.Windows.Forms.GroupBox groupBoxWavegen;
-		private System.Windows.Forms.CheckBox checkBoxRunState;
-		private System.Windows.Forms.Button buttonRunWavegen;
-		private System.Windows.Forms.ComboBox comboBoxPhase;
-		private System.Windows.Forms.ComboBox comboBoxSymmetry;
-		private System.Windows.Forms.ComboBox comboBoxOffset;
-		private System.Windows.Forms.ComboBox comboBoxAmplitde;
-		private System.Windows.Forms.ComboBox comboBoxFrequency;
-		private System.Windows.Forms.ComboBox comboBoxWaveType;
-		private System.Windows.Forms.Label labelPhase;
-		private System.Windows.Forms.Label labelSymmetry;
-		private System.Windows.Forms.Label labelOffset;
-		private System.Windows.Forms.Label labelAmplitde;
-		private System.Windows.Forms.Label labelFrequency_2;
-		private System.Windows.Forms.Label labelType;
 		private System.Windows.Forms.TabPage tabPageScope;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-		private System.Windows.Forms.GroupBox groupBoxInteraction;
-		private System.Windows.Forms.CheckBox checkBoxCrosshair;
-		private System.Windows.Forms.CheckBox checkBoxVerticalZoom;
-		private System.Windows.Forms.CheckBox checkBoxHorizontalZoom;
-		private System.Windows.Forms.CheckBox checkBoxScrollWheelZoom;
-		private System.Windows.Forms.CheckBox checkBoxRightClickDragZoom;
 		private System.Windows.Forms.GroupBox groupBoxControl;
 		private System.Windows.Forms.Label labelTriggerType;
 		private System.Windows.Forms.ComboBox comboBoxTriggerType;
@@ -2585,20 +2877,13 @@
 		private System.Windows.Forms.Label labelDisplayPlotCount;
 		private System.Windows.Forms.Label labelDisplayMaximum;
 		private System.Windows.Forms.Label labelDisplayMinimum;
-		private System.Windows.Forms.Label labelDisplayTime;
+		private System.Windows.Forms.Label labelRunTime;
 		private System.Windows.Forms.Label labelDemo;
 		private System.Windows.Forms.Label labelFrequency;
 		private System.Windows.Forms.Label labelPlotCount;
 		private System.Windows.Forms.Label labelMinimum;
 		private System.Windows.Forms.Label labelMaximum;
-		private System.Windows.Forms.Label labelTime;
-		private System.Windows.Forms.GroupBox groupBoxDisplay;
-		private System.Windows.Forms.ComboBox comboBoxLineWidth;
-		private System.Windows.Forms.ComboBox comboBoxLineStyle;
-		private System.Windows.Forms.Label labelLineStyle;
-		private System.Windows.Forms.Label labelLineWidth;
-		private System.Windows.Forms.ComboBox comboBoxColorStyle;
-		private System.Windows.Forms.Label labelColorStyle;
+		private System.Windows.Forms.Label labelRunTimeText;
 		private ScottPlot.FormsPlot formsPlotScope;
 		private System.Windows.Forms.TabPage tabPageDeviceManage;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -2631,24 +2916,129 @@
 		private System.Windows.Forms.TextBox textBoxReceived;
 		private System.Windows.Forms.Button buttonSend;
 		private System.Windows.Forms.TabControl tabControlMain;
-		private System.Windows.Forms.Button buttonProjectOntoScope;
+		private System.Windows.Forms.ToolStripButton toolStripLabelAddTracer;
+		private System.Windows.Forms.ToolStripButton toolStripLabel2;
+		private System.Windows.Forms.GroupBox groupBoxInteraction;
+		private System.Windows.Forms.CheckBox checkBoxCrosshair;
+		private System.Windows.Forms.CheckBox checkBoxVerticalZoom;
+		private System.Windows.Forms.CheckBox checkBoxHorizontalZoom;
+		private System.Windows.Forms.CheckBox checkBoxScrollWheelZoom;
+		private System.Windows.Forms.CheckBox checkBoxRightClickDragZoom;
+		private System.Windows.Forms.GroupBox groupBoxDisplay;
+		private System.Windows.Forms.ComboBox comboBoxLineWidth;
+		private System.Windows.Forms.ComboBox comboBoxLineStyle;
+		private System.Windows.Forms.Label labelLineStyle;
+		private System.Windows.Forms.Label labelLineWidth;
+		private System.Windows.Forms.ComboBox comboBoxColorStyle;
+		private System.Windows.Forms.Label labelColorStyle;
+		private System.Windows.Forms.ToolStrip toolStripScope;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonDisplay;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemColorStyle;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxColorStyle;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLineStyle;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxLineStyle;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLineWidth;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxLineWidth;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonInteraction;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRightClickDragZoom;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemScrollWheelZoom;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHorizontalZoom;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVerticalZoom;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCrosshair;
+		private System.Windows.Forms.ToolStrip toolStripWaveGen;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemColorStyle2;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxColorStyle2;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLineStyle2;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxLineStyle2;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLineWidth2;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxLineWidth2;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonInteraction2;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRightClickDragZoom2;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemScrollWheelZoom2;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHorizontalZoom2;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVerticalZoom2;
+		private System.Windows.Forms.GroupBox groupBoxWavegen;
+		private System.Windows.Forms.CheckBox checkBoxRunState;
+		private System.Windows.Forms.Button buttonRunWavegen;
+		private System.Windows.Forms.ComboBox comboBoxPhase;
+		private System.Windows.Forms.ComboBox comboBoxSymmetry;
+		private System.Windows.Forms.ComboBox comboBoxOffset;
+		private System.Windows.Forms.ComboBox comboBoxAmplitde;
+		private System.Windows.Forms.ComboBox comboBoxFrequency;
+		private System.Windows.Forms.ComboBox comboBoxWaveType;
+		private System.Windows.Forms.Label labelPhase;
+		private System.Windows.Forms.Label labelSymmetry;
+		private System.Windows.Forms.Label labelOffset;
+		private System.Windows.Forms.Label labelAmplitde;
+		private System.Windows.Forms.Label labelFrequency_2;
+		private System.Windows.Forms.Label labelType;
+		private ScottPlot.FormsPlot formsPlotWaveGen;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonDisplay3;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxColorStyle3;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxLineStyle3;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxLineWidth3;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+		private System.Windows.Forms.Panel panelMeter;
+		private System.Windows.Forms.Panel panelSpectrum;
+		private System.Windows.Forms.GroupBox groupBoxChannel;
+		private System.Windows.Forms.Button buttonAddTrace;
+		private System.Windows.Forms.ComboBox comboBoxChannelAttenuation;
+		private System.Windows.Forms.Label labelAttenuation;
+		private System.Windows.Forms.Label labelChannelRange;
+		private System.Windows.Forms.ComboBox comboBoxChannelRange;
+		private System.Windows.Forms.ComboBox comboBoxChannelOffset;
+		private System.Windows.Forms.Label labelChannelOffset;
+		private System.Windows.Forms.GroupBox groupBoxMagnitude;
+		private System.Windows.Forms.ComboBox comboBoxReference;
+		private System.Windows.Forms.Label labelReference;
+		private System.Windows.Forms.ComboBox comboBoxRange;
+		private System.Windows.Forms.Label labelRange;
+		private System.Windows.Forms.Label labelTop;
+		private System.Windows.Forms.ComboBox comboBoxTop;
+		private System.Windows.Forms.ComboBox comboBoxMagnitudeUnit;
+		private System.Windows.Forms.Label labelMagnitudeUnit;
+		private System.Windows.Forms.ToolStrip toolStripSpectrum;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripButtonSetting;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStart;
 		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxStart;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStop;
 		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxStop;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBINS;
-		private System.Windows.Forms.ToolStripComboBox toolStripComboBox3;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxBoxCount;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemScale;
 		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxScale;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAlgorithm;
 		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxAlgorithm;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+		private System.Windows.Forms.ToolStripButton toolStripButtonSingle;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+		private System.Windows.Forms.ToolStripButton toolStripButtonRun;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-		private System.Windows.Forms.ToolStripButton toolStripLabel1;
-		private System.Windows.Forms.ToolStripButton toolStripLabel2;
-		private System.Windows.Forms.ToolStripButton toolStripLabel3;
-		private System.Windows.Forms.ToolStripButton toolStripLabel4;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton5;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRightClickDragZoom4;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemScrollWheelZoom4;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHorizontalZoom4;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVerticalZoom4;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxColorStyle4;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxLineStyle4;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxLineWidth4;
+		private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonInteraction3;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRightClickDragZoom3;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemScrollWheelZoom3;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHorizontalZoom3;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVerticalZoom3;
 	}
 }
 

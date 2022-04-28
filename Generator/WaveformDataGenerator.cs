@@ -12,6 +12,43 @@ namespace MyWaveForms.Generator
 	//波形数据生成器
 	internal class WaveformDataGenerator
 	{
+		public WaveformData GenerateWaveformData(byte bWaveType, int size, WaveformInfor node)
+		{
+			WaveformData waveformData;
+			switch (bWaveType)
+			{
+				case 0:
+					waveformData = this.GenerateDCData(size, node);
+					break;
+				case 1:
+					waveformData = this.GenerateSineData(size, node);
+					break;
+				case 2:
+					waveformData = this.GenerateTriangleData(size, node);
+					break;
+				case 3:
+					waveformData = this.GenerateSquareData(size, node);
+					break;
+				case 4:
+					waveformData = this.GenerateRampUpData(size, node);
+					break;
+				case 5:
+					waveformData = this.GenerateRampDownData(size, node);
+					break;
+				case 6:
+					waveformData = this.GenerateNoiseData(size, node);
+					break;
+				case 7:
+					waveformData = this.GenerateTrapeziumData(size, node);
+					break;
+				default:
+					waveformData = new WaveformData(size, new double[size]);
+					break;
+			}
+
+			return waveformData;
+		}
+
 		//生成直流信号
 		public WaveformData GenerateDCData(int size, WaveformInfor node)
 		{
