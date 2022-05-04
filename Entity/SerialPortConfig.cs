@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace MyWaveForms.Entity
 {
 	//串口配置信息类
-	internal class SerialPortInfor
+	internal class SerialPortConfig : BaseConfig
 	{
 		public string strSerialPortName;
 		public int iBaudRate;
@@ -18,7 +18,7 @@ namespace MyWaveForms.Entity
 		public byte iStopBit;    //0 for others, 1 for 1, 2 for 2, 3 for 1.5
 
 		//默认构造函数
-		public SerialPortInfor()
+		public SerialPortConfig()
 		{
 			this.strSerialPortName = null;
 			this.iBaudRate = 0;
@@ -28,7 +28,7 @@ namespace MyWaveForms.Entity
 		}
 
 		//使用字符串构造配置信息类
-		public SerialPortInfor(string _strSerialPortName, string strBaudRate, string strDataBit, string strCheckBit, string strStopBit)
+		public SerialPortConfig(string _strSerialPortName, string strBaudRate, string strDataBit, string strCheckBit, string strStopBit)
 		{
 			this.strSerialPortName = _strSerialPortName;
 			this.iBaudRate = Convert.ToInt32(strBaudRate);
@@ -68,7 +68,7 @@ namespace MyWaveForms.Entity
 		}
 
 		//使用直接类型构造配置信息类
-		public SerialPortInfor(string _strSerialPortName, int _iBaudRate, byte _iDatabit, byte _iCheckBit, byte _iStopBit)
+		public SerialPortConfig(string _strSerialPortName, int _iBaudRate, byte _iDatabit, byte _iCheckBit, byte _iStopBit)
 		{
 			this.strSerialPortName = _strSerialPortName;
 			this.iBaudRate = _iBaudRate;

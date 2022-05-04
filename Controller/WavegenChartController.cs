@@ -25,7 +25,7 @@ namespace MyWaveForms.Controller
 		}
 
 		//使用外部数据加载图表
-		public SignalPlotXY AddWaveforms(FormsPlot formsPlot, ValueTuple<double[], double[]>  vt, WaveformInfor node)
+		public SignalPlotXY AddWaveforms(FormsPlot formsPlot, ValueTuple<double[], double[]>  vt, WaveformConfig node)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
@@ -40,7 +40,7 @@ namespace MyWaveForms.Controller
 		}
 
 		//使用来自WaveformDataGenerator的数据加载图表
-		public SignalPlotXY AddWaveforms(FormsPlot formsPlot, WaveformInfor node)
+		public SignalPlotXY AddWaveforms(FormsPlot formsPlot, WaveformConfig node)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
@@ -56,7 +56,7 @@ namespace MyWaveForms.Controller
 			return sp;
 		}
 
-		public ValueTuple<double[], double[]> GetWaveData(WaveformInfor node)
+		public ValueTuple<double[], double[]> GetWaveData(WaveformConfig node)
 		{
 			//x标定数组
 			double[] dXValues = new double[MAXSIZE];
@@ -72,28 +72,28 @@ namespace MyWaveForms.Controller
 			switch (node.BWaveType)
 			{
 				case 0:
-					dYValues = this.waveDataGenerator.GenerateDCData(MAXSIZE, node).DValues;
+					dYValues = this.waveDataGenerator.GenerateDCData(MAXSIZE, node);
 					break;
 				case 1:
-					dYValues = this.waveDataGenerator.GenerateSineData(MAXSIZE, node).DValues;
+					dYValues = this.waveDataGenerator.GenerateSineData(MAXSIZE, node);
 					break;
 				case 2:
-					dYValues = this.waveDataGenerator.GenerateTriangleData(MAXSIZE, node).DValues;
+					dYValues = this.waveDataGenerator.GenerateTriangleData(MAXSIZE, node);
 					break;
 				case 3:
-					dYValues = this.waveDataGenerator.GenerateSquareData(MAXSIZE, node).DValues;
+					dYValues = this.waveDataGenerator.GenerateSquareData(MAXSIZE, node);
 					break;
 				case 4:
-					dYValues = this.waveDataGenerator.GenerateRampUpData(MAXSIZE, node).DValues;
+					dYValues = this.waveDataGenerator.GenerateRampUpData(MAXSIZE, node);
 					break;
 				case 5:
-					dYValues = this.waveDataGenerator.GenerateRampDownData(MAXSIZE, node).DValues;
+					dYValues = this.waveDataGenerator.GenerateRampDownData(MAXSIZE, node);
 					break;
 				case 6:
-					dYValues = this.waveDataGenerator.GenerateNoiseData(MAXSIZE, node).DValues;
+					dYValues = this.waveDataGenerator.GenerateNoiseData(MAXSIZE, node);
 					break;
 				case 7:
-					dYValues = this.waveDataGenerator.GenerateTrapeziumData(MAXSIZE, node).DValues;
+					dYValues = this.waveDataGenerator.GenerateTrapeziumData(MAXSIZE, node);
 					break;
 				default:
 					break;
@@ -102,100 +102,100 @@ namespace MyWaveForms.Controller
 			return new ValueTuple<double[], double[]>(dXValues, dYValues);
 		}
 
-		public SignalPlot AddDCWave(FormsPlot formsPlot, WaveformInfor node)
+		public SignalPlot AddDCWave(FormsPlot formsPlot, WaveformConfig node)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
 			//生成DC数据，并绘制图像
 			SignalPlot sp = formsPlot.Plot.AddSignal(
 				this.waveDataGenerator.GenerateDCData(
-					node.ITimeTickValue, node).DValues);
+					node.ITimeTickValue, node));
 			//刷新绘图区
 			formsPlot.Render();
 			return sp;
 		}
-		public SignalPlot AddSineWave(FormsPlot formsPlot, WaveformInfor node)
+		public SignalPlot AddSineWave(FormsPlot formsPlot, WaveformConfig node)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
 			//生成正弦波Sine数据，并绘制图像
 			SignalPlot sp = formsPlot.Plot.AddSignal(
 				this.waveDataGenerator.GenerateSineData(
-					node.ITimeTickValue, node).DValues);
+					node.ITimeTickValue, node));
 			//刷新绘图区
 			formsPlot.Render();
 			return sp;
 		}
-		public SignalPlot AddTriangleWave(FormsPlot formsPlot, WaveformInfor node)
+		public SignalPlot AddTriangleWave(FormsPlot formsPlot, WaveformConfig node)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
 			//生成三角波数据，并绘制图像
 			SignalPlot sp = formsPlot.Plot.AddSignal(
 				this.waveDataGenerator.GenerateTriangleData(
-					node.ITimeTickValue, node).DValues);
+					node.ITimeTickValue, node));
 			//刷新绘图区
 			formsPlot.Render();
 			return sp;
 		}
-		public SignalPlot AddSquareWave(FormsPlot formsPlot, WaveformInfor node)
+		public SignalPlot AddSquareWave(FormsPlot formsPlot, WaveformConfig node)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
 			//生成方波数据，并绘制图像
 			SignalPlot sp = formsPlot.Plot.AddSignal(
 				this.waveDataGenerator.GenerateSquareData(
-					node.ITimeTickValue, node).DValues);
+					node.ITimeTickValue, node));
 			//设为阶梯显示
 			sp.StepDisplay = true;
 			//刷新绘图区
 			formsPlot.Render();
 			return sp;
 		}
-		public SignalPlot AddRampUpWave(FormsPlot formsPlot, WaveformInfor node)
+		public SignalPlot AddRampUpWave(FormsPlot formsPlot, WaveformConfig node)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
 			//生成上升波数据，并绘制图像
 			SignalPlot sp = formsPlot.Plot.AddSignal(
 				this.waveDataGenerator.GenerateRampUpData(
-					node.ITimeTickValue, node).DValues);
+					node.ITimeTickValue, node));
 			//刷新绘图区
 			formsPlot.Render();
 			return sp;
 		}
-		public SignalPlot AddRampDownWave(FormsPlot formsPlot, WaveformInfor node)
+		public SignalPlot AddRampDownWave(FormsPlot formsPlot, WaveformConfig node)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
 			//生成下降波数据，并绘制图像
 			SignalPlot sp = formsPlot.Plot.AddSignal(
 				this.waveDataGenerator.GenerateRampDownData(
-					node.ITimeTickValue, node).DValues);
+					node.ITimeTickValue, node));
 			//刷新绘图区
 			formsPlot.Render();
 			return sp;
 		}
-		public SignalPlot AddNoiseWave(FormsPlot formsPlot, WaveformInfor node)
+		public SignalPlot AddNoiseWave(FormsPlot formsPlot, WaveformConfig node)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
 			//生成噪声数据，并绘制图像
 			SignalPlot sp = formsPlot.Plot.AddSignal(
 				this.waveDataGenerator.GenerateNoiseData(
-					node.ITimeTickValue, node).DValues);
+					node.ITimeTickValue, node));
 			//刷新绘图区
 			formsPlot.Render();
 			return sp;
 		}
-		public SignalPlot AddTrapeziumWave(FormsPlot formsPlot, WaveformInfor node)
+		public SignalPlot AddTrapeziumWave(FormsPlot formsPlot, WaveformConfig node)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
 			//生成梯形波数据，并绘制图像
 			SignalPlot sp = formsPlot.Plot.AddSignal(
 				this.waveDataGenerator.GenerateTrapeziumData(
-					node.ITimeTickValue, node).DValues);
+					node.ITimeTickValue, node));
 			//刷新绘图区
 			formsPlot.Render();
 			return sp;

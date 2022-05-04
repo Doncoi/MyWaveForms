@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWaveForms.Entity
+namespace MyWaveForms.Controller
 {
-	//设备信息
-	internal class DeviceInfor
+	internal class SpectrumController
 	{
 	}
 }

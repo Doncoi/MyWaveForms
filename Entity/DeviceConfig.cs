@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyWaveForms.Entity
 {
-	//电压电流计配置信息
-	internal class MeterInfor
+	//设备信息
+	internal class DeviceConfig : BaseConfig
 	{
 	}
 }

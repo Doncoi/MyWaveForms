@@ -16,3 +16,5 @@ C:\Users\Eiche\OneDrive\Workspace\VisualStudio\MyWaveForms\obj\Release\MyWaveFor
 C:\Users\Eiche\OneDrive\Workspace\VisualStudio\MyWaveForms\obj\Release\MyWaveForms.csproj.CopyComplete
 C:\Users\Eiche\OneDrive\Workspace\VisualStudio\MyWaveForms\obj\Release\MyWaveForms.exe
 C:\Users\Eiche\OneDrive\Workspace\VisualStudio\MyWaveForms\obj\Release\MyWaveForms.pdb
+C:\Users\Eiche\OneDrive\Workspace\VisualStudio\MyWaveForms\bin\Release\NWaves.dll
+C:\Users\Eiche\OneDrive\Workspace\VisualStudio\MyWaveForms\bin\Release\NWaves.xml

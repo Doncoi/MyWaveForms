@@ -41,7 +41,7 @@ namespace MyWaveForms.Controller
 		}
 
 		//打开串口
-		public void OpenPort(SerialPort serialPort, SerialPortInfor portConfig)
+		public void OpenPort(SerialPort serialPort, SerialPortConfig portConfig)
 		{
 			if (!serialPort.IsOpen)     //串口处于关闭状态
 			{

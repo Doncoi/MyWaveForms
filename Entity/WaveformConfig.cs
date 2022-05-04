@@ -9,9 +9,9 @@ using MyWaveForms.MyException;
 namespace MyWaveForms.Entity
 {
 	//波形发生器配置信息
-	internal class WaveformInfor
+	internal class WaveformConfig : BaseConfig
 	{
-		#region 配置对应字符串
+		#region 配置项字符串
 		static private string[] strWaveType = {"直流电源 DC",
 			"正弦波 Sine",
 			"三角波 Triganle",
@@ -22,7 +22,7 @@ namespace MyWaveForms.Entity
 			"梯形波 Trapezium",
 			"正弦电源 Sine Power"};
 		static private string[] strFrequencyUnit = { "Hz", "kHz", "MHz" };
-		static private string[] strTimeTickUnit = { "s", "ms", "μs", "ns" };
+		static private string[] strTimeTickUnit = { "s", "ms", "us", "ns" };
 		#endregion
 		#region 配置关键字
 		//波形类型
@@ -56,7 +56,7 @@ namespace MyWaveForms.Entity
 		//单周期长度单位
 		//0 - s
 		//1 - ms
-		//2 - μs
+		//2 - us
 		//3 - ns
 		private byte bTimeTickUnit;
 
@@ -72,7 +72,7 @@ namespace MyWaveForms.Entity
 		#endregion
 		#region 构造函数
 		//默认构造函数
-		public WaveformInfor()		
+		public WaveformConfig()		
 		{
 			this.bWaveType = 1;		//正弦波
 			this.dFrequencyValue = 1;		//1kHz
@@ -88,7 +88,7 @@ namespace MyWaveForms.Entity
 		}
 
 		//使用实数参数构造
-		public WaveformInfor(byte _bWaveType, double _dFrequencyValue, byte _bFrequencyUnit, double _dAmplitude, double _dOffset, double _dSymmetry, byte _bPhase)
+		public WaveformConfig(byte _bWaveType, double _dFrequencyValue, byte _bFrequencyUnit, double _dAmplitude, double _dOffset, double _dSymmetry, byte _bPhase)
 		{
 			this.bWaveType = _bWaveType;
 			this.dFrequencyValue = _dFrequencyValue;
@@ -106,12 +106,12 @@ namespace MyWaveForms.Entity
 		}
 
 		//使用字符串参数构造
-		public WaveformInfor(int _bWaveType, string sFrequency, string sAmplitude, string sOffset, string sSymmetry, string sPharse)
+		public WaveformConfig(int _bWaveType, string sFrequency, string sAmplitude, string sOffset, string sSymmetry, string sPharse)
 		{
 			//波形类型
 			this.bWaveType = (byte)_bWaveType;
 			//抓取频率
-			this.dFrequencyValue = GetValueFromString(sFrequency);
+			this.dFrequencyValue = GetRealFromString(sFrequency);
 			//设置频率单位
 			switch ((char)sFrequency[sFrequency.Length - 3])
 			{
@@ -128,13 +128,13 @@ namespace MyWaveForms.Entity
 					throw new FrequencyParanmeterException("频率参数异常");
 			}
 			//抓取幅值
-			this.dAmplitude = GetValueFromString(sAmplitude);
+			this.dAmplitude = GetRealFromString(sAmplitude);
 			//抓取幅值偏移量
-			this.dOffset = GetValueFromString(sOffset);
+			this.dOffset = GetRealFromString(sOffset);
 			//抓取对称偏移量
-			this.dSymmetry = GetValueFromString(sSymmetry);
+			this.dSymmetry = GetRealFromString(sSymmetry);
 			//抓取相位
-			this.bPhase = (byte)GetValueFromString(sPharse);
+			this.bPhase = (byte)GetRealFromString(sPharse);
 			//计算单周期长度
 			if (this.dFrequencyValue <= 1) this.iTimeTickValue = (int)(1.0 / this.dFrequencyValue);
 			else iTimeTickValue = (int)(1000 / this.dFrequencyValue);
@@ -143,36 +143,27 @@ namespace MyWaveForms.Entity
 		}
 
 		//使用字符串列表构造
-		public WaveformInfor(List<string> list)
+		public WaveformConfig(List<string> list)
 		{
 			//波形类型
 			for (int i = 0; i < strWaveType.Length; ++i)
 				if (strWaveType[i].Equals(list[0]))
 					this.bWaveType = (byte)i;
 			//抓取频率
-			this.dFrequencyValue = GetValueFromString(list[1]);
+			this.dFrequencyValue = GetRealFromString(list[1]);
 			//设置频率单位
-			switch ((char)list[1][list[1].Length - 3])		//抓取频率参数倒数第三位
-			{	
-				case 'k':		//kHz
-					this.bFrequencyUnit = 1;
-					break;
-				case 'M':		//MHz
-					this.bFrequencyUnit = 2;
-					break;
-				default:		//Hz
-					this.bFrequencyUnit = 0;
-					break;
-					//throw new FrequencyParanmeterException("频率参数异常");
-			}
+			string str = GetUnitFromString(list[0]);
+			for (int i = 0; i < strFrequencyUnit.Length; ++i)
+				if (strFrequencyUnit[i].Equals(str))
+					this.bFrequencyUnit = (byte)i;
 			//抓取幅值
-			this.dAmplitude = GetValueFromString(list[2]);
+			this.dAmplitude = GetRealFromString(list[2]);
 			//抓取幅值偏移量
-			this.dOffset = GetValueFromString(list[3]);
+			this.dOffset = GetRealFromString(list[3]);
 			//抓取对称偏移量
-			this.dSymmetry = GetValueFromString(list[4]) / 100.0;
+			this.dSymmetry = GetRealFromString(list[4]) / 100.0;
 			//抓取相位
-			this.bPhase = (byte)GetValueFromString(list[5]);
+			this.bPhase = (byte)GetRealFromString(list[5]);
 			//计算单周期长度
 			if (this.dFrequencyValue <= 1) this.iTimeTickValue = (int)(1.0 / this.dFrequencyValue);
 			else iTimeTickValue = (int)(1000 / this.dFrequencyValue);
@@ -181,20 +172,6 @@ namespace MyWaveForms.Entity
 		}
 
 		#endregion
-		//在字符串中抓取实型数值
-		private double GetValueFromString(string str)
-		{
-			//return double.Parse(str);
-			StringBuilder res = new StringBuilder();
-			foreach (char chr in str)
-			{
-				if ((chr >= '0' && chr <= '9') || chr == '.' || chr == '-')
-					res.Append(chr);
-			}
-			//MessageBox.Show(res.ToString());
-			//if (res.Length == 0) return 0;
-			return double.Parse(res.ToString());
-		}
 
 		//计算周期长度单位
 		private byte GetTimeTickUnit()

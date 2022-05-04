@@ -10,7 +10,7 @@ namespace MyWaveForms.Test
 	{
 		#region 成员变量
 		//计时器默认时间间隔
-		const int DEFAULT_INTERVAL = 10;
+		const int DEFAULT_INTERVAL = 100;
 		//窗体数组默认大小
 		const int DEFAULT_SIZE = 1000;
 		//目标窗口
@@ -83,17 +83,15 @@ namespace MyWaveForms.Test
 		//更新窗口数据
 		private void UpdateValues(Object myObject, EventArgs myEventArgs)
 		{
-			for (int i = 0; i < dYValues.Length - 1; ++i)
-			{
-				dYValues[i] = dYValues[i + 1];
-			}
-			dYValues[dYValues.Length - 1] = dYValues[0];
+			double temp = dYValues[0];
+			Array.Copy(dYValues, 1, dYValues, 0, dYValues.Length - 1);
+			dYValues[dYValues.Length - 1] = temp;
 			//这里会出现跨线程争夺formsPlot资源的错误
 			//this.formsPlot.Refresh();
 			//尝试新建线程并触发委托
 			//to-do 目前这样做性能很差，需要改进
-			Thread thread = new Thread(new ThreadStart(DoRefresh));
-			thread.Start();
+			//Thread thread = new Thread(new ThreadStart(DoRefresh));
+			//thread.Start();
 
 			//更新时间标签
 			//labelDisplayTime.Text = System.DateTime.Now.ToString("T");

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace MyWaveForms.Entity
 {
-	internal class TracerInfor
+	internal class Tracer
 	{
 		protected GroupBox groupBox;      //主容器
 		protected TextBox textBoxTracerName;    //名牌
@@ -30,7 +30,7 @@ namespace MyWaveForms.Entity
 		public double[] DXValues { get => dXValues; set => dXValues = value; }
 		public double[] DYValues { get => dYValues; set => dYValues = value; }
 
-		public TracerInfor()
+		public Tracer()
 		{
 
 		}
@@ -44,7 +44,7 @@ namespace MyWaveForms.Entity
 		}
 	}
 
-	internal class MeterTracerInfor : TracerInfor
+	internal class MeterTracer : Tracer
 	{
 		Label labelCurrentText;		//当前值
 		Label labelCurrentValue;
@@ -53,7 +53,7 @@ namespace MyWaveForms.Entity
 		Label labelMinText;		//最小值
 		Label labelMinValue;
 
-		public MeterTracerInfor()
+		public MeterTracer()
 		{
 
 		}
@@ -70,17 +70,17 @@ namespace MyWaveForms.Entity
 		}
 	}
 
-	internal class SpectrumTracerInfor : TracerInfor
+	internal class SpectrumTracer : Tracer
 	{
 		Label labelCount;		//计算点数标签
 		ComboBox comboBoxCount;		 //计算点数ComboBox
 		
-		public SpectrumTracerInfor()
+		public SpectrumTracer()
 		{
 
 		}
 
-		public SpectrumTracerInfor(GroupBox groupBox, TextBox textBoxName, CheckBox checkBoxVisibility, Label labelType, Label labelCount, ComboBox comboBoxType, ComboBox comboBoxCount, Button buttonDelete)
+		public SpectrumTracer(GroupBox groupBox, TextBox textBoxName, CheckBox checkBoxVisibility, Label labelType, Label labelCount, ComboBox comboBoxType, ComboBox comboBoxCount, Button buttonDelete)
 		{
 			this.groupBox = groupBox;
 			this.textBoxTracerName = textBoxName;

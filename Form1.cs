@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using MyWaveForms.Entity;
 using MyWaveForms.Controller;
 using ScottPlot.Plottable;
-using ScottPlot;
 using MyWaveForms.Test;
 using MyWaveForms.Generator;
 using System.Diagnostics;
@@ -168,7 +167,7 @@ namespace MyWaveForms
 				return;
 			}
 			//获取ComboBox数据
-			SerialPortInfor portConfig1 = new SerialPortInfor(
+			SerialPortConfig portConfig1 = new SerialPortConfig(
 				comboBoxPort.SelectedItem.ToString(),
 				comboBoxBaudRate.SelectedItem.ToString(),
 				comboBoxDataBit.SelectedItem.ToString(),
@@ -304,6 +303,14 @@ namespace MyWaveForms
 		private void tabPageScope_Enter(object sender, EventArgs e)
 		{
 			InitScopeWidget();
+		}
+		#endregion
+		#region 控制区响应事件
+		private void comboBoxCoupledType_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;
+			ScopeConfig scopeConfig = new ScopeConfig(GetScopeConfigSelectedList());
+			this.textBoxScopeTest.Text = scopeConfig.ToString();
 		}
 		#endregion
 		#region 示波器图表显示设置 已完成，不要动
@@ -561,25 +568,7 @@ namespace MyWaveForms
 		}
 		#endregion
 		#region 配置变更 已完成，不要动
-		//获取当前配置并打包为List
-		private List<string> GetWavegenConfigSelectedList()
-		{
-			List<string> list = new List<string>();
-			if (comboBoxWaveType.SelectedItem == null)
-			{
-				return null;
-			}
-			else
-			{
-				list.Add(comboBoxWaveType.SelectedItem.ToString());
-				list.Add(comboBoxFrequency.SelectedItem.ToString());
-				list.Add(comboBoxAmplitde.SelectedItem.ToString());
-				list.Add(comboBoxOffset.SelectedItem.ToString());
-				list.Add(comboBoxSymmetry.SelectedItem.ToString());
-				list.Add(comboBoxPhase.SelectedItem.ToString());
-			}
-			return list;
-		}
+		
 
 		//波形选项发生变更
 		private void comboBoxWaveType_SelectedIndexChanged(object sender, EventArgs e)
@@ -593,7 +582,7 @@ namespace MyWaveForms
 				EnableWidget(true, true, true, true, true, false);
 
 			//获取配置信息并添加预览图线
-			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformInfor(GetWavegenConfigSelectedList()));
+			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformConfig(GetWavegenConfigSelectedList()));
 		}
 
 		//频率选项发生变更
@@ -603,7 +592,7 @@ namespace MyWaveForms
 			//重设坐标轴
 			//wavegenChartController.SetAxis(formsPlotWaveGen, new WaveformInfor(GetSelectedList()));
 			//获取配置信息并添加预览图线
-			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformInfor(GetWavegenConfigSelectedList()));
+			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformConfig(GetWavegenConfigSelectedList()));
 		}
 
 		//幅值选项发生变更
@@ -611,7 +600,7 @@ namespace MyWaveForms
 		{
 			if (isInit == true) return;
 			//获取配置信息并添加预览图线
-			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformInfor(GetWavegenConfigSelectedList()));
+			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformConfig(GetWavegenConfigSelectedList()));
 		}
 
 		//y轴偏移量选项发生变更
@@ -619,7 +608,7 @@ namespace MyWaveForms
 		{
 			if (isInit == true) return;
 			//获取配置信息并添加预览图线
-			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformInfor(GetWavegenConfigSelectedList()));
+			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformConfig(GetWavegenConfigSelectedList()));
 		}
 
 		//对称偏移量选项发生变更
@@ -627,7 +616,7 @@ namespace MyWaveForms
 		{
 			if (isInit == true) return;
 			//获取配置信息并添加预览图线
-			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformInfor(GetWavegenConfigSelectedList()));
+			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformConfig(GetWavegenConfigSelectedList()));
 		}
 
 		//相位选项发生变更
@@ -635,7 +624,7 @@ namespace MyWaveForms
 		{
 			if (isInit == true) return;
 			//获取配置信息并添加预览图线
-			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformInfor(GetWavegenConfigSelectedList()));
+			signalPlotXYWaveGen = wavegenChartController.AddWaveforms(formsPlotWaveGen, new WaveformConfig(GetWavegenConfigSelectedList()));
 		}
 		#endregion
 		#region 信号发生器图表显示设置 已完成，不要动
@@ -731,6 +720,7 @@ namespace MyWaveForms
 			toolStripComboBoxLineWidth3.SelectedIndex = 0;     //线宽：1
 		}
 		#endregion
+		#region 工具栏
 		//添加追踪器
 		private void toolStripLabelAddTracer_Click(object sender, EventArgs e)
 		{
@@ -742,6 +732,7 @@ namespace MyWaveForms
 		{
 			meterTracerController.ClearTracer();
 		}
+		#endregion
 		#region 电压电流计图表显示设置 已完成，不要动
 		private void toolStripComboBoxColorStyle3_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -843,8 +834,6 @@ namespace MyWaveForms
 			toolStripComboBoxAlgorithm.SelectedIndex = 0;   //Algorithm = FFT
 			//振幅设置区控件初始化
 			comboBoxMagnitudeUnit.SelectedIndex = 0;    //Unit = Vpeak(V)
-			comboBoxTop.SelectedIndex = 8;      //Top = 20dBV
-			comboBoxRange.SelectedIndex = 0;        //Range = 200dBV
 			comboBoxReference.SelectedIndex = 13;       //Reference = 0.05V
 			//信道设置区控件初始化
 			comboBoxChannelOffset.SelectedIndex = 14;   //Offset = 0V
@@ -852,15 +841,212 @@ namespace MyWaveForms
 			comboBoxChannelAttenuation.SelectedIndex = 2;	 //Attenuation = 1X
 			//关闭初始化标记
 			isInit = false;
+
+			// 重新装填Top和Range复选框
+			ReloadMagnitudeRangeComboBox(comboBoxMagnitudeUnit.SelectedItem.ToString());
+			// 刷新Y轴上下限及标签 
+			ChangeMagnitudeAxisLimits();
+			ChangeMagnitudeAxisLabel(comboBoxMagnitudeTop.SelectedItem.ToString());
 		}
 		#endregion
+		#region 工具栏
+		FrequencyAnalyzerTester analyzerTester = new FrequencyAnalyzerTester(1024);
+		//频谱分析仪页-工具栏-单次采集按钮-测试
+		private void toolStripButtonSingle_Click(object sender, EventArgs e)
+		{
+			//to-do 改为从串口获取波形
+			//获取波形类型
+			string sWaveTypeText = textBoxSpectrumTest.Text;
+			if (sWaveTypeText == null || sWaveTypeText.Equals("")) sWaveTypeText = "0";
+			byte bWaveType = 0;
+			try 
+			{
+				bWaveType = (byte)int.Parse(sWaveTypeText);
+			} catch(Exception ex)
+			{
+				MessageBox.Show("波形类型参数错误" + ex.Message);
+			}
+			
+			//获取频谱
+			float[] magnitudeSpectrum = analyzerTester.TestMagnitudeSpectrum(bWaveType);
+			double[] _magnitudeSpectrum = new double[magnitudeSpectrum.Length];
+			for (int i = 0; i < magnitudeSpectrum.Length; ++i)
+				_magnitudeSpectrum[i] = (float)magnitudeSpectrum[i];
+			//显示频谱
+			textBoxSpectrumTest.Text = magnitudeSpectrum.ToString();
+			//formsPlotSpectrum.Plot.Clear();
+			formsPlotSpectrum.Plot.AddSignal(_magnitudeSpectrum);
+			formsPlotSpectrum.Render();
+		}
+		#endregion
+		#region 频谱设置
 
+		#endregion
+		#region 幅值设置
+		#region 响应事件
+		// 幅值单位更改事件
+		private void comboBoxMagnitudeUnit_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;
+			// 获取当前单位
+			string strUnit = comboBoxMagnitudeUnit.SelectedItem.ToString();
+			// todo 幅值单位变化响应
+			// 幅值显示上限及量程重新装填
+			ReloadMagnitudeRangeComboBox(strUnit);
+			// 更新Y轴上下限与标签
+			ChangeMagnitudeAxisLimits();
+			ChangeMagnitudeAxisLabel(comboBoxMagnitudeTop.SelectedItem.ToString());
+		}
+
+		// 幅值显示上限更改事件
+		private void comboBoxMagnitudeTop_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;
+			// Vpeak和Vrms模式下保持Top和Range选项一致
+			if(comboBoxMagnitudeUnit.SelectedIndex < 2)
+			{
+				isInit = true;
+				comboBoxMagnitudeRange.SelectedIndex = comboBoxMagnitudeTop.SelectedIndex;	
+				isInit = false;
+			}
+			// 更新Y轴上下限与标签
+			ChangeMagnitudeAxisLimits();
+			ChangeMagnitudeAxisLabel(comboBoxMagnitudeTop.SelectedItem.ToString());
+		}
+
+		// 幅值量程更改事件
+		private void comboBoxMagnitudeRange_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;
+			ChangeMagnitudeAxisLimits();
+		}
+		#endregion
+		#region 功能函数
+		// 重新装填MagnitudeTop及MagnitudeRange
+		private void ReloadMagnitudeRangeComboBox(string strUnit)
+		{
+			isInit = true;
+			if (strUnit.Equals("Vpeak(V)"))
+			{
+				// 禁用Range及Reference
+				comboBoxMagnitudeRange.Enabled = false;
+				comboBoxReference.Enabled = false;
+				// 重新装填Top和Range
+				comboBoxMagnitudeTop.Items.Clear();
+				comboBoxMagnitudeRange.Items.Clear();
+				string[] strVpeakRangeItems =
+				{
+					"25V", "10V", "5V", "2V", "1V",
+					"0.5V", "0.2V", "0.1V",
+					"0.05V", "0.02V", "0.01V",
+					"5mV", "2mV", "1mV",
+					"0.5mV", "0.2mV", "0.1mV",
+					"0.05mV", "0.02mV", "0.01mV",
+					"5uV", "2uV", "1uV"
+				};
+				foreach (string str in strVpeakRangeItems)
+				{
+					comboBoxMagnitudeTop.Items.Add(str);
+					comboBoxMagnitudeRange.Items.Add(str);
+				}
+				comboBoxMagnitudeTop.SelectedIndex = 0;
+				comboBoxMagnitudeRange.SelectedIndex = 0;
+			}
+			else if (strUnit.Equals("Vrms"))
+			{
+				// 禁用Range及Reference
+				comboBoxMagnitudeRange.Enabled = false;
+				comboBoxReference.Enabled = false;
+				// 重新装填Top和Range
+				comboBoxMagnitudeTop.Items.Clear();
+				comboBoxMagnitudeRange.Items.Clear();
+				string[] strVpeakRangeItems =
+				{
+					"10Vrms", "5Vrms", "2Vrms", "1Vrms",
+					"0.5Vrms", "0.2Vrms", "0.1Vrms",
+					"0.05Vrms", "0.02Vrms", "0.01Vrms",
+					"5mVrms", "2mVrms", "1mVrms",
+					"0.5mVrms", "0.2mVrms", "0.1mVrms",
+					"0.05mVrms", "0.02mVrms", "0.01mVrms",
+					"5uVrms", "2uVrms", "1uVrms"
+				};
+				foreach (string str in strVpeakRangeItems)
+				{
+					comboBoxMagnitudeTop.Items.Add(str);
+					comboBoxMagnitudeRange.Items.Add(str);
+				}
+				comboBoxMagnitudeTop.SelectedIndex = 0;
+				comboBoxMagnitudeRange.SelectedIndex = 0;
+			}
+			else if (strUnit.Equals("dBV") || strUnit.Equals("dBu"))
+			{
+				// 启用Range，禁用Reference
+				comboBoxMagnitudeRange.Enabled = true;
+				comboBoxReference.Enabled = false;
+				// 重新装填Top和Range
+				comboBoxMagnitudeTop.Items.Clear();
+				comboBoxMagnitudeRange.Items.Clear();
+				for (int i = 100; i >= -100; i -= 10)
+					comboBoxMagnitudeTop.Items.Add(i.ToString() + strUnit);
+				for(int i = 200; i > 0; i -= 10)
+					comboBoxMagnitudeRange.Items.Add(i.ToString() + strUnit);
+				comboBoxMagnitudeRange.Items.Add("1" + strUnit);
+				// 默认选中 20dBV 200dBV
+				comboBoxMagnitudeTop.SelectedIndex = 8;
+				comboBoxMagnitudeRange.SelectedIndex = 0;
+			}
+			else if(strUnit.Equals("dB"))
+			{
+				// 启用Range，启用Reference
+				comboBoxMagnitudeRange.Enabled = true;
+				comboBoxReference.Enabled = true;
+				// 重新装填Top和Range
+				comboBoxMagnitudeTop.Items.Clear();
+				comboBoxMagnitudeRange.Items.Clear();
+				for (int i = 100; i >= -100; i -= 10)
+					comboBoxMagnitudeTop.Items.Add(i.ToString() + strUnit);
+				for (int i = 200; i > 0; i -= 10)
+					comboBoxMagnitudeRange.Items.Add(i.ToString() + strUnit);
+				comboBoxMagnitudeRange.Items.Add("1" + strUnit);
+				// 默认选中 20dBV 200dBV
+				comboBoxMagnitudeTop.SelectedIndex = 8;
+				comboBoxMagnitudeRange.SelectedIndex = 0;
+			}
+			isInit = false;
+		}
+
+		// 更改幅值坐标轴上下限
+		private void ChangeMagnitudeAxisLimits()
+		{
+			// 获取幅值上限
+			double dMaxMagnitude = GetValueFromString(comboBoxMagnitudeTop.SelectedItem.ToString());
+			// 计算幅值下限
+			double dMinMagnitude = dMaxMagnitude - GetValueFromString(comboBoxMagnitudeRange.SelectedItem.ToString());
+			// 更改显示范围
+			formsPlotSpectrum.Plot.SetAxisLimitsY(dMinMagnitude, dMaxMagnitude);
+			// 刷新图表
+			formsPlotSpectrum.Refresh();
+		}
+
+		// 更改幅值坐标轴标签
+		private void ChangeMagnitudeAxisLabel(string strTopItem)
+		{
+			// 获取单位
+			string strTopUnit = GetUnitFromString(strTopItem);
+			// 更新坐标轴标签
+			formsPlotSpectrum.Plot.YLabel(strTopUnit);
+			// 刷新图表
+			formsPlotSpectrum.Refresh();
+		}
+		#endregion
+		#endregion
+		#region 信道设置
 		//添加追踪器
 		private void buttonAddTrace_Click(object sender, EventArgs e)
 		{
 			spectrumTracerController.AddTracer();
 		}
-
+		#endregion
 		#region 频谱分析仪表显示设置 已完成，不要动
 		private void toolStripComboBoxColorStyle4_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -944,55 +1130,156 @@ namespace MyWaveForms
 		#endregion
 		#endregion
 
-		#region 测试页
-		private void button6_Click(object sender, EventArgs e)
+		#region 获取配置
+		//在字符串中抓取实型数值
+		private double GetValueFromString(string str)
 		{
-			StringBuilder stringBuilder = new StringBuilder();
-			for (int i = 0; i < spectrumTracerController.TracerList.Count; ++i)
+			StringBuilder res = new StringBuilder();
+			foreach (char chr in str)
 			{
-				stringBuilder.Append(i.ToString() + spectrumTracerController.TracerList[i].ToString() + Environment.NewLine);
+				if ((chr >= '0' && chr <= '9') || chr == '.' || chr == '-')
+					res.Append(chr);
 			}
-			textBox3.Text = stringBuilder.ToString();
+			return double.Parse(res.ToString());
 		}
 
+		//获取单位
+		public static string GetUnitFromString(string str)
+		{
+			StringBuilder res_1 = new StringBuilder();
+			foreach (char chr in str)
+			{
+				if ((chr >= '0' && chr <= '9') || chr == '.' || chr == '-')
+					res_1.Append(chr);
+			}
+			int length = res_1.Length;
+			StringBuilder res_2 = new StringBuilder();
+			for (int i = length; i < str.Length; ++i)
+			{
+				res_2.Append(str[i]);
+			}
+			return res_2.ToString();
+		}
 
+		//获取示波器当前配置并打包为List
+		private List<string> GetScopeConfigSelectedList()
+		{
+			List<string> list = new List<string>();
+			list.Add(comboBoxCoupledType.SelectedItem.ToString());
+			list.Add(comboBoxTriggerType.SelectedItem.ToString());
+			list.Add(comboBoxVerticalSensitivity.SelectedItem.ToString());
+			list.Add(comboBoxTimeBase.SelectedItem.ToString());
+			return list;
+		}
+
+		//获取信号发生器当前配置并打包为List
+		private List<string> GetWavegenConfigSelectedList()
+		{
+			List<string> list = new List<string>();
+			if (comboBoxWaveType.SelectedItem == null)
+			{
+				return null;
+			}
+			else
+			{
+				list.Add(comboBoxWaveType.SelectedItem.ToString());
+				list.Add(comboBoxFrequency.SelectedItem.ToString());
+				list.Add(comboBoxAmplitde.SelectedItem.ToString());
+				list.Add(comboBoxOffset.SelectedItem.ToString());
+				list.Add(comboBoxSymmetry.SelectedItem.ToString());
+				list.Add(comboBoxPhase.SelectedItem.ToString());
+			}
+			return list;
+		}
+
+		//获取频谱分析仪当前配置并打包为List
+		private List<string> GetSpectrumConfigSelectedList()
+		{
+			List<string> list = new List<string>();
+			if (comboBoxMagnitudeUnit.SelectedItem == null)
+			{
+				return null;
+			}
+			else
+			{
+				list.Add(toolStripComboBoxStart.SelectedItem.ToString());
+				list.Add(toolStripComboBoxStop.SelectedItem.ToString());
+				list.Add(toolStripComboBoxBoxCount.SelectedItem.ToString());
+				list.Add(toolStripComboBoxScale.SelectedItem.ToString());
+				list.Add(toolStripComboBoxAlgorithm.SelectedItem.ToString());
+				list.Add(comboBoxMagnitudeUnit.SelectedItem.ToString());
+				list.Add(comboBoxMagnitudeTop.SelectedItem.ToString());
+				list.Add(comboBoxMagnitudeRange.SelectedItem.ToString());
+				list.Add(comboBoxReference.SelectedItem.ToString());
+				list.Add(comboBoxChannelOffset.SelectedItem.ToString());
+				list.Add(comboBoxChannelRange.SelectedItem.ToString());
+				list.Add(comboBoxChannelAttenuation.SelectedItem.ToString());
+			}
+			return list;
+		}
 		#endregion
 
+		#region 测试
+		private void labelMagnitudeUnit_Click(object sender, EventArgs e)
+		{
+			SpectrumConfig spectrumConfig = new SpectrumConfig(GetSpectrumConfigSelectedList());
+			this.textBoxSpectrumTest.Text = spectrumConfig.ToString();
+		}
+
 		Timer timerStopWatch = new Timer();
-		double runTimeMS = 0;
+		Timer timerUpdateValues = new Timer();
+		Timer timerUpdateForms = new Timer();
+		double[] dYValues;
+		double[] dXValues;
 
 		private void labelDemo_Click(object sender, EventArgs e)
 		{
-			if(this.labelDemo.BackColor == Color.Tomato)
+			if (this.labelDemo.BackColor == Color.Tomato)
 			{
-				#region 利用stopwatch更新运行时间
-				stopwatch.Restart();
-				timerStopWatch.Interval = 10;
-				timerStopWatch.Tick += new System.EventHandler(UpdateRuntime);
-				timerStopWatch.Start();
-				#endregion
-				//生成数据
-				double[] dYValues = waveformDataGenerator.GenerateTrapeziumData(1000, 
-					new WaveformInfor()).DValues;
-				double[] dXValues = new double[dYValues.Length];
+				formsPlotScope.Plot.Clear();
+				#region 生成数据
+				dYValues = waveformDataGenerator.GenerateSineData(1000,
+					new WaveformConfig());
+				dXValues = new double[dYValues.Length];
 				for (int i = 1; i < dYValues.Length; i++) dXValues[i] = dXValues[i - 1] + 0.01;
-				//初始化定时器
-				tester.InitTimer();
-				//初始化定时器数据
+				#endregion
+				#region 初始化定时器
+				tester.InitTimer(5);
+				timerStopWatch.Interval = 100;
+				timerStopWatch.Tick += new System.EventHandler(UpdateRuntime);
+				//timerUpdateValues.Interval = 500;	
+				//timerUpdateValues.Tick += new System.EventHandler(UpdateValues);
+				timerUpdateForms.Interval = 25;
+				timerUpdateForms.Tick += new System.EventHandler(UpdateForms);
+				#endregion
+				#region 初始化图表
 				tester.InitTestData(new ValueTuple<double[], double[]>(dXValues, dYValues));
-				ValueTuple < SignalPlotXY, Crosshair > vt = formsPlotController.InitChart(formsPlotScope, 
-					tester.GetTestData());
+				ValueTuple<SignalPlotXY, Crosshair> vt = formsPlotController.InitChart(formsPlotScope,
+				tester.GetTestData());
 				this.signalPlotXYScope = vt.Item1;
 				this.crosshair = vt.Item2;
-				//开始计时器
+				//this.signalPlotXYScope = formsPlotScope.Plot.AddSignalXY(dXValues, dYValues);
+				//this.crosshair = formsPlotScope.Plot.AddCrosshair(0.0, 0.0);
+				//formsPlotScope.Plot.AxisAuto();
+				#endregion
+				#region 开始定时器
 				tester.StartTimer();
+				stopwatch.Restart();
+				timerStopWatch.Start();
+				//timerUpdateValues.Start();
+				timerUpdateForms.Start();
+				#endregion
 				this.labelDemo.BackColor = Color.LimeGreen;
 			}
 			else
 			{
+				#region 关闭定时器
 				stopwatch.Stop();
 				timerStopWatch.Stop();
+				//timerUpdateValues.Stop();
+				timerUpdateForms.Stop();
 				tester.StopTimer();
+				#endregion
 				this.labelDemo.BackColor = Color.Tomato;
 			}
 		}
@@ -1001,5 +1288,20 @@ namespace MyWaveForms
 		{
 			labelRunTime.Text = stopwatch.Elapsed.ToString();
 		}
+
+		public void UpdateValues(Object sender, EventArgs myEventArgs)
+		{
+			long ms = stopwatch.ElapsedMilliseconds;
+			textBoxScopeTest.Text += ("*** at" + ms.ToString() + Environment.NewLine);
+			//dYValues = waveformDataGenerator.GenerateNoiseData(1000, new WaveformInfor()).DValues;
+		}
+
+		public void UpdateForms(Object sender, EventArgs myEventArgs)
+		{
+			//long ms = stopwatch.ElapsedMilliseconds;
+			//textBox1.Text += ("--- at" + stopwatch.ElapsedMilliseconds.ToString() + Environment.NewLine);
+			this.formsPlotScope.Refresh(true, true);
+		}
+		#endregion
 	}
 }

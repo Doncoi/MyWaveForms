@@ -73,7 +73,7 @@ namespace MyWaveForms.Controller
 		//控件生成器
 		WidgetGenerator widgetGenerator;
 		//追踪器列表
-		private List<TracerInfor> tracerList;
+		private List<Tracer> tracerList;
 		//目标容器
 		Panel targetContainer;
 		//目标图表
@@ -91,10 +91,10 @@ namespace MyWaveForms.Controller
 			this.iFirstLocationX = iFirstLocationX;
 			this.iFirstLocationY = iFirstLocationY;
 			this.widgetGenerator = new WidgetGenerator();
-			this.tracerList = new List<TracerInfor>();
+			this.tracerList = new List<Tracer>();
 		}
 
-		internal List<TracerInfor> TracerList { get => tracerList; set => tracerList = value; }
+		internal List<Tracer> TracerList { get => tracerList; set => tracerList = value; }
 
 		//添加追踪器
 		public bool AddTracer()
@@ -114,7 +114,7 @@ namespace MyWaveForms.Controller
 			//追加滚动条偏移量，保证在滚动中也能正常添加
 			int iPositionY = this.iFirstLocationY + this.iTracerWidgetHeight * iIndex - targetContainer.VerticalScroll.Value;
 			//绘制新的Tracer，并获取其信息类
-			TracerInfor tracerInfor;
+			Tracer tracerInfor;
 			switch(this.tracerType)
 			{
 				case 0:
@@ -132,7 +132,7 @@ namespace MyWaveForms.Controller
 			//生成测试数据
 			double[] dXValues = new double[100];
 			for (int i = 0; i < dXValues.Length; i++) dXValues[i] = i;
-			double[] dYValues = waveformDataGenerator.GenerateWaveformData((byte)iIndex, 100, new WaveformInfor()).DValues;
+			double[] dYValues = waveformDataGenerator.GenerateWaveformData((byte)iIndex, 100, new WaveformConfig());
 			//设置测试数据
 			tracerInfor.DXValues = dXValues;
 			tracerInfor.DYValues = dYValues;
@@ -147,14 +147,14 @@ namespace MyWaveForms.Controller
 
 		#region 绘制控件
 		//添加MeterTracer相关控件
-		private MeterTracerInfor DrawMeterTracerWidget(Panel targetContainer, int iIndex, int iPositionX, int iPositionY)
+		private MeterTracer DrawMeterTracerWidget(Panel targetContainer, int iIndex, int iPositionX, int iPositionY)
 		{
-			MeterTracerInfor tracerInfor = new MeterTracerInfor();
+			MeterTracer tracer = new MeterTracer();
 			//设定GroupBox
 			GroupBox gbox = this.widgetGenerator.GetGroupBox("groupBoxTracer_" + iIndex.ToString(),
 				"追踪器 " + (iIndex + 1).ToString(),
 				iTracerWidgetWidth, iTracerWidgetHeight, iPositionX, iPositionY);
-			tracerInfor.GroupBox = gbox;
+			tracer.GroupBox = gbox;
 			targetContainer.Controls.Add(gbox);     //添加至容器
 
 			#region 第一行
@@ -162,7 +162,7 @@ namespace MyWaveForms.Controller
 			TextBox tbox = this.widgetGenerator.GetTextBox("textBoxTracer_" + iIndex.ToString(),
 				"Tracer" + (iIndex + 1).ToString(),
 				110, 30, 5, 20);
-			tracerInfor.TextBoxTracerName = tbox;
+			tracer.TextBoxTracerName = tbox;
 			gbox.Controls.Add(tbox);    //添加至容器，注意gbox外所有控件都添加到gbox
 			tbox.BringToFront();    //显示在最上层
 
@@ -170,7 +170,7 @@ namespace MyWaveForms.Controller
 			CheckBox cbox = this.widgetGenerator.GetCheckBox("checkBoxVisibilityTracer_" + iIndex.ToString(),
 				"可见",
 				50, 30, 125, 15, new System.EventHandler(this.ChangePlotVisible), true);
-			tracerInfor.CheckBoxVisibility = cbox;
+			tracer.CheckBoxVisibility = cbox;
 			gbox.Controls.Add(cbox);    //添加至容器，注意gbox外所有控件都添加到gbox
 			cbox.BringToFront();    //显示在最上层
 
@@ -179,80 +179,80 @@ namespace MyWaveForms.Controller
 				"×",
 				20, 20, 170, 20,
 				new System.EventHandler(this.DeleteTracer));
-			tracerInfor.ButtonDelete = button;
+			tracer.ButtonDelete = button;
 			gbox.Controls.Add(button);    //添加至容器，注意gbox外所有控件都添加到gbox
 			button.BringToFront();    //显示在最上层
 			#endregion
 			#region 第二行
 			//设定当前值文本标签
 			Label label1 = this.widgetGenerator.GetLabel("labelCurrentTextTracer_" + iIndex.ToString(), "当前值", 5, 50);
-			tracerInfor.LabelCurrentText = label1;
+			tracer.LabelCurrentText = label1;
 			gbox.Controls.Add(label1);    //添加至容器，注意gbox外所有控件都添加到gbox
 			label1.BringToFront();    //显示在最上层		
 
 			//设定当前值显示标签
 			Label label2 = this.widgetGenerator.GetLabel("labelCurrentValueTracer_" + iIndex.ToString(), "N/A", 45, 50);
-			tracerInfor.LabelCurrentValue = label2;
+			tracer.LabelCurrentValue = label2;
 			gbox.Controls.Add(label2);    //添加至容器，注意gbox外所有控件都添加到gbox
 			label2.BringToFront();    //显示在最上层
 
 			// 设定Label3  “类型”
 			Label label3 = this.widgetGenerator.GetLabel("labelTypeTracer_" + iIndex.ToString(), "类型", 95, 50);
-			tracerInfor.LabelType = label3;
+			tracer.LabelType = label3;
 			gbox.Controls.Add(label3);    //添加至容器，注意gbox外所有控件都添加到gbox
 			label3.BringToFront();    //显示在最上层
 
 			// 设定ComboBox1  “类型”
 			ComboBox comboBox1 = this.widgetGenerator.GetComboBox("labelTypeTracer_" + iIndex.ToString(), 60, 30, 130, 45, strMeterTracerType, 0);
-			tracerInfor.ComboBoxType = comboBox1;
+			tracer.ComboBoxType = comboBox1;
 			gbox.Controls.Add(comboBox1);    //添加至容器，注意gbox外所有控件都添加到gbox
 			comboBox1.BringToFront();    //显示在最上层		
 			#endregion
 			#region 第三行
 			//设定最大值文本标签
 			Label label4 = this.widgetGenerator.GetLabel("labelCurrentTextTracer_" + iIndex.ToString(), "最大值", 5, 75);
-			tracerInfor.LabelMaxText = label4;
+			tracer.LabelMaxText = label4;
 			gbox.Controls.Add(label4);    //添加至容器，注意gbox外所有控件都添加到gbox
 			label4.BringToFront();    //显示在最上层
 
 			//设定当前值显示标签
 			Label label5 = this.widgetGenerator.GetLabel("labelCurrentValueTracer_" + iIndex.ToString(), "N/A", 45, 75);
-			tracerInfor.LabelMaxValue = label5;
+			tracer.LabelMaxValue = label5;
 			gbox.Controls.Add(label5);    //添加至容器，注意gbox外所有控件都添加到gbox
 			label5.BringToFront();    //显示在最上层
 
 			//设定最大值文本标签
 			Label label6 = this.widgetGenerator.GetLabel("labelCurrentTextTracer_" + iIndex.ToString(), "最小值", 95, 75);
-			tracerInfor.LabelMinText = label6;
+			tracer.LabelMinText = label6;
 			gbox.Controls.Add(label6);    //添加至容器，注意gbox外所有控件都添加到gbox
 			label6.BringToFront();    //显示在最上层
 
 			//设定当前值显示标签
 			Label label7 = this.widgetGenerator.GetLabel("labelCurrentValueTracer_" + iIndex.ToString(), "N/A", 135, 75);
-			tracerInfor.LabelMinValue = label7;
+			tracer.LabelMinValue = label7;
 			gbox.Controls.Add(label7);    //添加至容器，注意gbox外所有控件都添加到gbox
 			label7.BringToFront();    //显示在最上层
 			#endregion
 			
-			return tracerInfor;
+			return tracer;
 		}
 
 		//添加SpectrumTracer相关控件
-		private SpectrumTracerInfor DrawSpectrumTracerWidget(Panel targetContainer, int iIndex, int iPositionX, int iPositionY)
+		private SpectrumTracer DrawSpectrumTracerWidget(Panel targetContainer, int iIndex, int iPositionX, int iPositionY)
 		{
-			SpectrumTracerInfor tracerInfor = new SpectrumTracerInfor();
+			SpectrumTracer tracer = new SpectrumTracer();
 			//设定GroupBox
 			GroupBox gbox = this.widgetGenerator.GetGroupBox("groupBoxTracer_" + iIndex.ToString(),
 				"追踪器 " + (iIndex + 1).ToString(),
 				iTracerWidgetWidth, iTracerWidgetHeight, iPositionX, iPositionY);
-			tracerInfor.GroupBox = gbox;
+			tracer.GroupBox = gbox;
 			targetContainer.Controls.Add(gbox);     //添加至容器
 			#region 第一行
 			//设定TextBox
 			TextBox tbox = this.widgetGenerator.GetTextBox("textBoxTracer_" + iIndex.ToString(),
 				"Tracer" + (iIndex + 1).ToString(),
 				110, 30, 10, 20);
-			tracerInfor.TextBoxTracerName = tbox;
+			tracer.TextBoxTracerName = tbox;
 			gbox.Controls.Add(tbox);    //添加至容器，注意gbox外所有控件都添加到gbox
 			tbox.BringToFront();    //显示在最上层
 
@@ -260,7 +260,7 @@ namespace MyWaveForms.Controller
 			CheckBox cbox = this.widgetGenerator.GetCheckBox("checkBoxVisibilityTracer_" + iIndex.ToString(),
 				"可见",
 				50, 30, 125, 15, new System.EventHandler(this.ChangePlotVisible), true);
-			tracerInfor.CheckBoxVisibility = cbox;
+			tracer.CheckBoxVisibility = cbox;
 			cbox.CheckedChanged += new System.EventHandler(ChangePlotVisible);		//添加可见性更改事件
 			gbox.Controls.Add(cbox);    //添加至容器，注意gbox外所有控件都添加到gbox
 			cbox.BringToFront();    //显示在最上层
@@ -270,37 +270,37 @@ namespace MyWaveForms.Controller
 				"×",
 				20, 20, 170, 20,
 				new System.EventHandler(this.DeleteTracer));
-			tracerInfor.ButtonDelete = button;
+			tracer.ButtonDelete = button;
 			gbox.Controls.Add(button);    //添加至容器，注意gbox外所有控件都添加到gbox
 			button.BringToFront();    //显示在最上层
 			#endregion
 			#region 第二行
 			// 设定Label1  “类型”
 			Label label1 = this.widgetGenerator.GetLabel("labelTypeTracer_" + iIndex.ToString(), "类型", 10, 50);
-			tracerInfor.LabelType = label1;
+			tracer.LabelType = label1;
 			gbox.Controls.Add(label1);    //添加至容器，注意gbox外所有控件都添加到gbox
 			label1.BringToFront();    //显示在最上层
 
 			// 设定ComboBox1  “类型”
 			ComboBox comboBox1 = this.widgetGenerator.GetComboBox("labelTypeTracer_" + iIndex.ToString(), 140, 30, 45, 45, strSpectrumTracerType, 0);
-			tracerInfor.ComboBoxType = comboBox1;
+			tracer.ComboBoxType = comboBox1;
 			gbox.Controls.Add(comboBox1);    //添加至容器，注意gbox外所有控件都添加到gbox
 			comboBox1.BringToFront();    //显示在最上层
 			#endregion
 			#region 第三行
 			// 设定Label2  “计数”
 			Label label2 = this.widgetGenerator.GetLabel("labelTypeTracer_" + iIndex.ToString(), "计数", 10, 75);
-			tracerInfor.LabelCount = label2;
+			tracer.LabelCount = label2;
 			gbox.Controls.Add(label2);    //添加至容器，注意gbox外所有控件都添加到gbox
 			label2.BringToFront();    //显示在最上层
 
 			// 设定ComboBox2  “计数”
 			ComboBox comboBox2 = this.widgetGenerator.GetComboBox("labelTypeTracer_" + iIndex.ToString(), 140, 30, 45, 70, strSpectrumTracerCount, 0);
-			tracerInfor.ComboBoxCount = comboBox2;
+			tracer.ComboBoxCount = comboBox2;
 			gbox.Controls.Add(comboBox2);    //添加至容器，注意gbox外所有控件都添加到gbox
 			comboBox2.BringToFront();    //显示在最上层						  
 			#endregion
-			return tracerInfor;
+			return tracer;
 		}
 		#endregion
 

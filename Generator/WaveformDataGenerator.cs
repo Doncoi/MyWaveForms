@@ -12,64 +12,64 @@ namespace MyWaveForms.Generator
 	//波形数据生成器
 	internal class WaveformDataGenerator
 	{
-		public WaveformData GenerateWaveformData(byte bWaveType, int size, WaveformInfor node)
+		public double[] GenerateWaveformData(byte bWaveType, int size, WaveformConfig node)
 		{
-			WaveformData waveformData;
+			double[] dValues;
 			switch (bWaveType)
 			{
 				case 0:
-					waveformData = this.GenerateDCData(size, node);
+					dValues = this.GenerateDCData(size, node);
 					break;
 				case 1:
-					waveformData = this.GenerateSineData(size, node);
+					dValues = this.GenerateSineData(size, node);
 					break;
 				case 2:
-					waveformData = this.GenerateTriangleData(size, node);
+					dValues = this.GenerateTriangleData(size, node);
 					break;
 				case 3:
-					waveformData = this.GenerateSquareData(size, node);
+					dValues = this.GenerateSquareData(size, node);
 					break;
 				case 4:
-					waveformData = this.GenerateRampUpData(size, node);
+					dValues = this.GenerateRampUpData(size, node);
 					break;
 				case 5:
-					waveformData = this.GenerateRampDownData(size, node);
+					dValues = this.GenerateRampDownData(size, node);
 					break;
 				case 6:
-					waveformData = this.GenerateNoiseData(size, node);
+					dValues = this.GenerateNoiseData(size, node);
 					break;
 				case 7:
-					waveformData = this.GenerateTrapeziumData(size, node);
+					dValues = this.GenerateTrapeziumData(size, node);
 					break;
 				default:
-					waveformData = new WaveformData(size, new double[size]);
+					dValues = new double[size];
 					break;
 			}
 
-			return waveformData;
+			return dValues;
 		}
 
 		//生成直流信号
-		public WaveformData GenerateDCData(int size, WaveformInfor node)
+		public double[] GenerateDCData(int size, WaveformConfig node)
 		{
 			//指定大小，偏移量dOffset，幅值dAmplitude，
 			double[] dValues = new double[size];
 			for (int i = 0; i < size; ++i)
 				dValues[i] = node.DOffset + node.DAmplitude;
 
-			return new WaveformData(size, dValues);
+			return dValues;
 		}
 
 		//生成正弦波
-		public WaveformData GenerateSineData(int size, WaveformInfor node)
+		public double[] GenerateSineData(int size, WaveformConfig node)
 		{
 			//指定大小，生成1个周期，偏移量dOffset，幅值dAmplitude，相位bPhase / 360
 			double[] dValues = DataGen.Sin(size, 1, node.DOffset, node.DAmplitude, (double)node.BPhase / 360);
-			return new WaveformData(size, dValues);
+			return dValues;
 		}
 
 		//生成三角波
-		public WaveformData GenerateTriangleData(int size, WaveformInfor node)
+		public double[] GenerateTriangleData(int size, WaveformConfig node)
 		{
 			//指定大小，生成1个周期，偏移量dOffset，幅值dAmplitude，相位bPhase / 360
 			double[] dTemp = new double[size];
@@ -90,7 +90,7 @@ namespace MyWaveForms.Generator
 		}
 
 		//生成方波
-		public WaveformData GenerateSquareData(int size, WaveformInfor node)
+		public double[] GenerateSquareData(int size, WaveformConfig node)
 		{
 			//指定大小，生成1个周期，偏移量dOffset，幅值dAmplitude，相位bPhase / 360
 			double[] dTemp = new double[size];
@@ -105,7 +105,7 @@ namespace MyWaveForms.Generator
 		}
 
 		//生成上升波
-		public WaveformData GenerateRampUpData(int size, WaveformInfor node)
+		public double[] GenerateRampUpData(int size, WaveformConfig node)
 		{
 			//指定大小，生成1个周期，偏移量dOffset，幅值dAmplitude，相位bPhase / 360
 			double[] dTemp = new double[size];
@@ -121,7 +121,7 @@ namespace MyWaveForms.Generator
 		}
 
 		//生成下降波
-		public WaveformData GenerateRampDownData(int size, WaveformInfor node)
+		public double[] GenerateRampDownData(int size, WaveformConfig node)
 		{
 			//指定大小，生成1个周期，偏移量dOffset，幅值dAmplitude，相位bPhase / 360
 			double[] dTemp = new double[size];
@@ -137,21 +137,23 @@ namespace MyWaveForms.Generator
 		}
 
 		//生成噪声
-		public WaveformData GenerateNoiseData(int size, WaveformInfor node)
+		public double[] GenerateNoiseData(int size, WaveformConfig node)
 		{
-			Random rand = new Random(0);
+			Random rand = new Random((int)System.DateTime.Now.Ticks);
+			double[] dValues = DataGen.RandomNormal(rand, size, 0, 0.5, node.DAmplitude);
+			/*
 			double[] dValues = new double[size];
-			//double[] dValues = DataGen.RandomNormal(rand, size, 0, 0.5, node.DAmplitude);
 			for (int i = 0; i < size; ++i)
 				dValues[i] = rand.NextDouble() * 
 					node.DAmplitude * 
 					(rand.NextDouble() > 0.5 ? 1 : -1) + 
 					node.DOffset;
-			return new WaveformData(size, dValues);
+			*/
+			return dValues;
 		}
 
 		//生成梯形波
-		public WaveformData GenerateTrapeziumData(int size, WaveformInfor node)
+		public double[] GenerateTrapeziumData(int size, WaveformConfig node)
 		{
 			//指定大小，生成1个周期，偏移量dOffset，幅值dAmplitude，相位bPhase / 360
 			double[] dTemp = new double[size];
@@ -177,7 +179,7 @@ namespace MyWaveForms.Generator
 		}
 
 		//追加相位偏移量
-		private WaveformData AddPhaseDeviation(double[] dTemp, int size, WaveformInfor node)
+		private double[] AddPhaseDeviation(double[] dTemp, int size, WaveformConfig node)
 		{
 			double[] dValues = new double[size];
 			//追加相位偏移量
@@ -188,7 +190,7 @@ namespace MyWaveForms.Generator
 			for (int i = 0; i < st; ++i)
 				dValues[i] = dTemp[size - st + i];
 
-			return new WaveformData(size, dValues);
+			return dValues;
 		}
 	}
 }
