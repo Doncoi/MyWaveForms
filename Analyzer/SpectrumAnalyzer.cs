@@ -8,13 +8,13 @@ using NWaves.Transforms;
 
 namespace MyWaveForms.Analyzer
 {
-	internal class FrequencyAnalyzer
+	internal class SpectrumAnalyzer
 	{
 		// FFT操作类
 		private RealFft fft;
 
 		// 必须指定fft大小
-		public FrequencyAnalyzer(int iFFTSize = 1024)
+		public SpectrumAnalyzer(int iFFTSize = 1024)
 		{
 			this.fft = new RealFft(iFFTSize);
 		}

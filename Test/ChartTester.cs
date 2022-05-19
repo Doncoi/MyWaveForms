@@ -18,25 +18,25 @@ namespace MyWaveForms.Test
 		// 定时器 测试用
 		private System.Timers.Timer timerUpdateTestValues;
 		// 窗口数组
-		int iMaxSize;
+		int isize;
 		double[] dXValues;
 		double[] dYValues;
 
-		public int IMaxSize { get => iMaxSize; set => iMaxSize = value; }
+		public int Isize { get => isize; set => isize = value; }
 		#endregion
 		#region 构造函数
-		public ChartTester(FormsPlot _formsPlot, int _iMaxSize = 1000)
+		public ChartTester(FormsPlot _formsPlot, int _isize = 1000)
 		{
 			this.formsPlot = _formsPlot;
-			this.iMaxSize = _iMaxSize;
-			dXValues = new double[iMaxSize]; 
-			dYValues = new double[iMaxSize];
+			this.isize = _isize;
+			dXValues = new double[isize]; 
+			dYValues = new double[isize];
 		}
 
-		public ChartTester(FormsPlot _formsPlot, double[] dXValues, double[] dYValues, int _iMaxSize = DEFAULT_SIZE)
+		public ChartTester(FormsPlot _formsPlot, double[] dXValues, double[] dYValues, int _isize = DEFAULT_SIZE)
 		{
 			this.formsPlot = _formsPlot;
-			this.iMaxSize = _iMaxSize;
+			this.isize = _isize;
 			this.dXValues = dXValues;
 			this.dYValues = dYValues;
 		}

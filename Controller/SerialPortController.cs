@@ -41,7 +41,7 @@ namespace MyWaveForms.Controller
 		}
 
 		//打开串口
-		public void OpenPort(SerialPort serialPort, SerialPortConfig portConfig)
+		public bool OpenPort(SerialPort serialPort, SerialPortConfig portConfig)
 		{
 			if (!serialPort.IsOpen)     //串口处于关闭状态
 			{
@@ -49,37 +49,43 @@ namespace MyWaveForms.Controller
 				{
 					portConfig.setSerialPort(serialPort);   //设置串口
 					serialPort.Open();      //打开串口
+					return true;
 				}
 				catch (StopBitErrorException sbee)
 				{
 					MessageBox.Show(sbee.Message);
+					return false;
 				}
 				catch (CheckBitErrorException cbee)
 				{
 					MessageBox.Show(cbee.Message);
+					return false;
 				}
 				catch (System.Exception ex)
 				{
 					MessageBox.Show("串口打开失败" + ex, "Error");
+					return false;
 				}
 			}
 			else
 			{
 				MessageBox.Show("串口已经打开", "Error");
-				return;
+				return false;
 			}
 		}
 
 		//关闭串口
-		public void ClosePort(SerialPort serialPort)
+		public bool ClosePort(SerialPort serialPort)
 		{
 			try
 			{
 				serialPort.Close();
+				return true;
 			}
 			catch (System.Exception ex)
 			{
 				MessageBox.Show("串口关闭失败！" + ex, "Error");
+				return false;
 			}
 		}
 

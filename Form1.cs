@@ -10,6 +10,7 @@ using ScottPlot.Plottable;
 using MyWaveForms.Test;
 using MyWaveForms.Generator;
 using System.Diagnostics;
+using System.Linq;
 
 namespace MyWaveForms
 {
@@ -25,21 +26,25 @@ namespace MyWaveForms
 		公用
 		*/
 		private Boolean isInit = false;                         //IndexChange事件屏蔽标记
-		private FormsPlotController formsPlotController;        //图表控制器
-		WaveformDataGenerator waveformDataGenerator;            //数据生成器
-		ChartTester tester;                                     //图表测试器                                             
-		SerialPortController serialPortController;              //串口助手控制器
+		private WaveformDataGenerator waveformDataGenerator;            //数据生成器
+		private ChartTester tester;                                     //图表测试器                                             
+		private SerialPortController serialPortController;              //串口助手控制器
+		/*
+		设备管理部分
+		*/
+		private DeviceController deviceController;
 		/*
 		示波器部分
 		*/
-		Stopwatch stopwatch;
+		private Stopwatch stopwatch;
 		private SignalPlotXY signalPlotXYScope;                 //信号图对象
+		private ScopeChartController scopeChartController;        //图表控制器
 		private Crosshair crosshair;                            //鼠标随动十字光标线
 		/*
 		信号发生器部分
 		*/                                                    
 		const int PlotSize = 1000;                              //预览图表点数
-		private WavegenChartController wavegenChartController;  //示波器图表控制器
+		private WavegenChartController wavegenChartController;  //图表控制器
 		private SignalPlotXY signalPlotXYWaveGen;               //信号图对象
 		/*
 		电压电流计
@@ -49,7 +54,8 @@ namespace MyWaveForms
 		/*
 		频谱分析仪
 		*/
-		private TracerController spectrumTracerController;//Tracer控制器
+		private TracerController spectrumTracerController;        //Tracer控制器
+		private SpectrumChartController spectrumChartController;	//图表控制器
 		private SignalPlotXY signalPlotXYSpectrum;                 //信号图对象
 		#endregion
 
@@ -64,8 +70,12 @@ namespace MyWaveForms
 			公用
 			*/
 			serialPortController = new SerialPortController();
-			formsPlotController = new FormsPlotController();
+			scopeChartController = new ScopeChartController(this.formsPlotScope);
 			waveformDataGenerator = new WaveformDataGenerator();
+			/*
+			设备管理部分
+			 */
+			deviceController = new DeviceController(this.serialPortController);
 			/*
 			示波器部分
 			*/
@@ -86,10 +96,12 @@ namespace MyWaveForms
 			频谱分析仪
 			*/
 			spectrumTracerController = new TracerController(panelSpectrum, formsPlotSpectrum, 1, 10, 198, 100, 0, 260 + 10);
+			spectrumChartController = new SpectrumChartController();
 			signalPlotXYSpectrum = new SignalPlotXY();
 		}
 
 		#region 串口助手部分
+		#region 初始化
 		private void InitUARTAsssist()
 		{
 			//serialPort1 = new SerialPort();
@@ -109,6 +121,7 @@ namespace MyWaveForms
 			serialPortController = new SerialPortController(); 
 			InitUARTAsssist();
 		}
+		#endregion
 		#region 控件禁用/启用
 		//禁用串口设置的相关ComboBox
 		private void DisablePortSettingComboBox()
@@ -148,7 +161,7 @@ namespace MyWaveForms
 		#endregion
 		#region 串口设置
 		//端口号lable点击事件，刷新端口
-		private void labelSerialPortNumber_Click(object sender, EventArgs e)
+		private void labelPortNumber_Click(object sender, EventArgs e)
 		{
 			serialPortController.ReflashPortToComboBox(serialPort1, comboBoxPort);
 		}
@@ -159,22 +172,20 @@ namespace MyWaveForms
 			if (comboBoxPort.SelectedItem == null)
 			{
 				MessageBox.Show("没有选择串口！");
-				return;
 			}
 			if (comboBoxBaudRate.SelectedItem == null)
 			{
 				MessageBox.Show("没有选择波特率！");
-				return;
 			}
 			//获取ComboBox数据
-			SerialPortConfig portConfig1 = new SerialPortConfig(
+			SerialPortConfig portConfig = new SerialPortConfig(
 				comboBoxPort.SelectedItem.ToString(),
 				comboBoxBaudRate.SelectedItem.ToString(),
 				comboBoxDataBit.SelectedItem.ToString(),
 				comboBoxCheckBit.SelectedItem.ToString(),
 				comboBoxStopBit.SelectedItem.ToString());
 			//打开串口
-			serialPortController.OpenPort(serialPort1, portConfig1);
+			bool res = serialPortController.OpenPort(serialPort1, portConfig);
 			DisablePortSettingComboBox();   //禁用串口设置的相关ComboBox
 			DisableOpenPortButton();    //禁用开启串口按钮
 		}
@@ -266,13 +277,100 @@ namespace MyWaveForms
 		#endregion
 		#endregion
 
+		#region 设备管理部分
+		#region 表格视图管理
+		/// <summary>
+		/// 向可用设备列表添加新的信息
+		/// </summary>
+		/// <param name="dataGridView"></param>
+		/// <param name="deviceConfig"></param>
+		private void AddRowToDeviceInforList(DataGridView dataGridView, DeviceConfig deviceConfig)
+		{
+			int index = this.dataGridViewDeviceInfor.Rows.Add();
+			this.dataGridViewDeviceInfor.Rows[index].Cells[0].Value = deviceConfig.SPortNumber;
+			this.dataGridViewDeviceInfor.Rows[index].Cells[1].Value = deviceConfig.SDeviceName;
+			this.dataGridViewDeviceInfor.Rows[index].Cells[2].Value = deviceConfig.SDeviceNumber;
+			this.dataGridViewDeviceInfor.Rows[index].Cells[3].Value = "Ready";
+		}
+
+		/// <summary>
+		/// 清空列表
+		/// </summary>
+		/// <param name="dataGridView"></param>
+		private void ClearDeviceInforList(DataGridView dataGridView)
+		{
+			dataGridView.Rows.Clear();
+		}
+
+		/// <summary>
+		/// 获取选中设备
+		/// </summary>
+		/// <returns></returns>
+		private DeviceConfig GetSelectedDeviceConfig()
+		{
+			DataGridViewRow row = this.dataGridViewDeviceInfor.CurrentRow;
+			string sPortNumber = row.Cells[0].Value.ToString();
+			string sDeviceName = row.Cells[1].Value.ToString();
+			string sDeviceNumber = row.Cells[2].Value.ToString();
+			return new DeviceConfig(sPortNumber, sDeviceName, sDeviceNumber, new SerialPortConfig());
+		}
+		#endregion
+		#region 响应事件
+		/// <summary>
+		/// 进入设备管理页事件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void tabPageDeviceManage_Enter(object sender, EventArgs e)
+		{
+			// 添加测试数据
+			this.AddRowToDeviceInforList(
+				this.dataGridViewDeviceInfor,
+				new DeviceConfig("COM15", "MSP4305529F", "t0001", new SerialPortConfig()));
+		}
+
+		/// <summary>
+		/// 连接设备按钮响应事件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void buttonConnect_Click(object sender, EventArgs e)
+		{
+			// 如果当前按钮功能为连接
+			if (this.checkBoxConnected.Checked == false)
+			{
+				//this.checkBoxConnected.Checked = this.deviceController.ConnectWithDevice(serialPort1, new SerialPortConfig());
+				this.checkBoxConnected.Checked = true;
+			}
+			else    
+			{
+				//this.checkBoxConnected.Checked = this.deviceController.DisconnectWithDevice(serialPort1);
+				this.checkBoxConnected.Checked = false;
+			}
+			// 设备连接成功
+			if (this.checkBoxConnected.Checked == true)
+			{
+				buttonConnect.Text = "断开";		//显示为断开
+				buttonRefresh.Enabled = false;      //禁止刷新
+				labelConnectState.Text = "已连接 " + GetSelectedDeviceConfig().SDeviceName;		//更新连接状态
+			}
+			else
+			{
+				buttonConnect.Text = "连接";      //显示为断开
+				buttonRefresh.Enabled = true;      //禁止刷新
+				labelConnectState.Text = "未连接";
+			}
+		}
+		#endregion
+		#endregion
+
 		#region 示波器部分
 		#region 控件初始化
 		//初始化控件
 		private void InitScopeWidget()
 		{
-			if(formsPlotController == null)	//实例化图表控制器
-				formsPlotController = new FormsPlotController();
+			if(scopeChartController == null)	//实例化图表控制器
+				scopeChartController = new ScopeChartController(this.formsPlotScope);
 			//if (scopeChartTester == null)   //实例化测试控制器
 				//scopeChartTester = new ChartTester(formsPlotScope);
 
@@ -285,19 +383,32 @@ namespace MyWaveForms
 			comboBoxCoupledType.SelectedIndex = 0;      //DC
 			comboBoxTriggerType.SelectedIndex = 0;      //同时触发
 			comboBoxVerticalSensitivity.SelectedIndex = 2;      //0.1V
-			comboBoxTimeBase.SelectedIndex = 9;     //1ms
+			comboBoxTimeBase.SelectedIndex = 15;     //100ms
 			//信息区初始化
 			labelDisplayPlotCount.Text = "1000";
 			labelDisplayFrequency.Text = "50MHz";
 			isInit = false;     //关闭屏蔽标记
 
 			//无数据初始化图表
-			ValueTuple<SignalPlotXY, Crosshair> vt = formsPlotController.InitChart(formsPlotScope,
+			ValueTuple<SignalPlotXY, Crosshair> vt = scopeChartController.InitScopeChart(
 				toolStripComboBoxColorStyle.SelectedIndex,								//获取色彩模式
 				Double.Parse(toolStripComboBoxLineWidth.SelectedItem.ToString()),		//获取线宽
 				toolStripComboBoxLineStyle.SelectedIndex);								//获取连线样式
 			this.signalPlotXYScope = vt.Item1;
 			this.crosshair = vt.Item2;
+
+			// 翻转刻度线方向
+			formsPlotScope.Plot.XAxis.TickMarkDirection(outward: false);
+			formsPlotScope.Plot.YAxis.TickMarkDirection(outward: false);
+
+			// 调整刻度
+			ScopeConfig scopeConfig = new ScopeConfig(GetScopeConfigSelectedList());
+			double dVerticalSensitivity = scopeConfig.DVerticalSensitivity;     //获取垂直灵敏度
+			scopeChartController.SetVerticalAxis(dVerticalSensitivity);     // 更改图表纵轴刻度
+			double dTimeBaseValue = scopeConfig.DTimeBaseValue;     //获取时基
+			string sTimeBaseUnit = scopeConfig.strTimeBaseUnit[scopeConfig.BTimeBaseUnit];      //获取时基单位
+			scopeChartController.SetTimeBaseAxis(dTimeBaseValue, sTimeBaseUnit); // 更改图表横轴刻度
+
 		}
 
 		private void tabPageScope_Enter(object sender, EventArgs e)
@@ -305,14 +416,17 @@ namespace MyWaveForms
 			InitScopeWidget();
 		}
 		#endregion
-		#region 控制区响应事件
-		private void comboBoxCoupledType_SelectedIndexChanged(object sender, EventArgs e)
+		#region 工具栏响应事件
+		/// <summary>
+		/// 运行示波器响应按钮
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void toolStripButtonRunScope_Click(object sender, EventArgs e)
 		{
-			if (isInit == true) return;
-			ScopeConfig scopeConfig = new ScopeConfig(GetScopeConfigSelectedList());
-			this.textBoxScopeTest.Text = scopeConfig.ToString();
+			// todo 启动示波器
 		}
-		#endregion
+
 		#region 示波器图表显示设置 已完成，不要动
 		//变更图表色彩模式
 		private void toolStripComboBoxColorStyle_SelectedIndexChanged(object sender, EventArgs e)
@@ -321,7 +435,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				int colorStyle = toolStripComboBoxColorStyle.SelectedIndex;      //获取色彩模式
-				formsPlotController.SetPlotColorStyle(this.formsPlotScope, this.signalPlotXYScope, colorStyle);     //变更色彩模式
+				scopeChartController.SetPlotColorStyle(this.formsPlotScope, this.signalPlotXYScope, colorStyle);     //变更色彩模式
 			}
 			catch (System.Exception ex)
 			{
@@ -336,7 +450,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				int iLineStyle = toolStripComboBoxLineStyle.SelectedIndex;       //获取连线样式
-				formsPlotController.SetLineStyle(this.formsPlotScope, this.signalPlotXYScope, iLineStyle);
+				scopeChartController.SetLineStyle(this.formsPlotScope, this.signalPlotXYScope, iLineStyle);
 			}
 			catch (System.Exception ex)
 			{
@@ -351,7 +465,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				double dLineWidth = Double.Parse(toolStripComboBoxLineWidth.SelectedItem.ToString());    //获取线宽
-				formsPlotController.SetLineWidth(this.formsPlotScope, this.signalPlotXYScope, dLineWidth);
+				scopeChartController.SetLineWidth(this.formsPlotScope, this.signalPlotXYScope, dLineWidth);
 			}
 			catch (System.Exception ex)
 			{
@@ -363,9 +477,9 @@ namespace MyWaveForms
 		//鼠标右键拖拽缩放
 		private void toolStripMenuItemRightClickDragZoom_Click(object sender, EventArgs e)
 		{
-			this.toolStripMenuItemRightClickDragZoom.Checked = 
-				! this.toolStripMenuItemRightClickDragZoom.Checked;
-			this.formsPlotScope.Configuration.RightClickDragZoom = 
+			this.toolStripMenuItemRightClickDragZoom.Checked =
+				!this.toolStripMenuItemRightClickDragZoom.Checked;
+			this.formsPlotScope.Configuration.RightClickDragZoom =
 				this.toolStripMenuItemRightClickDragZoom.Checked;
 		}
 
@@ -374,8 +488,8 @@ namespace MyWaveForms
 		private void toolStripMenuItemScrollWheelZoom_Click(object sender, EventArgs e)
 		{
 			this.toolStripMenuItemScrollWheelZoom.Checked =
-				! this.toolStripMenuItemScrollWheelZoom.Checked;
-			this.formsPlotScope.Configuration.ScrollWheelZoom = 
+				!this.toolStripMenuItemScrollWheelZoom.Checked;
+			this.formsPlotScope.Configuration.ScrollWheelZoom =
 				this.toolStripMenuItemScrollWheelZoom.Checked;
 		}
 
@@ -383,18 +497,18 @@ namespace MyWaveForms
 		private void toolStripMenuItemHorizontalZoom_Click(object sender, EventArgs e)
 		{
 			this.toolStripMenuItemHorizontalZoom.Checked =
-				! this.toolStripMenuItemHorizontalZoom.Checked;
-			this.formsPlotScope.Configuration.LockHorizontalAxis = 
-				! this.toolStripMenuItemHorizontalZoom.Checked;
+				!this.toolStripMenuItemHorizontalZoom.Checked;
+			this.formsPlotScope.Configuration.LockHorizontalAxis =
+				!this.toolStripMenuItemHorizontalZoom.Checked;
 		}
 
 		//启用/禁用垂直缩放
 		private void toolStripMenuItemVerticalZoom_Click(object sender, EventArgs e)
 		{
 			this.toolStripMenuItemVerticalZoom.Checked =
-				! this.toolStripMenuItemVerticalZoom.Checked;
-			this.formsPlotScope.Configuration.LockVerticalAxis = 
-				! this.toolStripMenuItemVerticalZoom.Checked;
+				!this.toolStripMenuItemVerticalZoom.Checked;
+			this.formsPlotScope.Configuration.LockVerticalAxis =
+				!this.toolStripMenuItemVerticalZoom.Checked;
 		}
 
 		//启用/禁用十字准线
@@ -426,7 +540,7 @@ namespace MyWaveForms
 		private void formsPlotMain_MouseMove(object sender, MouseEventArgs e)
 		{
 			if (toolStripMenuItemCrosshair.Checked == false) return;      //如果不需要绘制十字准线，直接返回
-			//获取鼠标位置
+																		  //获取鼠标位置
 			ValueTuple<double, double> mouseCoordinates = this.formsPlotScope.GetMouseCoordinates();
 			double coordinateX = mouseCoordinates.Item1;
 			double coordinateY = mouseCoordinates.Item2;
@@ -444,10 +558,10 @@ namespace MyWaveForms
 			try
 			{
 				if (toolStripMenuItemCrosshair.Checked == false) return;      //如果不需要绘制十字准线，直接返回
-				if (toolStripMenuItemCrosshair.Checked)		//如果需要显示十字准线
+				if (toolStripMenuItemCrosshair.Checked)     //如果需要显示十字准线
 				{
 					//this.crosshair.IsVisible = true;
-					this.crosshair.VerticalLine.IsVisible = true;	//设为可见
+					this.crosshair.VerticalLine.IsVisible = true;   //设为可见
 					this.crosshair.HorizontalLine.IsVisible = true;
 				}
 				/*
@@ -461,7 +575,7 @@ namespace MyWaveForms
 
 				this.formsPlotScope.Refresh();
 			}
-			catch(System.Exception ex)
+			catch (System.Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
@@ -482,6 +596,67 @@ namespace MyWaveForms
 			{
 				MessageBox.Show(ex.Message);
 			}
+		}
+		#endregion
+		#endregion
+		#region 控制区响应事件
+		/// <summary>
+		/// 耦合方式更改响应事件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void comboBoxCoupledType_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;		//屏蔽初始化动作
+			ScopeConfig scopeConfig = new ScopeConfig(GetScopeConfigSelectedList());
+			this.textBoxScopeTest.Text = scopeConfig.ToString();	//在测试区显示配置
+			// todo 向下位机发送配置
+		}
+
+		/// <summary>
+		/// 触发方式更改响应事件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void comboBoxTriggerType_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;     //屏蔽初始化动作
+			ScopeConfig scopeConfig = new ScopeConfig(GetScopeConfigSelectedList());
+			this.textBoxScopeTest.Text = scopeConfig.ToString();     //在测试区显示配置
+			// todo 向下位机发送配置
+		}
+
+		/// <summary>
+		/// 垂直灵敏度更改响应事件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void comboBoxVerticalSensitivity_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;     //屏蔽初始化动作
+			ScopeConfig scopeConfig = new ScopeConfig(GetScopeConfigSelectedList());
+			this.textBoxScopeTest.Text = scopeConfig.ToString();     //在测试区显示配置
+			// 更改图表纵轴刻度
+			double dVerticalSensitivity = scopeConfig.DVerticalSensitivity;     //获取垂直灵敏度
+			scopeChartController.SetVerticalAxis(dVerticalSensitivity);
+			// todo 向下位机发送配置
+		}
+
+		/// <summary>
+		/// 时基更改响应事件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void comboBoxTimeBase_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;     //屏蔽初始化动作
+			ScopeConfig scopeConfig = new ScopeConfig(GetScopeConfigSelectedList());
+			this.textBoxScopeTest.Text = scopeConfig.ToString();     //在测试区显示配置
+			// 更改图表横轴刻度
+			double dTimeBaseValue = scopeConfig.DTimeBaseValue;     //获取时基
+			string sTimeBaseUnit = scopeConfig.strTimeBaseUnit[scopeConfig.BTimeBaseUnit];      //获取时基单位
+			scopeChartController.SetTimeBaseAxis(dTimeBaseValue, sTimeBaseUnit);
+			// todo 向下位机发送配置
 		}
 		#endregion
 		#region 信息区 to-do
@@ -521,6 +696,9 @@ namespace MyWaveForms
 			formsPlotWaveGen.Plot.XLabel("ms");
 			formsPlotWaveGen.Plot.YLabel("V");
 			formsPlotWaveGen.Plot.SetAxisLimitsX(0, 1);
+			// 翻转刻度线方向
+			formsPlotWaveGen.Plot.XAxis.TickMarkDirection(outward: false);
+			formsPlotWaveGen.Plot.YAxis.TickMarkDirection(outward: false);
 		}
 
 		//启用/禁用控件
@@ -634,7 +812,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				int colorStyle = toolStripComboBoxColorStyle2.SelectedIndex;      //获取色彩模式
-				formsPlotController.SetPlotColorStyle(this.formsPlotWaveGen, this.signalPlotXYWaveGen, colorStyle);     //变更色彩模式
+				scopeChartController.SetPlotColorStyle(this.formsPlotWaveGen, this.signalPlotXYWaveGen, colorStyle);     //变更色彩模式
 			}
 			catch (System.Exception ex)
 			{
@@ -648,7 +826,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				int iLineStyle = toolStripComboBoxLineStyle2.SelectedIndex;       //获取连线样式
-				formsPlotController.SetLineStyle(this.formsPlotWaveGen, this.signalPlotXYWaveGen, iLineStyle);
+				scopeChartController.SetLineStyle(this.formsPlotWaveGen, this.signalPlotXYWaveGen, iLineStyle);
 			}
 			catch (System.Exception ex)
 			{
@@ -662,7 +840,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				double dLineWidth = Double.Parse(toolStripComboBoxLineWidth2.SelectedItem.ToString());    //获取线宽
-				formsPlotController.SetLineWidth(this.formsPlotWaveGen, this.signalPlotXYWaveGen, dLineWidth);
+				scopeChartController.SetLineWidth(this.formsPlotWaveGen, this.signalPlotXYWaveGen, dLineWidth);
 			}
 			catch (System.Exception ex)
 			{
@@ -718,6 +896,10 @@ namespace MyWaveForms
 			toolStripComboBoxColorStyle3.SelectedIndex = 0;    //浅色
 			toolStripComboBoxLineStyle3.SelectedIndex = 0;    //折线
 			toolStripComboBoxLineWidth3.SelectedIndex = 0;     //线宽：1
+			// 翻转刻度线方向
+			formsPlotMeter.Plot.XAxis.TickMarkDirection(outward: false);
+			formsPlotMeter.Plot.YAxis.TickMarkDirection(outward: false);
+			formsPlotMeter.Plot.Legend();
 		}
 		#endregion
 		#region 工具栏
@@ -740,7 +922,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				int colorStyle = toolStripComboBoxColorStyle3.SelectedIndex;      //获取色彩模式
-				formsPlotController.SetPlotColorStyle(this.formsPlotMeter, this.signalPlotXYMeter, colorStyle);     //变更色彩模式
+				scopeChartController.SetPlotColorStyle(this.formsPlotMeter, this.signalPlotXYMeter, colorStyle);     //变更色彩模式
 			}
 			catch (System.Exception ex)
 			{
@@ -754,7 +936,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				int iLineStyle = toolStripComboBoxLineStyle3.SelectedIndex;       //获取连线样式
-				formsPlotController.SetLineStyle(this.formsPlotMeter, this.signalPlotXYMeter, iLineStyle);
+				scopeChartController.SetLineStyle(this.formsPlotMeter, this.signalPlotXYMeter, iLineStyle);
 			}
 			catch (System.Exception ex)
 			{
@@ -768,7 +950,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				double dLineWidth = Double.Parse(toolStripComboBoxLineWidth3.SelectedItem.ToString());    //获取线宽
-				formsPlotController.SetLineWidth(this.formsPlotMeter, this.signalPlotXYMeter, dLineWidth);
+				scopeChartController.SetLineWidth(this.formsPlotMeter, this.signalPlotXYMeter, dLineWidth);
 			}
 			catch (System.Exception ex)
 			{
@@ -844,9 +1026,29 @@ namespace MyWaveForms
 
 			// 重新装填Top和Range复选框
 			ReloadMagnitudeRangeComboBox(comboBoxMagnitudeUnit.SelectedItem.ToString());
+
+			// 刷新X轴上下限及标签 
+			spectrumChartController.ChangeFrequencyAxisLimits(
+				formsPlotSpectrum,
+				toolStripComboBoxStart.SelectedItem.ToString(),
+				toolStripComboBoxStop.SelectedItem.ToString(),
+				toolStripComboBoxScale.SelectedIndex);
+			spectrumChartController.ChangeFrequencyAxisLabel(
+				formsPlotSpectrum, 
+				toolStripComboBoxStop.SelectedItem.ToString());
+
 			// 刷新Y轴上下限及标签 
-			ChangeMagnitudeAxisLimits();
-			ChangeMagnitudeAxisLabel(comboBoxMagnitudeTop.SelectedItem.ToString());
+			spectrumChartController.ChangeMagnitudeAxisLimits(
+				formsPlotSpectrum,
+				comboBoxMagnitudeTop.SelectedItem.ToString(),
+				comboBoxMagnitudeRange.SelectedItem.ToString());
+			spectrumChartController.ChangeMagnitudeAxisLabel(
+				formsPlotSpectrum, 
+				comboBoxMagnitudeTop.SelectedItem.ToString());
+
+			// 翻转刻度线方向
+			formsPlotSpectrum.Plot.XAxis.TickMarkDirection(outward: false);
+			formsPlotSpectrum.Plot.YAxis.TickMarkDirection(outward: false);
 		}
 		#endregion
 		#region 工具栏
@@ -874,18 +1076,80 @@ namespace MyWaveForms
 				_magnitudeSpectrum[i] = (float)magnitudeSpectrum[i];
 			//显示频谱
 			textBoxSpectrumTest.Text = magnitudeSpectrum.ToString();
-			//formsPlotSpectrum.Plot.Clear();
+			formsPlotSpectrum.Plot.Clear();
+			formsPlotSpectrum.Plot.AddSignal(waveformDataGenerator.GenerateWaveformData(bWaveType, 1024, new WaveformConfig()));
 			formsPlotSpectrum.Plot.AddSignal(_magnitudeSpectrum);
 			formsPlotSpectrum.Render();
 		}
 		#endregion
 		#region 频谱设置
+		#region 响应事件
+		// 最小频率更改事件
+		private void toolStripComboBoxStart_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;
+			// 如果最大频率小于最小频率
+			if (toolStripComboBoxStart.SelectedIndex < toolStripComboBoxStop.SelectedIndex)
+				MessageBox.Show("频率设置不正确");
+			else
+			{
+				// 更改频率坐标（X轴）上下限及标签
+				spectrumChartController.ChangeFrequencyAxisLimits(
+					formsPlotSpectrum,
+					toolStripComboBoxStart.SelectedItem.ToString(),
+					toolStripComboBoxStop.SelectedItem.ToString(),
+					toolStripComboBoxScale.SelectedIndex);
+				spectrumChartController.ChangeFrequencyAxisLabel(
+					formsPlotSpectrum, 
+					GetUnitFromString(toolStripComboBoxStop.SelectedItem.ToString()));
+			}
+		}
 
+		// 最大频率更改事件
+		private void toolStripComboBoxStop_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;
+			// 如果最大频率小于最小频率
+			if (toolStripComboBoxStart.SelectedIndex < toolStripComboBoxStop.SelectedIndex)
+				MessageBox.Show("频率设置不正确");
+			else
+			{
+				// 更改频率坐标（X轴）上下限及标签
+				spectrumChartController.ChangeFrequencyAxisLimits(
+					formsPlotSpectrum,
+					toolStripComboBoxStart.SelectedItem.ToString(),
+					toolStripComboBoxStop.SelectedItem.ToString(),
+					toolStripComboBoxScale.SelectedIndex);
+				spectrumChartController.ChangeFrequencyAxisLabel(
+					formsPlotSpectrum, 
+					GetUnitFromString(toolStripComboBoxStop.SelectedItem.ToString()));
+			}
+		}
+
+		// 坐标轴放缩类型更改事件
+		private void toolStripComboBoxScale_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (isInit == true) return;
+			// 更改频率坐标（X轴）上下限及标签
+			spectrumChartController.ChangeFrequencyAxisLimits(
+				formsPlotSpectrum,
+				toolStripComboBoxStart.SelectedItem.ToString(), 
+				toolStripComboBoxStop.SelectedItem.ToString(), 
+				toolStripComboBoxScale.SelectedIndex);
+			spectrumChartController.ChangeFrequencyAxisLabel(
+				formsPlotSpectrum, 
+				GetUnitFromString(toolStripComboBoxStop.SelectedItem.ToString()));
+		}
+		#endregion
+		#region 功能函数
+		// 更改频率坐标轴上下限
+		
+		#endregion
 		#endregion
 		#region 幅值设置
 		#region 响应事件
-		// 幅值单位更改事件
-		private void comboBoxMagnitudeUnit_SelectedIndexChanged(object sender, EventArgs e)
+			// 幅值单位更改事件
+			private void comboBoxMagnitudeUnit_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (isInit == true) return;
 			// 获取当前单位
@@ -894,8 +1158,13 @@ namespace MyWaveForms
 			// 幅值显示上限及量程重新装填
 			ReloadMagnitudeRangeComboBox(strUnit);
 			// 更新Y轴上下限与标签
-			ChangeMagnitudeAxisLimits();
-			ChangeMagnitudeAxisLabel(comboBoxMagnitudeTop.SelectedItem.ToString());
+			spectrumChartController.ChangeMagnitudeAxisLimits(
+				formsPlotSpectrum,
+				comboBoxMagnitudeTop.SelectedItem.ToString(),
+				comboBoxMagnitudeRange.SelectedItem.ToString());
+			spectrumChartController.ChangeMagnitudeAxisLabel(
+				formsPlotSpectrum, 
+				comboBoxMagnitudeTop.SelectedItem.ToString());
 		}
 
 		// 幅值显示上限更改事件
@@ -910,15 +1179,23 @@ namespace MyWaveForms
 				isInit = false;
 			}
 			// 更新Y轴上下限与标签
-			ChangeMagnitudeAxisLimits();
-			ChangeMagnitudeAxisLabel(comboBoxMagnitudeTop.SelectedItem.ToString());
+			spectrumChartController.ChangeMagnitudeAxisLimits(
+				formsPlotSpectrum,
+				comboBoxMagnitudeTop.SelectedItem.ToString(),
+				comboBoxMagnitudeRange.SelectedItem.ToString());
+			spectrumChartController.ChangeMagnitudeAxisLabel(
+				formsPlotSpectrum, 
+				comboBoxMagnitudeTop.SelectedItem.ToString());
 		}
 
 		// 幅值量程更改事件
 		private void comboBoxMagnitudeRange_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (isInit == true) return;
-			ChangeMagnitudeAxisLimits();
+			spectrumChartController.ChangeMagnitudeAxisLimits(
+				formsPlotSpectrum,
+				comboBoxMagnitudeTop.SelectedItem.ToString(),
+				comboBoxMagnitudeRange.SelectedItem.ToString());
 		}
 		#endregion
 		#region 功能函数
@@ -1014,30 +1291,6 @@ namespace MyWaveForms
 			}
 			isInit = false;
 		}
-
-		// 更改幅值坐标轴上下限
-		private void ChangeMagnitudeAxisLimits()
-		{
-			// 获取幅值上限
-			double dMaxMagnitude = GetValueFromString(comboBoxMagnitudeTop.SelectedItem.ToString());
-			// 计算幅值下限
-			double dMinMagnitude = dMaxMagnitude - GetValueFromString(comboBoxMagnitudeRange.SelectedItem.ToString());
-			// 更改显示范围
-			formsPlotSpectrum.Plot.SetAxisLimitsY(dMinMagnitude, dMaxMagnitude);
-			// 刷新图表
-			formsPlotSpectrum.Refresh();
-		}
-
-		// 更改幅值坐标轴标签
-		private void ChangeMagnitudeAxisLabel(string strTopItem)
-		{
-			// 获取单位
-			string strTopUnit = GetUnitFromString(strTopItem);
-			// 更新坐标轴标签
-			formsPlotSpectrum.Plot.YLabel(strTopUnit);
-			// 刷新图表
-			formsPlotSpectrum.Refresh();
-		}
 		#endregion
 		#endregion
 		#region 信道设置
@@ -1054,7 +1307,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				int colorStyle = toolStripComboBoxColorStyle4.SelectedIndex;      //获取色彩模式
-				formsPlotController.SetPlotColorStyle(this.formsPlotSpectrum, this.signalPlotXYSpectrum, colorStyle);     //变更色彩模式
+				scopeChartController.SetPlotColorStyle(this.formsPlotSpectrum, this.signalPlotXYSpectrum, colorStyle);     //变更色彩模式
 			}
 			catch (System.Exception ex)
 			{
@@ -1068,7 +1321,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				int iLineStyle = toolStripComboBoxLineStyle4.SelectedIndex;       //获取连线样式
-				formsPlotController.SetLineStyle(this.formsPlotSpectrum, this.signalPlotXYSpectrum, iLineStyle);
+				scopeChartController.SetLineStyle(this.formsPlotSpectrum, this.signalPlotXYSpectrum, iLineStyle);
 			}
 			catch (System.Exception ex)
 			{
@@ -1082,7 +1335,7 @@ namespace MyWaveForms
 			{
 				if (isInit) return;     //如果正在初始化,则屏蔽更改事件
 				double dLineWidth = Double.Parse(toolStripComboBoxLineWidth4.SelectedItem.ToString());    //获取线宽
-				formsPlotController.SetLineWidth(this.formsPlotSpectrum, this.signalPlotXYSpectrum, dLineWidth);
+				scopeChartController.SetLineWidth(this.formsPlotSpectrum, this.signalPlotXYSpectrum, dLineWidth);
 			}
 			catch (System.Exception ex)
 			{
@@ -1132,7 +1385,7 @@ namespace MyWaveForms
 
 		#region 获取配置
 		//在字符串中抓取实型数值
-		private double GetValueFromString(string str)
+		private double GetRealFromString(string str)
 		{
 			StringBuilder res = new StringBuilder();
 			foreach (char chr in str)
@@ -1220,6 +1473,11 @@ namespace MyWaveForms
 		#endregion
 
 		#region 测试
+		/// <summary>
+		/// 幅值单位标签点击事件,用于在测试文本框显示当前频谱分析仪配置
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void labelMagnitudeUnit_Click(object sender, EventArgs e)
 		{
 			SpectrumConfig spectrumConfig = new SpectrumConfig(GetSpectrumConfigSelectedList());
@@ -1232,6 +1490,11 @@ namespace MyWaveForms
 		double[] dYValues;
 		double[] dXValues;
 
+		/// <summary>
+		/// 示波器Demo标签点击事件,用于启动演示模式
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void labelDemo_Click(object sender, EventArgs e)
 		{
 			if (this.labelDemo.BackColor == Color.Tomato)
@@ -1254,10 +1517,11 @@ namespace MyWaveForms
 				#endregion
 				#region 初始化图表
 				tester.InitTestData(new ValueTuple<double[], double[]>(dXValues, dYValues));
-				ValueTuple<SignalPlotXY, Crosshair> vt = formsPlotController.InitChart(formsPlotScope,
-				tester.GetTestData());
+				ValueTuple<SignalPlotXY, Crosshair> vt = scopeChartController.InitScopeChart(tester.GetTestData());
 				this.signalPlotXYScope = vt.Item1;
 				this.crosshair = vt.Item2;
+				this.signalPlotXYScope.Label = "test";
+				formsPlotScope.Plot.Legend().FontSize = 15;
 				//this.signalPlotXYScope = formsPlotScope.Plot.AddSignalXY(dXValues, dYValues);
 				//this.crosshair = formsPlotScope.Plot.AddCrosshair(0.0, 0.0);
 				//formsPlotScope.Plot.AxisAuto();
@@ -1302,6 +1566,9 @@ namespace MyWaveForms
 			//textBox1.Text += ("--- at" + stopwatch.ElapsedMilliseconds.ToString() + Environment.NewLine);
 			this.formsPlotScope.Refresh(true, true);
 		}
+
+
+
 		#endregion
 	}
 }

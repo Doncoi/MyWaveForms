@@ -11,10 +11,8 @@ using System.Windows.Forms;
 
 namespace MyWaveForms.Controller
 {
-	internal class WavegenChartController
+	internal class WavegenChartController : BaseChartController
 	{
-		//数组大小
-		private const int MAXSIZE = 1000 + 1;
 		//波形数据产生器
 		private WaveformDataGenerator waveDataGenerator;
 
@@ -40,12 +38,12 @@ namespace MyWaveForms.Controller
 		}
 
 		//使用来自WaveformDataGenerator的数据加载图表
-		public SignalPlotXY AddWaveforms(FormsPlot formsPlot, WaveformConfig node)
+		public SignalPlotXY AddWaveforms(FormsPlot formsPlot, WaveformConfig node, int size = 1000)
 		{
 			//清空绘图区
 			formsPlot.Plot.Clear();
 			//获取X轴与Y轴数据
-			ValueTuple<double[], double[]> vt = GetWaveData(node);
+			ValueTuple<double[], double[]> vt = GetWaveData(size, node);
 			//绘制图像
 			SignalPlotXY sp = formsPlot.Plot.AddSignalXY(vt.Item1, vt.Item2);
 			//更新X轴单位标签
@@ -56,44 +54,44 @@ namespace MyWaveForms.Controller
 			return sp;
 		}
 
-		public ValueTuple<double[], double[]> GetWaveData(WaveformConfig node)
+		public ValueTuple<double[], double[]> GetWaveData(int size,WaveformConfig node)
 		{
 			//x标定数组
-			double[] dXValues = new double[MAXSIZE];
+			double[] dXValues = new double[size];
 			//y标定数组
-			double[] dYValues = new double[MAXSIZE];
+			double[] dYValues = new double[size];
 			//x标定数组步长 表示相邻两点在x轴上的间隔
-			double dXStep = (double)node.ITimeTickValue / (double)(MAXSIZE - 1);
+			double dXStep = (double)node.ITimeTickValue / (double)(size - 1);
 			//MessageBox.Show(node.ToString() + "\n" + dXStep.ToString());
-			for (int i = 1; i < MAXSIZE; i++)
+			for (int i = 1; i < size; i++)
 				dXValues[i] = dXValues[i - 1] + dXStep;
 
 			//MessageBox.Show(node.BWaveType.ToString());
 			switch (node.BWaveType)
 			{
 				case 0:
-					dYValues = this.waveDataGenerator.GenerateDCData(MAXSIZE, node);
+					dYValues = this.waveDataGenerator.GenerateDCData(size, node);
 					break;
 				case 1:
-					dYValues = this.waveDataGenerator.GenerateSineData(MAXSIZE, node);
+					dYValues = this.waveDataGenerator.GenerateSineData(size, node);
 					break;
 				case 2:
-					dYValues = this.waveDataGenerator.GenerateTriangleData(MAXSIZE, node);
+					dYValues = this.waveDataGenerator.GenerateTriangleData(size, node);
 					break;
 				case 3:
-					dYValues = this.waveDataGenerator.GenerateSquareData(MAXSIZE, node);
+					dYValues = this.waveDataGenerator.GenerateSquareData(size, node);
 					break;
 				case 4:
-					dYValues = this.waveDataGenerator.GenerateRampUpData(MAXSIZE, node);
+					dYValues = this.waveDataGenerator.GenerateRampUpData(size, node);
 					break;
 				case 5:
-					dYValues = this.waveDataGenerator.GenerateRampDownData(MAXSIZE, node);
+					dYValues = this.waveDataGenerator.GenerateRampDownData(size, node);
 					break;
 				case 6:
-					dYValues = this.waveDataGenerator.GenerateNoiseData(MAXSIZE, node);
+					dYValues = this.waveDataGenerator.GenerateNoiseData(size, node);
 					break;
 				case 7:
-					dYValues = this.waveDataGenerator.GenerateTrapeziumData(MAXSIZE, node);
+					dYValues = this.waveDataGenerator.GenerateTrapeziumData(size, node);
 					break;
 				default:
 					break;

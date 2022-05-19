@@ -126,7 +126,9 @@
 			this.toolStripMenuItemHorizontalZoom2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemVerticalZoom2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-			this.groupBoxWavegen = new System.Windows.Forms.GroupBox();
+			this.toolStripButtonRunWaveform = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+			this.groupBoxWavegenControl = new System.Windows.Forms.GroupBox();
 			this.checkBoxRunState = new System.Windows.Forms.CheckBox();
 			this.buttonRunWavegen = new System.Windows.Forms.Button();
 			this.comboBoxPhase = new System.Windows.Forms.ComboBox();
@@ -145,7 +147,7 @@
 			this.tabPageScope = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-			this.groupBoxControl = new System.Windows.Forms.GroupBox();
+			this.groupBoxScopeControl = new System.Windows.Forms.GroupBox();
 			this.labelTriggerType = new System.Windows.Forms.Label();
 			this.comboBoxTriggerType = new System.Windows.Forms.ComboBox();
 			this.comboBoxTimeBase = new System.Windows.Forms.ComboBox();
@@ -154,7 +156,7 @@
 			this.labelVerticalSensitivity = new System.Windows.Forms.Label();
 			this.labelCoupledType = new System.Windows.Forms.Label();
 			this.comboBoxCoupledType = new System.Windows.Forms.ComboBox();
-			this.groupBoxInfor = new System.Windows.Forms.GroupBox();
+			this.groupBoxScopeInfor = new System.Windows.Forms.GroupBox();
 			this.textBoxScopeTest = new System.Windows.Forms.TextBox();
 			this.labelDisplayFrequency = new System.Windows.Forms.Label();
 			this.labelDisplayPlotCount = new System.Windows.Forms.Label();
@@ -181,11 +183,13 @@
 			this.toolStripMenuItemScrollWheelZoom = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemHorizontalZoom = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemVerticalZoom = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItemCrosshair = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripButtonRunScope = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.formsPlotScope = new ScottPlot.FormsPlot();
-			this.tabPageDeviceManage = new System.Windows.Forms.TabPage();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.tabControlMain = new System.Windows.Forms.TabControl();
+			this.tabPageUARTAssist = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBoxSendSettings = new System.Windows.Forms.GroupBox();
 			this.buttonClearSent = new System.Windows.Forms.Button();
@@ -214,7 +218,19 @@
 			this.textBoxSend = new System.Windows.Forms.TextBox();
 			this.textBoxReceived = new System.Windows.Forms.TextBox();
 			this.buttonSend = new System.Windows.Forms.Button();
-			this.tabControlMain = new System.Windows.Forms.TabControl();
+			this.tabPageDeviceManage = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.dataGridViewDeviceInfor = new System.Windows.Forms.DataGridView();
+			this.ColumnCOMName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnDeviceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnSerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnStatue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.groupBoxDeviceControl = new System.Windows.Forms.GroupBox();
+			this.checkBoxConnected = new System.Windows.Forms.CheckBox();
+			this.buttonRefresh = new System.Windows.Forms.Button();
+			this.labelConnectState = new System.Windows.Forms.Label();
+			this.buttonConnect = new System.Windows.Forms.Button();
+			this.toolStripMenuItemCrosshair = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabPageSpectrum.SuspendLayout();
 			this.tableLayoutPanel7.SuspendLayout();
 			this.toolStripSpectrum.SuspendLayout();
@@ -228,21 +244,25 @@
 			this.tabPageWavegen.SuspendLayout();
 			this.tableLayoutPanel6.SuspendLayout();
 			this.toolStripWaveGen.SuspendLayout();
-			this.groupBoxWavegen.SuspendLayout();
+			this.groupBoxWavegenControl.SuspendLayout();
 			this.tabPageScope.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
-			this.groupBoxControl.SuspendLayout();
-			this.groupBoxInfor.SuspendLayout();
+			this.groupBoxScopeControl.SuspendLayout();
+			this.groupBoxScopeInfor.SuspendLayout();
 			this.toolStripScope.SuspendLayout();
-			this.tabPageDeviceManage.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
+			this.tabControlMain.SuspendLayout();
+			this.tabPageUARTAssist.SuspendLayout();
+			this.tableLayoutPanel.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.groupBoxSendSettings.SuspendLayout();
 			this.groupBoxReceiveSettings.SuspendLayout();
 			this.groupBoxSerialPortSettings.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
-			this.tabControlMain.SuspendLayout();
+			this.tabPageDeviceManage.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewDeviceInfor)).BeginInit();
+			this.groupBoxDeviceControl.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// serialPort1
@@ -261,7 +281,7 @@
 			this.tabPageSpectrum.Location = new System.Drawing.Point(4, 22);
 			this.tabPageSpectrum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.tabPageSpectrum.Name = "tabPageSpectrum";
-			this.tabPageSpectrum.Size = new System.Drawing.Size(859, 504);
+			this.tabPageSpectrum.Size = new System.Drawing.Size(858, 490);
 			this.tabPageSpectrum.TabIndex = 3;
 			this.tabPageSpectrum.Text = "频谱分析仪";
 			this.tabPageSpectrum.UseVisualStyleBackColor = true;
@@ -282,7 +302,7 @@
 			this.tableLayoutPanel7.RowCount = 2;
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel7.Size = new System.Drawing.Size(859, 504);
+			this.tableLayoutPanel7.Size = new System.Drawing.Size(858, 490);
 			this.tableLayoutPanel7.TabIndex = 0;
 			// 
 			// toolStripSpectrum
@@ -297,7 +317,7 @@
             this.toolStripSeparator7,
             this.toolStripDropDownButton5,
             this.toolStripDropDownButton2});
-			this.toolStripSpectrum.Location = new System.Drawing.Point(644, 0);
+			this.toolStripSpectrum.Location = new System.Drawing.Point(643, 0);
 			this.toolStripSpectrum.Name = "toolStripSpectrum";
 			this.toolStripSpectrum.Padding = new System.Windows.Forms.Padding(0);
 			this.toolStripSpectrum.Size = new System.Drawing.Size(215, 25);
@@ -324,7 +344,7 @@
 			this.toolStripMenuItemStart.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxStart});
 			this.toolStripMenuItemStart.Name = "toolStripMenuItemStart";
-			this.toolStripMenuItemStart.Size = new System.Drawing.Size(136, 22);
+			this.toolStripMenuItemStart.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemStart.Text = "最小频率";
 			// 
 			// toolStripComboBoxStart
@@ -355,13 +375,14 @@
             "0Hz"});
 			this.toolStripComboBoxStart.Name = "toolStripComboBoxStart";
 			this.toolStripComboBoxStart.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxStart.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxStart_SelectedIndexChanged);
 			// 
 			// toolStripMenuItemStop
 			// 
 			this.toolStripMenuItemStop.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxStop});
 			this.toolStripMenuItemStop.Name = "toolStripMenuItemStop";
-			this.toolStripMenuItemStop.Size = new System.Drawing.Size(136, 22);
+			this.toolStripMenuItemStop.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemStop.Text = "最大频率";
 			// 
 			// toolStripComboBoxStop
@@ -392,13 +413,14 @@
             "0Hz"});
 			this.toolStripComboBoxStop.Name = "toolStripComboBoxStop";
 			this.toolStripComboBoxStop.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxStop.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxStop_SelectedIndexChanged);
 			// 
 			// toolStripMenuItemBINS
 			// 
 			this.toolStripMenuItemBINS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxBoxCount});
 			this.toolStripMenuItemBINS.Name = "toolStripMenuItemBINS";
-			this.toolStripMenuItemBINS.Size = new System.Drawing.Size(136, 22);
+			this.toolStripMenuItemBINS.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemBINS.Text = "频率箱点数";
 			// 
 			// toolStripComboBoxBoxCount
@@ -423,7 +445,7 @@
 			this.toolStripMenuItemScale.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxScale});
 			this.toolStripMenuItemScale.Name = "toolStripMenuItemScale";
-			this.toolStripMenuItemScale.Size = new System.Drawing.Size(136, 22);
+			this.toolStripMenuItemScale.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemScale.Text = "坐标轴放缩";
 			// 
 			// toolStripComboBoxScale
@@ -434,13 +456,14 @@
             "对数"});
 			this.toolStripComboBoxScale.Name = "toolStripComboBoxScale";
 			this.toolStripComboBoxScale.Size = new System.Drawing.Size(121, 25);
+			this.toolStripComboBoxScale.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxScale_SelectedIndexChanged);
 			// 
 			// toolStripMenuItemAlgorithm
 			// 
 			this.toolStripMenuItemAlgorithm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxAlgorithm});
 			this.toolStripMenuItemAlgorithm.Name = "toolStripMenuItemAlgorithm";
-			this.toolStripMenuItemAlgorithm.Size = new System.Drawing.Size(136, 22);
+			this.toolStripMenuItemAlgorithm.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemAlgorithm.Text = "分析算法";
 			// 
 			// toolStripComboBoxAlgorithm
@@ -497,7 +520,7 @@
 			this.toolStripDropDownButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton5.Image")));
 			this.toolStripDropDownButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripDropDownButton5.Name = "toolStripDropDownButton5";
-			this.toolStripDropDownButton5.Size = new System.Drawing.Size(45, 22);
+			this.toolStripDropDownButton5.Size = new System.Drawing.Size(45, 21);
 			this.toolStripDropDownButton5.Text = "交互";
 			// 
 			// toolStripMenuItemRightClickDragZoom4
@@ -542,7 +565,7 @@
 			this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
 			this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-			this.toolStripDropDownButton2.Size = new System.Drawing.Size(45, 22);
+			this.toolStripDropDownButton2.Size = new System.Drawing.Size(45, 21);
 			this.toolStripDropDownButton2.Text = "显示";
 			// 
 			// toolStripMenuItem1
@@ -606,7 +629,7 @@
 			this.formsPlotSpectrum.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
 			this.formsPlotSpectrum.Name = "formsPlotSpectrum";
 			this.tableLayoutPanel7.SetRowSpan(this.formsPlotSpectrum, 2);
-			this.formsPlotSpectrum.Size = new System.Drawing.Size(634, 494);
+			this.formsPlotSpectrum.Size = new System.Drawing.Size(633, 480);
 			this.formsPlotSpectrum.TabIndex = 0;
 			// 
 			// panelSpectrum
@@ -616,10 +639,10 @@
 			this.panelSpectrum.Controls.Add(this.groupBoxChannel);
 			this.panelSpectrum.Controls.Add(this.groupBoxMagnitude);
 			this.panelSpectrum.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelSpectrum.Location = new System.Drawing.Point(644, 25);
+			this.panelSpectrum.Location = new System.Drawing.Point(643, 25);
 			this.panelSpectrum.Margin = new System.Windows.Forms.Padding(0);
 			this.panelSpectrum.Name = "panelSpectrum";
-			this.panelSpectrum.Size = new System.Drawing.Size(215, 479);
+			this.panelSpectrum.Size = new System.Drawing.Size(215, 465);
 			this.panelSpectrum.TabIndex = 1;
 			// 
 			// textBoxSpectrumTest
@@ -629,6 +652,7 @@
 			this.textBoxSpectrumTest.Name = "textBoxSpectrumTest";
 			this.textBoxSpectrumTest.Size = new System.Drawing.Size(198, 207);
 			this.textBoxSpectrumTest.TabIndex = 15;
+			this.textBoxSpectrumTest.Visible = false;
 			// 
 			// groupBoxChannel
 			// 
@@ -920,7 +944,7 @@
 			this.tabPageMeter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.tabPageMeter.Name = "tabPageMeter";
 			this.tabPageMeter.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.tabPageMeter.Size = new System.Drawing.Size(859, 504);
+			this.tabPageMeter.Size = new System.Drawing.Size(858, 490);
 			this.tabPageMeter.TabIndex = 5;
 			this.tabPageMeter.Text = "电压电流计";
 			this.tabPageMeter.UseVisualStyleBackColor = true;
@@ -939,7 +963,7 @@
 			this.tableLayoutPanel9.Name = "tableLayoutPanel9";
 			this.tableLayoutPanel9.RowCount = 1;
 			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel9.Size = new System.Drawing.Size(855, 500);
+			this.tableLayoutPanel9.Size = new System.Drawing.Size(854, 486);
 			this.tableLayoutPanel9.TabIndex = 0;
 			// 
 			// formsPlotMeter
@@ -948,7 +972,7 @@
 			this.formsPlotMeter.Location = new System.Drawing.Point(6, 6);
 			this.formsPlotMeter.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
 			this.formsPlotMeter.Name = "formsPlotMeter";
-			this.formsPlotMeter.Size = new System.Drawing.Size(628, 488);
+			this.formsPlotMeter.Size = new System.Drawing.Size(627, 474);
 			this.formsPlotMeter.TabIndex = 0;
 			// 
 			// tableLayoutPanel8
@@ -958,13 +982,13 @@
 			this.tableLayoutPanel8.Controls.Add(this.panelMeter, 0, 1);
 			this.tableLayoutPanel8.Controls.Add(this.toolStripMeter, 0, 0);
 			this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel8.Location = new System.Drawing.Point(640, 0);
+			this.tableLayoutPanel8.Location = new System.Drawing.Point(639, 0);
 			this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
 			this.tableLayoutPanel8.Name = "tableLayoutPanel8";
 			this.tableLayoutPanel8.RowCount = 2;
 			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
 			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel8.Size = new System.Drawing.Size(215, 500);
+			this.tableLayoutPanel8.Size = new System.Drawing.Size(215, 486);
 			this.tableLayoutPanel8.TabIndex = 1;
 			// 
 			// panelMeter
@@ -974,7 +998,7 @@
 			this.panelMeter.Location = new System.Drawing.Point(0, 25);
 			this.panelMeter.Margin = new System.Windows.Forms.Padding(0);
 			this.panelMeter.Name = "panelMeter";
-			this.panelMeter.Size = new System.Drawing.Size(215, 475);
+			this.panelMeter.Size = new System.Drawing.Size(215, 461);
 			this.panelMeter.TabIndex = 5;
 			// 
 			// toolStripMeter
@@ -1132,8 +1156,8 @@
 			this.toolStripLabelAddTracer.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabelAddTracer.Image")));
 			this.toolStripLabelAddTracer.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripLabelAddTracer.Name = "toolStripLabelAddTracer";
-			this.toolStripLabelAddTracer.Size = new System.Drawing.Size(36, 22);
-			this.toolStripLabelAddTracer.Text = "添加";
+			this.toolStripLabelAddTracer.Size = new System.Drawing.Size(44, 22);
+			this.toolStripLabelAddTracer.Text = " 添加 ";
 			this.toolStripLabelAddTracer.Click += new System.EventHandler(this.toolStripLabelAddTracer_Click);
 			// 
 			// toolStripSeparator1
@@ -1147,8 +1171,8 @@
 			this.toolStripLabel2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel2.Image")));
 			this.toolStripLabel2.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripLabel2.Name = "toolStripLabel2";
-			this.toolStripLabel2.Size = new System.Drawing.Size(36, 22);
-			this.toolStripLabel2.Text = "清空";
+			this.toolStripLabel2.Size = new System.Drawing.Size(44, 22);
+			this.toolStripLabel2.Text = " 清空 ";
 			this.toolStripLabel2.Click += new System.EventHandler(this.toolStripLabel2_Click);
 			// 
 			// toolStripSeparator3
@@ -1163,7 +1187,7 @@
 			this.tabPageWavegen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.tabPageWavegen.Name = "tabPageWavegen";
 			this.tabPageWavegen.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.tabPageWavegen.Size = new System.Drawing.Size(859, 504);
+			this.tabPageWavegen.Size = new System.Drawing.Size(858, 490);
 			this.tabPageWavegen.TabIndex = 2;
 			this.tabPageWavegen.Text = "信号发生器";
 			this.tabPageWavegen.UseVisualStyleBackColor = true;
@@ -1175,7 +1199,7 @@
 			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
 			this.tableLayoutPanel6.Controls.Add(this.toolStripWaveGen, 1, 0);
-			this.tableLayoutPanel6.Controls.Add(this.groupBoxWavegen, 0, 1);
+			this.tableLayoutPanel6.Controls.Add(this.groupBoxWavegenControl, 0, 1);
 			this.tableLayoutPanel6.Controls.Add(this.formsPlotWaveGen, 0, 0);
 			this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 2);
@@ -1184,7 +1208,7 @@
 			this.tableLayoutPanel6.RowCount = 2;
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel6.Size = new System.Drawing.Size(855, 500);
+			this.tableLayoutPanel6.Size = new System.Drawing.Size(854, 486);
 			this.tableLayoutPanel6.TabIndex = 0;
 			// 
 			// toolStripWaveGen
@@ -1195,8 +1219,10 @@
             this.toolStripDropDownButton1,
             this.toolStripSeparator11,
             this.toolStripDropDownButtonInteraction2,
-            this.toolStripSeparator10});
-			this.toolStripWaveGen.Location = new System.Drawing.Point(640, 0);
+            this.toolStripSeparator10,
+            this.toolStripButtonRunWaveform,
+            this.toolStripSeparator13});
+			this.toolStripWaveGen.Location = new System.Drawing.Point(639, 0);
 			this.toolStripWaveGen.Name = "toolStripWaveGen";
 			this.toolStripWaveGen.Padding = new System.Windows.Forms.Padding(0);
 			this.toolStripWaveGen.Size = new System.Drawing.Size(215, 25);
@@ -1221,7 +1247,7 @@
 			this.toolStripMenuItemColorStyle2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxColorStyle2});
 			this.toolStripMenuItemColorStyle2.Name = "toolStripMenuItemColorStyle2";
-			this.toolStripMenuItemColorStyle2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemColorStyle2.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemColorStyle2.Text = "色彩模式";
 			// 
 			// toolStripComboBoxColorStyle2
@@ -1239,7 +1265,7 @@
 			this.toolStripMenuItemLineStyle2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxLineStyle2});
 			this.toolStripMenuItemLineStyle2.Name = "toolStripMenuItemLineStyle2";
-			this.toolStripMenuItemLineStyle2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemLineStyle2.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemLineStyle2.Text = "连线样式";
 			// 
 			// toolStripComboBoxLineStyle2
@@ -1257,7 +1283,7 @@
 			this.toolStripMenuItemLineWidth2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxLineWidth2});
 			this.toolStripMenuItemLineWidth2.Name = "toolStripMenuItemLineWidth2";
-			this.toolStripMenuItemLineWidth2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemLineWidth2.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemLineWidth2.Text = "连线宽度";
 			// 
 			// toolStripComboBoxLineWidth2
@@ -1297,7 +1323,7 @@
 			this.toolStripMenuItemRightClickDragZoom2.Checked = true;
 			this.toolStripMenuItemRightClickDragZoom2.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.toolStripMenuItemRightClickDragZoom2.Name = "toolStripMenuItemRightClickDragZoom2";
-			this.toolStripMenuItemRightClickDragZoom2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemRightClickDragZoom2.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemRightClickDragZoom2.Text = "右键缩放";
 			this.toolStripMenuItemRightClickDragZoom2.Click += new System.EventHandler(this.toolStripMenuItemRightClickDragZoom2_Click);
 			// 
@@ -1306,7 +1332,7 @@
 			this.toolStripMenuItemScrollWheelZoom2.Checked = true;
 			this.toolStripMenuItemScrollWheelZoom2.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.toolStripMenuItemScrollWheelZoom2.Name = "toolStripMenuItemScrollWheelZoom2";
-			this.toolStripMenuItemScrollWheelZoom2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemScrollWheelZoom2.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemScrollWheelZoom2.Text = "滚轮缩放";
 			this.toolStripMenuItemScrollWheelZoom2.Click += new System.EventHandler(this.toolStripMenuItemScrollWheelZoom2_Click);
 			// 
@@ -1315,7 +1341,7 @@
 			this.toolStripMenuItemHorizontalZoom2.Checked = true;
 			this.toolStripMenuItemHorizontalZoom2.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.toolStripMenuItemHorizontalZoom2.Name = "toolStripMenuItemHorizontalZoom2";
-			this.toolStripMenuItemHorizontalZoom2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemHorizontalZoom2.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemHorizontalZoom2.Text = "水平缩放";
 			this.toolStripMenuItemHorizontalZoom2.Click += new System.EventHandler(this.toolStripMenuItemHorizontalZoom2_Click);
 			// 
@@ -1324,7 +1350,7 @@
 			this.toolStripMenuItemVerticalZoom2.Checked = true;
 			this.toolStripMenuItemVerticalZoom2.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.toolStripMenuItemVerticalZoom2.Name = "toolStripMenuItemVerticalZoom2";
-			this.toolStripMenuItemVerticalZoom2.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemVerticalZoom2.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemVerticalZoom2.Text = "垂直缩放";
 			this.toolStripMenuItemVerticalZoom2.Click += new System.EventHandler(this.toolStripMenuItemVerticalZoom2_Click);
 			// 
@@ -1333,31 +1359,46 @@
 			this.toolStripSeparator10.Name = "toolStripSeparator10";
 			this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
 			// 
-			// groupBoxWavegen
+			// toolStripButtonRunWaveform
 			// 
-			this.groupBoxWavegen.Controls.Add(this.checkBoxRunState);
-			this.groupBoxWavegen.Controls.Add(this.buttonRunWavegen);
-			this.groupBoxWavegen.Controls.Add(this.comboBoxPhase);
-			this.groupBoxWavegen.Controls.Add(this.comboBoxSymmetry);
-			this.groupBoxWavegen.Controls.Add(this.comboBoxOffset);
-			this.groupBoxWavegen.Controls.Add(this.comboBoxAmplitde);
-			this.groupBoxWavegen.Controls.Add(this.comboBoxFrequency);
-			this.groupBoxWavegen.Controls.Add(this.comboBoxWaveType);
-			this.groupBoxWavegen.Controls.Add(this.labelPhase);
-			this.groupBoxWavegen.Controls.Add(this.labelSymmetry);
-			this.groupBoxWavegen.Controls.Add(this.labelOffset);
-			this.groupBoxWavegen.Controls.Add(this.labelAmplitde);
-			this.groupBoxWavegen.Controls.Add(this.labelFrequency_2);
-			this.groupBoxWavegen.Controls.Add(this.labelType);
-			this.groupBoxWavegen.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBoxWavegen.Location = new System.Drawing.Point(642, 27);
-			this.groupBoxWavegen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.groupBoxWavegen.Name = "groupBoxWavegen";
-			this.groupBoxWavegen.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.groupBoxWavegen.Size = new System.Drawing.Size(211, 471);
-			this.groupBoxWavegen.TabIndex = 3;
-			this.groupBoxWavegen.TabStop = false;
-			this.groupBoxWavegen.Text = "控制";
+			this.toolStripButtonRunWaveform.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripButtonRunWaveform.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRunWaveform.Image")));
+			this.toolStripButtonRunWaveform.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonRunWaveform.Name = "toolStripButtonRunWaveform";
+			this.toolStripButtonRunWaveform.Size = new System.Drawing.Size(44, 22);
+			this.toolStripButtonRunWaveform.Text = " 运行 ";
+			this.toolStripButtonRunWaveform.Click += new System.EventHandler(this.buttonRunWaveGen_Click);
+			// 
+			// toolStripSeparator13
+			// 
+			this.toolStripSeparator13.Name = "toolStripSeparator13";
+			this.toolStripSeparator13.Size = new System.Drawing.Size(6, 25);
+			// 
+			// groupBoxWavegenControl
+			// 
+			this.groupBoxWavegenControl.Controls.Add(this.checkBoxRunState);
+			this.groupBoxWavegenControl.Controls.Add(this.buttonRunWavegen);
+			this.groupBoxWavegenControl.Controls.Add(this.comboBoxPhase);
+			this.groupBoxWavegenControl.Controls.Add(this.comboBoxSymmetry);
+			this.groupBoxWavegenControl.Controls.Add(this.comboBoxOffset);
+			this.groupBoxWavegenControl.Controls.Add(this.comboBoxAmplitde);
+			this.groupBoxWavegenControl.Controls.Add(this.comboBoxFrequency);
+			this.groupBoxWavegenControl.Controls.Add(this.comboBoxWaveType);
+			this.groupBoxWavegenControl.Controls.Add(this.labelPhase);
+			this.groupBoxWavegenControl.Controls.Add(this.labelSymmetry);
+			this.groupBoxWavegenControl.Controls.Add(this.labelOffset);
+			this.groupBoxWavegenControl.Controls.Add(this.labelAmplitde);
+			this.groupBoxWavegenControl.Controls.Add(this.labelFrequency_2);
+			this.groupBoxWavegenControl.Controls.Add(this.labelType);
+			this.groupBoxWavegenControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.groupBoxWavegenControl.Location = new System.Drawing.Point(641, 27);
+			this.groupBoxWavegenControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBoxWavegenControl.Name = "groupBoxWavegenControl";
+			this.groupBoxWavegenControl.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBoxWavegenControl.Size = new System.Drawing.Size(211, 457);
+			this.groupBoxWavegenControl.TabIndex = 3;
+			this.groupBoxWavegenControl.TabStop = false;
+			this.groupBoxWavegenControl.Text = "控制";
 			// 
 			// checkBoxRunState
 			// 
@@ -1373,6 +1414,7 @@
 			// 
 			// buttonRunWavegen
 			// 
+			this.buttonRunWavegen.Enabled = false;
 			this.buttonRunWavegen.Location = new System.Drawing.Point(62, 200);
 			this.buttonRunWavegen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.buttonRunWavegen.Name = "buttonRunWavegen";
@@ -1380,6 +1422,7 @@
 			this.buttonRunWavegen.TabIndex = 12;
 			this.buttonRunWavegen.Text = "运行";
 			this.buttonRunWavegen.UseVisualStyleBackColor = false;
+			this.buttonRunWavegen.Visible = false;
 			this.buttonRunWavegen.Click += new System.EventHandler(this.buttonRunWaveGen_Click);
 			// 
 			// comboBoxPhase
@@ -1640,7 +1683,7 @@
 			this.formsPlotWaveGen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
 			this.formsPlotWaveGen.Name = "formsPlotWaveGen";
 			this.tableLayoutPanel6.SetRowSpan(this.formsPlotWaveGen, 2);
-			this.formsPlotWaveGen.Size = new System.Drawing.Size(628, 488);
+			this.formsPlotWaveGen.Size = new System.Drawing.Size(627, 474);
 			this.formsPlotWaveGen.TabIndex = 2;
 			// 
 			// tabPageScope
@@ -1650,7 +1693,7 @@
 			this.tabPageScope.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.tabPageScope.Name = "tabPageScope";
 			this.tabPageScope.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.tabPageScope.Size = new System.Drawing.Size(859, 504);
+			this.tabPageScope.Size = new System.Drawing.Size(857, 500);
 			this.tabPageScope.TabIndex = 1;
 			this.tabPageScope.Text = "示波器";
 			this.tabPageScope.UseVisualStyleBackColor = true;
@@ -1669,46 +1712,46 @@
 			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
 			this.tableLayoutPanel4.RowCount = 1;
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(855, 500);
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(853, 496);
 			this.tableLayoutPanel4.TabIndex = 5;
 			// 
 			// tableLayoutPanel5
 			// 
 			this.tableLayoutPanel5.ColumnCount = 1;
 			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel5.Controls.Add(this.groupBoxControl, 0, 1);
-			this.tableLayoutPanel5.Controls.Add(this.groupBoxInfor, 0, 2);
+			this.tableLayoutPanel5.Controls.Add(this.groupBoxScopeControl, 0, 1);
+			this.tableLayoutPanel5.Controls.Add(this.groupBoxScopeInfor, 0, 2);
 			this.tableLayoutPanel5.Controls.Add(this.toolStripScope, 0, 0);
 			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel5.Location = new System.Drawing.Point(657, 2);
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(655, 2);
 			this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
 			this.tableLayoutPanel5.RowCount = 3;
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.38853F));
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.61147F));
-			this.tableLayoutPanel5.Size = new System.Drawing.Size(196, 496);
+			this.tableLayoutPanel5.Size = new System.Drawing.Size(196, 492);
 			this.tableLayoutPanel5.TabIndex = 3;
 			// 
-			// groupBoxControl
+			// groupBoxScopeControl
 			// 
-			this.groupBoxControl.Controls.Add(this.labelTriggerType);
-			this.groupBoxControl.Controls.Add(this.comboBoxTriggerType);
-			this.groupBoxControl.Controls.Add(this.comboBoxTimeBase);
-			this.groupBoxControl.Controls.Add(this.labelTimeBase);
-			this.groupBoxControl.Controls.Add(this.comboBoxVerticalSensitivity);
-			this.groupBoxControl.Controls.Add(this.labelVerticalSensitivity);
-			this.groupBoxControl.Controls.Add(this.labelCoupledType);
-			this.groupBoxControl.Controls.Add(this.comboBoxCoupledType);
-			this.groupBoxControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBoxControl.Location = new System.Drawing.Point(2, 27);
-			this.groupBoxControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.groupBoxControl.Name = "groupBoxControl";
-			this.groupBoxControl.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.groupBoxControl.Size = new System.Drawing.Size(192, 124);
-			this.groupBoxControl.TabIndex = 6;
-			this.groupBoxControl.TabStop = false;
-			this.groupBoxControl.Text = "控制";
+			this.groupBoxScopeControl.Controls.Add(this.labelTriggerType);
+			this.groupBoxScopeControl.Controls.Add(this.comboBoxTriggerType);
+			this.groupBoxScopeControl.Controls.Add(this.comboBoxTimeBase);
+			this.groupBoxScopeControl.Controls.Add(this.labelTimeBase);
+			this.groupBoxScopeControl.Controls.Add(this.comboBoxVerticalSensitivity);
+			this.groupBoxScopeControl.Controls.Add(this.labelVerticalSensitivity);
+			this.groupBoxScopeControl.Controls.Add(this.labelCoupledType);
+			this.groupBoxScopeControl.Controls.Add(this.comboBoxCoupledType);
+			this.groupBoxScopeControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.groupBoxScopeControl.Location = new System.Drawing.Point(2, 27);
+			this.groupBoxScopeControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBoxScopeControl.Name = "groupBoxScopeControl";
+			this.groupBoxScopeControl.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBoxScopeControl.Size = new System.Drawing.Size(192, 123);
+			this.groupBoxScopeControl.TabIndex = 6;
+			this.groupBoxScopeControl.TabStop = false;
+			this.groupBoxScopeControl.Text = "控制";
 			// 
 			// labelTriggerType
 			// 
@@ -1734,6 +1777,7 @@
 			this.comboBoxTriggerType.Name = "comboBoxTriggerType";
 			this.comboBoxTriggerType.Size = new System.Drawing.Size(92, 20);
 			this.comboBoxTriggerType.TabIndex = 32;
+			this.comboBoxTriggerType.SelectedIndexChanged += new System.EventHandler(this.comboBoxTriggerType_SelectedIndexChanged);
 			// 
 			// comboBoxTimeBase
 			// 
@@ -1754,12 +1798,17 @@
             "5ms",
             "10ms",
             "20ms",
-            "50ms"});
+            "50ms",
+            "100ms",
+            "200ms",
+            "500ms",
+            "1s"});
 			this.comboBoxTimeBase.Location = new System.Drawing.Point(79, 92);
 			this.comboBoxTimeBase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.comboBoxTimeBase.Name = "comboBoxTimeBase";
 			this.comboBoxTimeBase.Size = new System.Drawing.Size(92, 20);
 			this.comboBoxTimeBase.TabIndex = 31;
+			this.comboBoxTimeBase.SelectedIndexChanged += new System.EventHandler(this.comboBoxTimeBase_SelectedIndexChanged);
 			// 
 			// labelTimeBase
 			// 
@@ -1786,6 +1835,7 @@
 			this.comboBoxVerticalSensitivity.Name = "comboBoxVerticalSensitivity";
 			this.comboBoxVerticalSensitivity.Size = new System.Drawing.Size(92, 20);
 			this.comboBoxVerticalSensitivity.TabIndex = 29;
+			this.comboBoxVerticalSensitivity.SelectedIndexChanged += new System.EventHandler(this.comboBoxVerticalSensitivity_SelectedIndexChanged);
 			// 
 			// labelVerticalSensitivity
 			// 
@@ -1822,29 +1872,29 @@
 			this.comboBoxCoupledType.TabIndex = 26;
 			this.comboBoxCoupledType.SelectedIndexChanged += new System.EventHandler(this.comboBoxCoupledType_SelectedIndexChanged);
 			// 
-			// groupBoxInfor
+			// groupBoxScopeInfor
 			// 
-			this.groupBoxInfor.Controls.Add(this.textBoxScopeTest);
-			this.groupBoxInfor.Controls.Add(this.labelDisplayFrequency);
-			this.groupBoxInfor.Controls.Add(this.labelDisplayPlotCount);
-			this.groupBoxInfor.Controls.Add(this.labelDisplayMaximum);
-			this.groupBoxInfor.Controls.Add(this.labelDisplayMinimum);
-			this.groupBoxInfor.Controls.Add(this.labelRunTime);
-			this.groupBoxInfor.Controls.Add(this.labelDemo);
-			this.groupBoxInfor.Controls.Add(this.labelFrequency);
-			this.groupBoxInfor.Controls.Add(this.labelPlotCount);
-			this.groupBoxInfor.Controls.Add(this.labelMinimum);
-			this.groupBoxInfor.Controls.Add(this.labelMaximum);
-			this.groupBoxInfor.Controls.Add(this.labelRunTimeText);
-			this.groupBoxInfor.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBoxInfor.Location = new System.Drawing.Point(2, 155);
-			this.groupBoxInfor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.groupBoxInfor.Name = "groupBoxInfor";
-			this.groupBoxInfor.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.groupBoxInfor.Size = new System.Drawing.Size(192, 339);
-			this.groupBoxInfor.TabIndex = 5;
-			this.groupBoxInfor.TabStop = false;
-			this.groupBoxInfor.Text = "信息";
+			this.groupBoxScopeInfor.Controls.Add(this.textBoxScopeTest);
+			this.groupBoxScopeInfor.Controls.Add(this.labelDisplayFrequency);
+			this.groupBoxScopeInfor.Controls.Add(this.labelDisplayPlotCount);
+			this.groupBoxScopeInfor.Controls.Add(this.labelDisplayMaximum);
+			this.groupBoxScopeInfor.Controls.Add(this.labelDisplayMinimum);
+			this.groupBoxScopeInfor.Controls.Add(this.labelRunTime);
+			this.groupBoxScopeInfor.Controls.Add(this.labelDemo);
+			this.groupBoxScopeInfor.Controls.Add(this.labelFrequency);
+			this.groupBoxScopeInfor.Controls.Add(this.labelPlotCount);
+			this.groupBoxScopeInfor.Controls.Add(this.labelMinimum);
+			this.groupBoxScopeInfor.Controls.Add(this.labelMaximum);
+			this.groupBoxScopeInfor.Controls.Add(this.labelRunTimeText);
+			this.groupBoxScopeInfor.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.groupBoxScopeInfor.Location = new System.Drawing.Point(2, 154);
+			this.groupBoxScopeInfor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBoxScopeInfor.Name = "groupBoxScopeInfor";
+			this.groupBoxScopeInfor.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBoxScopeInfor.Size = new System.Drawing.Size(192, 336);
+			this.groupBoxScopeInfor.TabIndex = 5;
+			this.groupBoxScopeInfor.TabStop = false;
+			this.groupBoxScopeInfor.Text = "信息";
 			// 
 			// textBoxScopeTest
 			// 
@@ -1973,7 +2023,9 @@
             this.toolStripDropDownButtonDisplay,
             this.toolStripSeparator9,
             this.toolStripDropDownButtonInteraction,
-            this.toolStripSeparator8});
+            this.toolStripSeparator8,
+            this.toolStripButtonRunScope,
+            this.toolStripSeparator2});
 			this.toolStripScope.Location = new System.Drawing.Point(0, 0);
 			this.toolStripScope.Name = "toolStripScope";
 			this.toolStripScope.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
@@ -1999,7 +2051,7 @@
 			this.toolStripMenuItemColorStyle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxColorStyle});
 			this.toolStripMenuItemColorStyle.Name = "toolStripMenuItemColorStyle";
-			this.toolStripMenuItemColorStyle.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemColorStyle.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemColorStyle.Text = "色彩模式";
 			// 
 			// toolStripComboBoxColorStyle
@@ -2017,7 +2069,7 @@
 			this.toolStripMenuItemLineStyle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxLineStyle});
 			this.toolStripMenuItemLineStyle.Name = "toolStripMenuItemLineStyle";
-			this.toolStripMenuItemLineStyle.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemLineStyle.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemLineStyle.Text = "连线样式";
 			// 
 			// toolStripComboBoxLineStyle
@@ -2035,7 +2087,7 @@
 			this.toolStripMenuItemLineWidth.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBoxLineWidth});
 			this.toolStripMenuItemLineWidth.Name = "toolStripMenuItemLineWidth";
-			this.toolStripMenuItemLineWidth.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemLineWidth.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemLineWidth.Text = "连线宽度";
 			// 
 			// toolStripComboBoxLineWidth
@@ -2076,7 +2128,7 @@
 			this.toolStripMenuItemRightClickDragZoom.Checked = true;
 			this.toolStripMenuItemRightClickDragZoom.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.toolStripMenuItemRightClickDragZoom.Name = "toolStripMenuItemRightClickDragZoom";
-			this.toolStripMenuItemRightClickDragZoom.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemRightClickDragZoom.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemRightClickDragZoom.Text = "右键缩放";
 			this.toolStripMenuItemRightClickDragZoom.Click += new System.EventHandler(this.toolStripMenuItemRightClickDragZoom_Click);
 			// 
@@ -2085,7 +2137,7 @@
 			this.toolStripMenuItemScrollWheelZoom.Checked = true;
 			this.toolStripMenuItemScrollWheelZoom.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.toolStripMenuItemScrollWheelZoom.Name = "toolStripMenuItemScrollWheelZoom";
-			this.toolStripMenuItemScrollWheelZoom.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemScrollWheelZoom.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemScrollWheelZoom.Text = "滚轮缩放";
 			this.toolStripMenuItemScrollWheelZoom.Click += new System.EventHandler(this.toolStripMenuItemScrollWheelZoom_Click);
 			// 
@@ -2094,7 +2146,7 @@
 			this.toolStripMenuItemHorizontalZoom.Checked = true;
 			this.toolStripMenuItemHorizontalZoom.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.toolStripMenuItemHorizontalZoom.Name = "toolStripMenuItemHorizontalZoom";
-			this.toolStripMenuItemHorizontalZoom.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemHorizontalZoom.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemHorizontalZoom.Text = "水平缩放";
 			this.toolStripMenuItemHorizontalZoom.Click += new System.EventHandler(this.toolStripMenuItemHorizontalZoom_Click);
 			// 
@@ -2103,23 +2155,30 @@
 			this.toolStripMenuItemVerticalZoom.Checked = true;
 			this.toolStripMenuItemVerticalZoom.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.toolStripMenuItemVerticalZoom.Name = "toolStripMenuItemVerticalZoom";
-			this.toolStripMenuItemVerticalZoom.Size = new System.Drawing.Size(124, 22);
+			this.toolStripMenuItemVerticalZoom.ShowShortcutKeys = false;
+			this.toolStripMenuItemVerticalZoom.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemVerticalZoom.Text = "垂直缩放";
 			this.toolStripMenuItemVerticalZoom.Click += new System.EventHandler(this.toolStripMenuItemVerticalZoom_Click);
-			// 
-			// toolStripMenuItemCrosshair
-			// 
-			this.toolStripMenuItemCrosshair.Checked = true;
-			this.toolStripMenuItemCrosshair.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.toolStripMenuItemCrosshair.Name = "toolStripMenuItemCrosshair";
-			this.toolStripMenuItemCrosshair.Size = new System.Drawing.Size(124, 22);
-			this.toolStripMenuItemCrosshair.Text = "十字准线";
-			this.toolStripMenuItemCrosshair.Click += new System.EventHandler(this.toolStripMenuItemCrosshair_Click);
 			// 
 			// toolStripSeparator8
 			// 
 			this.toolStripSeparator8.Name = "toolStripSeparator8";
 			this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripButtonRunScope
+			// 
+			this.toolStripButtonRunScope.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripButtonRunScope.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRunScope.Image")));
+			this.toolStripButtonRunScope.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonRunScope.Name = "toolStripButtonRunScope";
+			this.toolStripButtonRunScope.Size = new System.Drawing.Size(36, 22);
+			this.toolStripButtonRunScope.Text = "运行";
+			this.toolStripButtonRunScope.Click += new System.EventHandler(this.toolStripButtonRunScope_Click);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
 			// 
 			// formsPlotScope
 			// 
@@ -2127,40 +2186,56 @@
 			this.formsPlotScope.Location = new System.Drawing.Point(6, 6);
 			this.formsPlotScope.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
 			this.formsPlotScope.Name = "formsPlotScope";
-			this.formsPlotScope.Size = new System.Drawing.Size(643, 488);
+			this.formsPlotScope.Size = new System.Drawing.Size(641, 484);
 			this.formsPlotScope.TabIndex = 4;
 			this.formsPlotScope.MouseEnter += new System.EventHandler(this.formsPlotMain_MouseEnter);
 			this.formsPlotScope.MouseLeave += new System.EventHandler(this.formsPlotMain_MouseLeave);
 			this.formsPlotScope.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formsPlotMain_MouseMove);
 			// 
-			// tabPageDeviceManage
+			// tabControlMain
 			// 
-			this.tabPageDeviceManage.Controls.Add(this.tableLayoutPanel1);
-			this.tabPageDeviceManage.Location = new System.Drawing.Point(4, 22);
-			this.tabPageDeviceManage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.tabPageDeviceManage.Name = "tabPageDeviceManage";
-			this.tabPageDeviceManage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.tabPageDeviceManage.Size = new System.Drawing.Size(859, 504);
-			this.tabPageDeviceManage.TabIndex = 0;
-			this.tabPageDeviceManage.Text = "设备管理";
-			this.tabPageDeviceManage.UseVisualStyleBackColor = true;
-			this.tabPageDeviceManage.Enter += new System.EventHandler(this.tabPageAUARTAssist_Enter);
+			this.tabControlMain.Controls.Add(this.tabPageUARTAssist);
+			this.tabControlMain.Controls.Add(this.tabPageDeviceManage);
+			this.tabControlMain.Controls.Add(this.tabPageScope);
+			this.tabControlMain.Controls.Add(this.tabPageWavegen);
+			this.tabControlMain.Controls.Add(this.tabPageMeter);
+			this.tabControlMain.Controls.Add(this.tabPageSpectrum);
+			this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControlMain.Location = new System.Drawing.Point(0, 0);
+			this.tabControlMain.Margin = new System.Windows.Forms.Padding(0);
+			this.tabControlMain.Name = "tabControlMain";
+			this.tabControlMain.SelectedIndex = 0;
+			this.tabControlMain.Size = new System.Drawing.Size(865, 526);
+			this.tabControlMain.TabIndex = 0;
 			// 
-			// tableLayoutPanel1
+			// tabPageUARTAssist
 			// 
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
-			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(855, 500);
-			this.tableLayoutPanel1.TabIndex = 0;
+			this.tabPageUARTAssist.Controls.Add(this.tableLayoutPanel);
+			this.tabPageUARTAssist.Location = new System.Drawing.Point(4, 22);
+			this.tabPageUARTAssist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tabPageUARTAssist.Name = "tabPageUARTAssist";
+			this.tabPageUARTAssist.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tabPageUARTAssist.Size = new System.Drawing.Size(857, 500);
+			this.tabPageUARTAssist.TabIndex = 6;
+			this.tabPageUARTAssist.Text = "串口助手";
+			this.tabPageUARTAssist.UseVisualStyleBackColor = true;
+			this.tabPageUARTAssist.Enter += new System.EventHandler(this.tabPageAUARTAssist_Enter);
+			// 
+			// tableLayoutPanel
+			// 
+			this.tableLayoutPanel.ColumnCount = 2;
+			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 0, 0);
+			this.tableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 1, 0);
+			this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel.Location = new System.Drawing.Point(2, 2);
+			this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tableLayoutPanel.Name = "tableLayoutPanel";
+			this.tableLayoutPanel.RowCount = 1;
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel.Size = new System.Drawing.Size(853, 496);
+			this.tableLayoutPanel.TabIndex = 1;
 			// 
 			// tableLayoutPanel2
 			// 
@@ -2177,7 +2252,7 @@
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(246, 496);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(246, 492);
 			this.tableLayoutPanel2.TabIndex = 0;
 			// 
 			// groupBoxSendSettings
@@ -2186,7 +2261,7 @@
 			this.groupBoxSendSettings.Controls.Add(this.radioButtonSendHEX);
 			this.groupBoxSendSettings.Controls.Add(this.radioButtonSendASCII);
 			this.groupBoxSendSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBoxSendSettings.Location = new System.Drawing.Point(2, 398);
+			this.groupBoxSendSettings.Location = new System.Drawing.Point(2, 394);
 			this.groupBoxSendSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.groupBoxSendSettings.Name = "groupBoxSendSettings";
 			this.groupBoxSendSettings.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -2239,7 +2314,7 @@
 			this.groupBoxReceiveSettings.Controls.Add(this.radioButtonReceiveHEX);
 			this.groupBoxReceiveSettings.Controls.Add(this.radioButtonReceiveASCII);
 			this.groupBoxReceiveSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBoxReceiveSettings.Location = new System.Drawing.Point(2, 298);
+			this.groupBoxReceiveSettings.Location = new System.Drawing.Point(2, 294);
 			this.groupBoxReceiveSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.groupBoxReceiveSettings.Name = "groupBoxReceiveSettings";
 			this.groupBoxReceiveSettings.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -2327,7 +2402,7 @@
 			this.groupBoxSerialPortSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.groupBoxSerialPortSettings.Name = "groupBoxSerialPortSettings";
 			this.groupBoxSerialPortSettings.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.groupBoxSerialPortSettings.Size = new System.Drawing.Size(242, 292);
+			this.groupBoxSerialPortSettings.Size = new System.Drawing.Size(242, 288);
 			this.groupBoxSerialPortSettings.TabIndex = 3;
 			this.groupBoxSerialPortSettings.TabStop = false;
 			this.groupBoxSerialPortSettings.Text = "串口设置";
@@ -2473,7 +2548,7 @@
 			this.labelPortNumber.Size = new System.Drawing.Size(41, 12);
 			this.labelPortNumber.TabIndex = 0;
 			this.labelPortNumber.Text = "串口号";
-			this.labelPortNumber.Click += new System.EventHandler(this.labelSerialPortNumber_Click);
+			this.labelPortNumber.Click += new System.EventHandler(this.labelPortNumber_Click);
 			// 
 			// tableLayoutPanel3
 			// 
@@ -2490,17 +2565,17 @@
 			this.tableLayoutPanel3.RowCount = 2;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.02898F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.97101F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(603, 496);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(603, 492);
 			this.tableLayoutPanel3.TabIndex = 1;
 			// 
 			// textBoxSend
 			// 
 			this.textBoxSend.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBoxSend.Location = new System.Drawing.Point(2, 408);
+			this.textBoxSend.Location = new System.Drawing.Point(2, 405);
 			this.textBoxSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.textBoxSend.Multiline = true;
 			this.textBoxSend.Name = "textBoxSend";
-			this.textBoxSend.Size = new System.Drawing.Size(504, 86);
+			this.textBoxSend.Size = new System.Drawing.Size(504, 85);
 			this.textBoxSend.TabIndex = 9;
 			// 
 			// textBoxReceived
@@ -2513,45 +2588,174 @@
 			this.textBoxReceived.Name = "textBoxReceived";
 			this.textBoxReceived.ReadOnly = true;
 			this.textBoxReceived.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.textBoxReceived.Size = new System.Drawing.Size(599, 402);
+			this.textBoxReceived.Size = new System.Drawing.Size(599, 399);
 			this.textBoxReceived.TabIndex = 8;
 			// 
 			// buttonSend
 			// 
 			this.buttonSend.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonSend.Location = new System.Drawing.Point(510, 467);
+			this.buttonSend.Location = new System.Drawing.Point(510, 463);
 			this.buttonSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.buttonSend.Name = "buttonSend";
 			this.buttonSend.Size = new System.Drawing.Size(91, 27);
 			this.buttonSend.TabIndex = 10;
 			this.buttonSend.Text = "发送";
 			this.buttonSend.UseVisualStyleBackColor = true;
-			this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
 			// 
-			// tabControlMain
+			// tabPageDeviceManage
 			// 
-			this.tabControlMain.Controls.Add(this.tabPageDeviceManage);
-			this.tabControlMain.Controls.Add(this.tabPageScope);
-			this.tabControlMain.Controls.Add(this.tabPageWavegen);
-			this.tabControlMain.Controls.Add(this.tabPageMeter);
-			this.tabControlMain.Controls.Add(this.tabPageSpectrum);
-			this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControlMain.Location = new System.Drawing.Point(0, 0);
-			this.tabControlMain.Margin = new System.Windows.Forms.Padding(0);
-			this.tabControlMain.Name = "tabControlMain";
-			this.tabControlMain.SelectedIndex = 0;
-			this.tabControlMain.Size = new System.Drawing.Size(867, 530);
-			this.tabControlMain.TabIndex = 0;
+			this.tabPageDeviceManage.Controls.Add(this.tableLayoutPanel1);
+			this.tabPageDeviceManage.Location = new System.Drawing.Point(4, 22);
+			this.tabPageDeviceManage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tabPageDeviceManage.Name = "tabPageDeviceManage";
+			this.tabPageDeviceManage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tabPageDeviceManage.Size = new System.Drawing.Size(858, 490);
+			this.tabPageDeviceManage.TabIndex = 0;
+			this.tabPageDeviceManage.Text = "设备管理";
+			this.tabPageDeviceManage.UseVisualStyleBackColor = true;
+			this.tabPageDeviceManage.Enter += new System.EventHandler(this.tabPageDeviceManage_Enter);
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.23977F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+			this.tableLayoutPanel1.Controls.Add(this.dataGridViewDeviceInfor, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.groupBoxDeviceControl, 1, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
+			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(854, 486);
+			this.tableLayoutPanel1.TabIndex = 0;
+			// 
+			// dataGridViewDeviceInfor
+			// 
+			this.dataGridViewDeviceInfor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridViewDeviceInfor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnCOMName,
+            this.ColumnDeviceName,
+            this.ColumnSerialNumber,
+            this.ColumnStatue});
+			this.dataGridViewDeviceInfor.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridViewDeviceInfor.Location = new System.Drawing.Point(2, 2);
+			this.dataGridViewDeviceInfor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.dataGridViewDeviceInfor.Name = "dataGridViewDeviceInfor";
+			this.dataGridViewDeviceInfor.RowHeadersWidth = 82;
+			this.dataGridViewDeviceInfor.RowTemplate.Height = 37;
+			this.dataGridViewDeviceInfor.Size = new System.Drawing.Size(717, 482);
+			this.dataGridViewDeviceInfor.TabIndex = 0;
+			// 
+			// ColumnCOMName
+			// 
+			this.ColumnCOMName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnCOMName.FillWeight = 15F;
+			this.ColumnCOMName.HeaderText = "端口号";
+			this.ColumnCOMName.MinimumWidth = 100;
+			this.ColumnCOMName.Name = "ColumnCOMName";
+			this.ColumnCOMName.ReadOnly = true;
+			// 
+			// ColumnDeviceName
+			// 
+			this.ColumnDeviceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnDeviceName.FillWeight = 35F;
+			this.ColumnDeviceName.HeaderText = "设备名称";
+			this.ColumnDeviceName.MinimumWidth = 100;
+			this.ColumnDeviceName.Name = "ColumnDeviceName";
+			this.ColumnDeviceName.ReadOnly = true;
+			// 
+			// ColumnSerialNumber
+			// 
+			this.ColumnSerialNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnSerialNumber.FillWeight = 35F;
+			this.ColumnSerialNumber.HeaderText = "序列号";
+			this.ColumnSerialNumber.MinimumWidth = 100;
+			this.ColumnSerialNumber.Name = "ColumnSerialNumber";
+			this.ColumnSerialNumber.ReadOnly = true;
+			// 
+			// ColumnStatue
+			// 
+			this.ColumnStatue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ColumnStatue.FillWeight = 15F;
+			this.ColumnStatue.HeaderText = "设备状态";
+			this.ColumnStatue.MinimumWidth = 100;
+			this.ColumnStatue.Name = "ColumnStatue";
+			this.ColumnStatue.ReadOnly = true;
+			// 
+			// groupBoxDeviceControl
+			// 
+			this.groupBoxDeviceControl.Controls.Add(this.checkBoxConnected);
+			this.groupBoxDeviceControl.Controls.Add(this.buttonRefresh);
+			this.groupBoxDeviceControl.Controls.Add(this.labelConnectState);
+			this.groupBoxDeviceControl.Controls.Add(this.buttonConnect);
+			this.groupBoxDeviceControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.groupBoxDeviceControl.Location = new System.Drawing.Point(724, 3);
+			this.groupBoxDeviceControl.Name = "groupBoxDeviceControl";
+			this.groupBoxDeviceControl.Size = new System.Drawing.Size(127, 480);
+			this.groupBoxDeviceControl.TabIndex = 1;
+			this.groupBoxDeviceControl.TabStop = false;
+			this.groupBoxDeviceControl.Text = "控制";
+			// 
+			// checkBoxConnected
+			// 
+			this.checkBoxConnected.AutoSize = true;
+			this.checkBoxConnected.Location = new System.Drawing.Point(4, 32);
+			this.checkBoxConnected.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.checkBoxConnected.Name = "checkBoxConnected";
+			this.checkBoxConnected.Size = new System.Drawing.Size(15, 14);
+			this.checkBoxConnected.TabIndex = 3;
+			this.checkBoxConnected.UseVisualStyleBackColor = true;
+			this.checkBoxConnected.Visible = false;
+			// 
+			// buttonRefresh
+			// 
+			this.buttonRefresh.Location = new System.Drawing.Point(28, 66);
+			this.buttonRefresh.Name = "buttonRefresh";
+			this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+			this.buttonRefresh.TabIndex = 2;
+			this.buttonRefresh.Text = "扫描设备";
+			this.buttonRefresh.UseVisualStyleBackColor = true;
+			// 
+			// labelConnectState
+			// 
+			this.labelConnectState.AutoSize = true;
+			this.labelConnectState.Location = new System.Drawing.Point(26, 32);
+			this.labelConnectState.Name = "labelConnectState";
+			this.labelConnectState.Size = new System.Drawing.Size(41, 12);
+			this.labelConnectState.TabIndex = 1;
+			this.labelConnectState.Text = "未连接";
+			// 
+			// buttonConnect
+			// 
+			this.buttonConnect.Location = new System.Drawing.Point(28, 107);
+			this.buttonConnect.Name = "buttonConnect";
+			this.buttonConnect.Size = new System.Drawing.Size(75, 23);
+			this.buttonConnect.TabIndex = 0;
+			this.buttonConnect.Text = "连接";
+			this.buttonConnect.UseVisualStyleBackColor = true;
+			this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
+			// 
+			// toolStripMenuItemCrosshair
+			// 
+			this.toolStripMenuItemCrosshair.Checked = true;
+			this.toolStripMenuItemCrosshair.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemCrosshair.Name = "toolStripMenuItemCrosshair";
+			this.toolStripMenuItemCrosshair.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemCrosshair.Text = "十字准线";
+			this.toolStripMenuItemCrosshair.Click += new System.EventHandler(this.toolStripMenuItemCrosshair_Click);
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(867, 530);
+			this.ClientSize = new System.Drawing.Size(865, 526);
 			this.Controls.Add(this.tabControlMain);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "MyWaveforms";
 			this.tabPageSpectrum.ResumeLayout(false);
 			this.tableLayoutPanel7.ResumeLayout(false);
 			this.tableLayoutPanel7.PerformLayout();
@@ -2574,20 +2778,21 @@
 			this.tableLayoutPanel6.PerformLayout();
 			this.toolStripWaveGen.ResumeLayout(false);
 			this.toolStripWaveGen.PerformLayout();
-			this.groupBoxWavegen.ResumeLayout(false);
-			this.groupBoxWavegen.PerformLayout();
+			this.groupBoxWavegenControl.ResumeLayout(false);
+			this.groupBoxWavegenControl.PerformLayout();
 			this.tabPageScope.ResumeLayout(false);
 			this.tableLayoutPanel4.ResumeLayout(false);
 			this.tableLayoutPanel5.ResumeLayout(false);
 			this.tableLayoutPanel5.PerformLayout();
-			this.groupBoxControl.ResumeLayout(false);
-			this.groupBoxControl.PerformLayout();
-			this.groupBoxInfor.ResumeLayout(false);
-			this.groupBoxInfor.PerformLayout();
+			this.groupBoxScopeControl.ResumeLayout(false);
+			this.groupBoxScopeControl.PerformLayout();
+			this.groupBoxScopeInfor.ResumeLayout(false);
+			this.groupBoxScopeInfor.PerformLayout();
 			this.toolStripScope.ResumeLayout(false);
 			this.toolStripScope.PerformLayout();
-			this.tabPageDeviceManage.ResumeLayout(false);
-			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tabControlMain.ResumeLayout(false);
+			this.tabPageUARTAssist.ResumeLayout(false);
+			this.tableLayoutPanel.ResumeLayout(false);
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.groupBoxSendSettings.ResumeLayout(false);
 			this.groupBoxSendSettings.PerformLayout();
@@ -2597,7 +2802,11 @@
 			this.groupBoxSerialPortSettings.PerformLayout();
 			this.tableLayoutPanel3.ResumeLayout(false);
 			this.tableLayoutPanel3.PerformLayout();
-			this.tabControlMain.ResumeLayout(false);
+			this.tabPageDeviceManage.ResumeLayout(false);
+			this.tableLayoutPanel1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewDeviceInfor)).EndInit();
+			this.groupBoxDeviceControl.ResumeLayout(false);
+			this.groupBoxDeviceControl.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -2640,7 +2849,6 @@
 		private System.Windows.Forms.ToolStripComboBox toolStripComboBoxLineWidth4;
 		private ScottPlot.FormsPlot formsPlotSpectrum;
 		private System.Windows.Forms.Panel panelSpectrum;
-		private System.Windows.Forms.TextBox textBoxSpectrumTest;
 		private System.Windows.Forms.GroupBox groupBoxChannel;
 		private System.Windows.Forms.Button buttonAddTrace;
 		private System.Windows.Forms.ComboBox comboBoxChannelAttenuation;
@@ -2699,9 +2907,8 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHorizontalZoom2;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVerticalZoom2;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-		private System.Windows.Forms.GroupBox groupBoxWavegen;
+		private System.Windows.Forms.GroupBox groupBoxWavegenControl;
 		private System.Windows.Forms.CheckBox checkBoxRunState;
-		private System.Windows.Forms.Button buttonRunWavegen;
 		private System.Windows.Forms.ComboBox comboBoxPhase;
 		private System.Windows.Forms.ComboBox comboBoxSymmetry;
 		private System.Windows.Forms.ComboBox comboBoxOffset;
@@ -2718,7 +2925,7 @@
 		private System.Windows.Forms.TabPage tabPageScope;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-		private System.Windows.Forms.GroupBox groupBoxControl;
+		private System.Windows.Forms.GroupBox groupBoxScopeControl;
 		private System.Windows.Forms.Label labelTriggerType;
 		private System.Windows.Forms.ComboBox comboBoxTriggerType;
 		private System.Windows.Forms.ComboBox comboBoxTimeBase;
@@ -2727,7 +2934,7 @@
 		private System.Windows.Forms.Label labelVerticalSensitivity;
 		private System.Windows.Forms.Label labelCoupledType;
 		private System.Windows.Forms.ComboBox comboBoxCoupledType;
-		private System.Windows.Forms.GroupBox groupBoxInfor;
+		private System.Windows.Forms.GroupBox groupBoxScopeInfor;
 		private System.Windows.Forms.TextBox textBoxScopeTest;
 		private System.Windows.Forms.Label labelDisplayFrequency;
 		private System.Windows.Forms.Label labelDisplayPlotCount;
@@ -2754,11 +2961,14 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemScrollWheelZoom;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHorizontalZoom;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVerticalZoom;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCrosshair;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+		private System.Windows.Forms.ToolStripButton toolStripButtonRunScope;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private ScottPlot.FormsPlot formsPlotScope;
-		private System.Windows.Forms.TabPage tabPageDeviceManage;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.TabControl tabControlMain;
+		private System.Windows.Forms.TextBox textBoxSpectrumTest;
+		private System.Windows.Forms.TabPage tabPageUARTAssist;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.GroupBox groupBoxSendSettings;
 		private System.Windows.Forms.Button buttonClearSent;
@@ -2787,7 +2997,22 @@
 		private System.Windows.Forms.TextBox textBoxSend;
 		private System.Windows.Forms.TextBox textBoxReceived;
 		private System.Windows.Forms.Button buttonSend;
-		private System.Windows.Forms.TabControl tabControlMain;
+		private System.Windows.Forms.TabPage tabPageDeviceManage;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.DataGridView dataGridViewDeviceInfor;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCOMName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeviceName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSerialNumber;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatue;
+		private System.Windows.Forms.GroupBox groupBoxDeviceControl;
+		private System.Windows.Forms.Button buttonRefresh;
+		private System.Windows.Forms.Label labelConnectState;
+		private System.Windows.Forms.Button buttonConnect;
+		private System.Windows.Forms.CheckBox checkBoxConnected;
+		private System.Windows.Forms.ToolStripButton toolStripButtonRunWaveform;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+		private System.Windows.Forms.Button buttonRunWavegen;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCrosshair;
 	}
 }
 

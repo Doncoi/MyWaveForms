@@ -12,19 +12,19 @@ namespace MyWaveForms.Test
 	internal class FrequencyAnalyzerTester
 	{
 		WaveformDataGenerator generator;
-		FrequencyAnalyzer analyzer;
+		SpectrumAnalyzer analyzer;
 
 		public FrequencyAnalyzerTester(int iFFTSize = 1024)
 		{
 			generator = new WaveformDataGenerator();
-			analyzer = new FrequencyAnalyzer(iFFTSize);
+			analyzer = new SpectrumAnalyzer(iFFTSize);
 		}
 
 		public float[] TestMagnitudeSpectrum(byte waveType = 0, WaveformConfig node = null)
 		{
 			if (node == null) node = new WaveformConfig();
 			double[] sample = generator.GenerateWaveformData(waveType, analyzer.GetFFTSize(), node);
-			return analyzer.GetMagnitudeSpectrum(sample);
+			return analyzer.GetMagnitudeSpectrum(sample, true);
 		}
 	}
 }

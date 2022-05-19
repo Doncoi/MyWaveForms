@@ -24,10 +24,11 @@ namespace MyWaveForms.Entity
 			"同时触发"
 		};
 		//时基单位
-		string[] strTimeBaseUnit =
+		public string[] strTimeBaseUnit =
 		{
 			"us",
-			"ms"
+			"ms",
+			"s"
 		};
 		#endregion
 		#region 配置项关键字
@@ -91,7 +92,7 @@ namespace MyWaveForms.Entity
 					this.bTimeBaseUnit = 1;
 					break;
 				default:
-					this.bTimeBaseUnit = 1;
+					this.bTimeBaseUnit = 2;
 					break;
 			}
 		}

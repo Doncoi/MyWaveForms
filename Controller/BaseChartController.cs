@@ -1,18 +1,15 @@
-﻿using MyWaveForms.Entity;
-using MyWaveForms.Generator;
-using ScottPlot;
+﻿using ScottPlot;
 using ScottPlot.Plottable;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MyWaveForms.Controller
 {
-	//显示样式控制器
-	internal class FormsPlotController
+	//通用图表样式控制器
+	internal class BaseChartController
 	{
 		// 色彩代码
 		private System.Drawing.Color colorWhite = System.Drawing.ColorTranslator.FromHtml("#ffffff");
@@ -27,45 +24,13 @@ namespace MyWaveForms.Controller
 		private System.Drawing.Color colorLazuli = System.Drawing.ColorTranslator.FromHtml("#5fabea");
 		private System.Drawing.Color colorRed = System.Drawing.ColorTranslator.FromHtml("#FF0000");
 
-		//初始化目标图表 无数据
-		public ValueTuple<SignalPlotXY, Crosshair> InitChart(FormsPlot formsPlot, int iColorStyle = 0, double dLineWidth = 1, int iLineStyle = 0)
-		{
-			formsPlot.Plot.Clear();     //清空图表
-			SignalPlotXY signalPlotXY = formsPlot.Plot.AddSignalXY(new double[1], new double[1]);     //添加信号图
-			this.SetPlotColorStyle(formsPlot, signalPlotXY, iColorStyle);     //设置色彩样式
-			this.SetLineStyle(formsPlot, signalPlotXY, iLineStyle);     //设置线条样式
-			this.SetLineWidth(formsPlot, signalPlotXY, dLineWidth);     //设置线条宽度
-			Crosshair crosshair = this.AddCrossHair(formsPlot);     //添加十字准线
-			//formsPlot.Plot.AxisAutoX();     //X坐标轴自适应
-			//formsPlot.Plot.AxisAutoY();     //Y坐标轴自适应
-			formsPlot.Plot.XLabel("s");     //更新X轴单位标签
-			formsPlot.Plot.YLabel("V");     //更新Y轴标签
-			formsPlot.Render();     //刷新图表
-
-			return new ValueTuple<SignalPlotXY, Crosshair>(signalPlotXY, crosshair);
-		}
-
-		//初始化目标图表 使用X轴及Y轴数据
-		//返回绘制的信号图对象和十字线对象
-		public ValueTuple<SignalPlotXY, Crosshair> InitChart(FormsPlot formsPlot, ValueTuple<double[], double[]> vt, int iColorStyle = 0, double dLineWidth = 1, int iLineStyle = 0)
-		{
-			formsPlot.Plot.Clear();     //清空图表
-			SignalPlotXY signalPlotXY = formsPlot.Plot.AddSignalXY(vt.Item1, vt.Item2);     //添加信号图
-			this.SetPlotColorStyle(formsPlot, signalPlotXY, iColorStyle);	  //设置色彩样式
-			this.SetLineStyle(formsPlot, signalPlotXY, iLineStyle);		//设置线条样式
-			this.SetLineWidth(formsPlot, signalPlotXY, dLineWidth);		//设置线条宽度
-			Crosshair crosshair = this.AddCrossHair(formsPlot);     //添加十字准线
-			//formsPlot.Plot.AxisAutoX();     //X坐标轴自适应
-			//formsPlot.Plot.AxisAutoY();     //Y坐标轴自适应
-			formsPlot.Plot.XLabel("s");     //更新X轴单位标签
-			formsPlot.Plot.YLabel("V");		//更新Y轴标签
-			formsPlot.Render();		//刷新图表
-				
-			return new ValueTuple<SignalPlotXY, Crosshair>(signalPlotXY, crosshair);
-		}
-
-		#region 样式控制
-		// 变更图标色彩模式
+		/// <summary>
+		/// 变更图表颜色模式
+		/// </summary>
+		/// <param name="formsPlot">图表对象</param>
+		/// <param name="signalPlot">图线对象</param>
+		/// <param name="iColorStyle">颜色模式</param>
+		/// <returns></returns>
 		public Boolean SetPlotColorStyle(FormsPlot formsPlot, SignalPlotXY signalPlot, int iColorStyle = 0)
 		{
 			if (formsPlot == null || signalPlot == null) return false;
@@ -97,11 +62,17 @@ namespace MyWaveForms.Controller
 			}
 			catch (System.Exception ex)
 			{
-				throw(ex);
+				throw (ex);
 			}
 		}
 
-		//变更连线宽度
+		/// <summary>
+		/// 更改连线宽度
+		/// </summary>
+		/// <param name="formsPlot">图表对象</param>
+		/// <param name="signalPlot">图线对象</param>
+		/// <param name="dLineWidth">连线宽度</param>
+		/// <returns></returns>
 		public Boolean SetLineWidth(FormsPlot formsPlot, SignalPlotXY signalPlot, double dLineWidth = 1)
 		{
 			if (formsPlot == null || signalPlot == null) return false;
@@ -117,13 +88,19 @@ namespace MyWaveForms.Controller
 			}
 		}
 
-		//变更连线样式
+		/// <summary>
+		/// 更改连线样式
+		/// </summary>
+		/// <param name="formsPlot">图表对象</param>
+		/// <param name="signalPlot">图线对象</param>
+		/// <param name="iLineStyle">连线样式</param>
+		/// <returns></returns>
 		public Boolean SetLineStyle(FormsPlot formsPlot, SignalPlotXY signalPlot, int iLineStyle = 0)
 		{
 			if (formsPlot == null || signalPlot == null) return false;
 			try
 			{
-				switch(iLineStyle)
+				switch (iLineStyle)
 				{
 					case 0:
 						signalPlot.StepDisplay = false;
@@ -137,13 +114,19 @@ namespace MyWaveForms.Controller
 						return false;
 				}
 			}
-			catch(System.Exception ex)
+			catch (System.Exception ex)
 			{
 				throw (ex);
 			}
 		}
 
-		//添加十字准线
+		/// <summary>
+		/// 添加十字准线
+		/// </summary>
+		/// <param name="formsPlot">图表对象</param>
+		/// <param name="lineStyle">十字线线条样式</param>
+		/// <param name="lineWidth">十字线线条宽度</param>
+		/// <returns></returns>
 		public Crosshair AddCrossHair(FormsPlot formsPlot, LineStyle lineStyle = LineStyle.Solid, double lineWidth = 0.5)
 		{
 			try
@@ -152,7 +135,7 @@ namespace MyWaveForms.Controller
 				Crosshair crosshair = formsPlot.Plot.AddCrosshair(0.0, 0.0);      //添加十字准线
 				crosshair.LineStyle = lineStyle;      //线型设为实线
 				crosshair.LineWidth = lineWidth;      //线宽设为0.5
-				//this.crosshair.LineColor = isLight ? colorLoghtYellow : colorRed;
+													  //this.crosshair.LineColor = isLight ? colorLoghtYellow : colorRed;
 
 				crosshair.VerticalLine.IsVisible = true;    //设为可见
 				crosshair.HorizontalLine.IsVisible = true;
@@ -163,6 +146,38 @@ namespace MyWaveForms.Controller
 				throw (ex);
 			}
 		}
-		#endregion
+
+		//在字符串中抓取实型数值
+		public static double GetRealFromString(string str)
+		{
+			//return double.Parse(str);
+			StringBuilder res = new StringBuilder();
+			foreach (char chr in str)
+			{
+				if ((chr >= '0' && chr <= '9') || chr == '.' || chr == '-')
+					res.Append(chr);
+			}
+			//MessageBox.Show(res.ToString());
+			//if (res.Length == 0) return 0;
+			return double.Parse(res.ToString());
+		}
+
+		//获取单位
+		public static string GetUnitFromString(string str)
+		{
+			StringBuilder res_1 = new StringBuilder();
+			foreach (char chr in str)
+			{
+				if ((chr >= '0' && chr <= '9') || chr == '.' || chr == '-')
+					res_1.Append(chr);
+			}
+			int length = res_1.Length;
+			StringBuilder res_2 = new StringBuilder();
+			for (int i = length; i < str.Length; ++i)
+			{
+				res_2.Append(str[i]);
+			}
+			return res_2.ToString();
+		}
 	}
 }

@@ -61,7 +61,7 @@ namespace MyWaveForms.Controller
 		//1, Spectrum Tracer
 		byte tracerType;
 		//同时存在的最大Tracer数量
-		private byte MAXSIZE;
+		private byte size;
 
 		//Tracer控件尺寸
 		private int iTracerWidgetWidth;
@@ -80,12 +80,12 @@ namespace MyWaveForms.Controller
 		FormsPlot targetChart;
 		#endregion
 
-		public TracerController(Panel targetContainer, FormsPlot targetChart, byte tracerType, byte mAXSIZE, int iTracerWidgetWidth, int iTracerWidgetHeigh, int iFirstLocationX, int iFirstLocationY)
+		public TracerController(Panel targetContainer, FormsPlot targetChart, byte tracerType, byte size, int iTracerWidgetWidth, int iTracerWidgetHeigh, int iFirstLocationX, int iFirstLocationY)
 		{
 			this.targetContainer = targetContainer;
 			this.targetChart = targetChart;
 			this.tracerType = tracerType;
-			MAXSIZE = mAXSIZE;
+			this.size = size;
 			this.iTracerWidgetWidth = iTracerWidgetWidth;
 			this.iTracerWidgetHeight = iTracerWidgetHeigh;
 			this.iFirstLocationX = iFirstLocationX;
@@ -94,56 +94,7 @@ namespace MyWaveForms.Controller
 			this.tracerList = new List<Tracer>();
 		}
 
-		internal List<Tracer> TracerList { get => tracerList; set => tracerList = value; }
-
-		//添加追踪器
-		public bool AddTracer()
-		{
-			//滚动条归位，保证在滚动中也能正常添加
-			//targetContainer.VerticalScroll.Value = targetContainer.VerticalScroll.Minimum;
-			//获取新加入Tracer的序号
-			int iIndex = tracerList.Count;
-			//限制Tracer数目
-			if (iIndex >= this.MAXSIZE)
-			{
-				MessageBox.Show("已达到支持的Tracer数目上限");
-				return false;
-			}
-			//计算位置
-			int iPositionX = iFirstLocationX;
-			//追加滚动条偏移量，保证在滚动中也能正常添加
-			int iPositionY = this.iFirstLocationY + this.iTracerWidgetHeight * iIndex - targetContainer.VerticalScroll.Value;
-			//绘制新的Tracer，并获取其信息类
-			Tracer tracerInfor;
-			switch(this.tracerType)
-			{
-				case 0:
-					tracerInfor = DrawMeterTracerWidget(targetContainer, iIndex, iPositionX, iPositionY);
-					break;
-				case 1:
-					tracerInfor = DrawSpectrumTracerWidget(targetContainer, iIndex, iPositionX, iPositionY);
-					break;
-				default:
-					tracerInfor = null;
-					break;
-			}
-			//todo 添加图线至绘图区
-			WaveformDataGenerator waveformDataGenerator = new WaveformDataGenerator();
-			//生成测试数据
-			double[] dXValues = new double[100];
-			for (int i = 0; i < dXValues.Length; i++) dXValues[i] = i;
-			double[] dYValues = waveformDataGenerator.GenerateWaveformData((byte)iIndex, 100, new WaveformConfig());
-			//设置测试数据
-			tracerInfor.DXValues = dXValues;
-			tracerInfor.DYValues = dYValues;
-			//添加图线
-			tracerInfor.SignalPlot = targetChart.Plot.AddSignalXY(dXValues, dYValues);
-			targetChart.Render();
-			//添加新Tracer至列表
-			tracerList.Add(tracerInfor);
-
-			return true;
-		}
+		internal List<Tracer> TracerList { get => tracerList; }	
 
 		#region 绘制控件
 		//添加MeterTracer相关控件
@@ -162,6 +113,7 @@ namespace MyWaveForms.Controller
 			TextBox tbox = this.widgetGenerator.GetTextBox("textBoxTracer_" + iIndex.ToString(),
 				"Tracer" + (iIndex + 1).ToString(),
 				110, 30, 5, 20);
+			tbox.TextChanged += new System.EventHandler(this.ChangeTracerName);
 			tracer.TextBoxTracerName = tbox;
 			gbox.Controls.Add(tbox);    //添加至容器，注意gbox外所有控件都添加到gbox
 			tbox.BringToFront();    //显示在最上层
@@ -305,6 +257,23 @@ namespace MyWaveForms.Controller
 		#endregion
 
 		#region 响应事件
+		public void ChangeTracerName(object sender, EventArgs e)
+		{
+			TextBox tbox = (TextBox)sender;     //获取发送者
+
+			//获取待更改的TracerInfor
+			int index;
+			for (index = 0; index < tracerList.Count; ++index)    //遍历list以获取index
+				if (tracerList[index].TextBoxTracerName == tbox)   //匹配button以确认位置
+					break;
+
+			//更改Label
+			tracerList[index].SignalPlot.Label = tbox.Text.ToString();
+			//刷新图表
+			Thread thread = new Thread(new ThreadStart(DoRefresh));
+			thread.Start();
+		}
+
 		//更改可见性
 		public void ChangePlotVisible(object sender, EventArgs e)
 		{
@@ -318,10 +287,10 @@ namespace MyWaveForms.Controller
 
 			//更改图线可见性
 			tracerList[index].SignalPlot.IsVisible = cbox.Checked;
+			targetChart.Plot.Legend().FontSize = 15;
 			//刷新图表
 			Thread thread = new Thread(new ThreadStart(DoRefresh));
 			thread.Start();
-
 		}
 
 		//删除Tracaer
@@ -358,8 +327,69 @@ namespace MyWaveForms.Controller
 		}
 		#endregion
 
-		#region 删除和清空Tracer
-		//删除Tracer
+		#region Tracer管理
+		//添加追踪器
+		public bool AddTracer()
+		{
+			#region 添加逻辑追踪器
+			//滚动条归位，保证在滚动中也能正常添加
+			//targetContainer.VerticalScroll.Value = targetContainer.VerticalScroll.Minimum;
+			//获取新加入Tracer的序号
+			int iIndex = tracerList.Count;
+			//限制Tracer数目
+			if (iIndex >= this.size)
+			{
+				MessageBox.Show("已达到支持的Tracer数目上限");
+				return false;
+			}
+			#endregion
+			#region 绘制新的追踪器
+			//计算位置
+			int iPositionX = iFirstLocationX;
+			//追加滚动条偏移量，保证在滚动中也能正常添加
+			int iPositionY = this.iFirstLocationY + this.iTracerWidgetHeight * iIndex - targetContainer.VerticalScroll.Value;
+			//绘制新的Tracer，并获取其信息类
+			Tracer tracerInfor;
+			switch (this.tracerType)
+			{
+				case 0:
+					tracerInfor = DrawMeterTracerWidget(targetContainer, iIndex, iPositionX, iPositionY);
+					break;
+				case 1:
+					tracerInfor = DrawSpectrumTracerWidget(targetContainer, iIndex, iPositionX, iPositionY);
+					break;
+				default:
+					tracerInfor = null;
+					break;
+			}
+			#endregion
+			#region 绘制追踪器图线
+			//todo 添加图线至绘图区
+			WaveformDataGenerator waveformDataGenerator = new WaveformDataGenerator();
+			//生成测试数据
+			double[] dXValues = new double[100];
+			for (int i = 0; i < dXValues.Length; i++) dXValues[i] = i;
+			double[] dYValues = waveformDataGenerator.GenerateWaveformData((byte)iIndex, 100, new WaveformConfig());
+			//设置测试数据
+			tracerInfor.DXValues = dXValues;
+			tracerInfor.DYValues = dYValues;
+			// 添加图线
+			tracerInfor.SignalPlot = targetChart.Plot.AddSignalXY(dXValues, dYValues);
+			// 添加标签
+			tracerInfor.SignalPlot.Label = "追踪器" + (iIndex + 1).ToString();
+			targetChart.Plot.Legend().FontSize = 15;
+			targetChart.Render();
+			#endregion
+			//添加新Tracer至列表
+			tracerList.Add(tracerInfor);
+
+			return true;
+		}
+
+		/// <summary>
+		/// 删除追踪器
+		/// </summary>
+		/// <param name="index"></param>
 		public void DeleteTracer(int index)
 		{
 			GroupBox gbox = tracerList[index].GroupBox;
@@ -385,6 +415,9 @@ namespace MyWaveForms.Controller
 			targetContainer.Controls.Remove(gbox);    //从父控件中删除Trace
 		}
 
+		/// <summary>
+		/// 清空追踪器
+		/// </summary>
 		public void ClearTracer()
 		{
 			while (tracerList.Count > 0)
